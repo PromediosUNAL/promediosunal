@@ -1,10 +1,119 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <!-- head definitions go here -->
-    </head>
-    <body>
-        <!-- the content goes here -->
-      <h1>Hola</h1>
-    </body>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Pappi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .buscador {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .buscador input {
+            width: 48%;
+            padding: 10px;
+            font-size: 16px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #000;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        .add-row, .copy-text {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora Pappi</h1>
+        
+        <div class="buscador">
+            <input type="text" id="buscador-carrera" placeholder="Buscador carrera">
+            <input type="text" id="buscador-asignatura" placeholder="Buscador asignatura">
+        </div>
+
+        <table id="tabla-asignaturas">
+            <thead>
+                <tr>
+                    <th>Asignatura</th>
+                    <th>Crédito</th>
+                    <th>Nota</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td contenteditable="true">Asignatura 1</td>
+                    <td contenteditable="true">3</td>
+                    <td contenteditable="true">90</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">Asignatura 2</td>
+                    <td contenteditable="true">4</td>
+                    <td contenteditable="true">85</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true">Asignatura 3</td>
+                    <td contenteditable="true">2</td>
+                    <td contenteditable="true">88</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button class="add-row" onclick="agregarFila()">Agregar fila</button>
+        <button class="copy-text" onclick="copiarTextoNotas()">Copiar texto notas</button>
+    </div>
+
+    <script>
+        function agregarFila() {
+            const tabla = document.getElementById('tabla-asignaturas').getElementsByTagName('tbody')[0];
+            const nuevaFila = tabla.insertRow();
+            nuevaFila.innerHTML = `
+                <td contenteditable="true">Nueva Asignatura</td>
+                <td contenteditable="true">0</td>
+                <td contenteditable="true">0</td>
+            `;
+        }
+
+        function copiarTextoNotas() {
+            const filas = document.querySelectorAll('#tabla-asignaturas tbody tr');
+            let texto = '';
+            filas.forEach(fila => {
+                const asignatura = fila.cells[0].innerText;
+                const credito = fila.cells[1].innerText;
+                const nota = fila.cells[2].innerText;
+                texto += `Asignatura: ${asignatura}, Crédito: ${credito}, Nota: ${nota}\n`;
+            });
+            navigator.clipboard.writeText(texto)
+                .then(() => alert('Texto copiado al portapapeles'))
+                .catch(err => alert('Error al copiar texto'));
+        }
+    </script>
+</body>
 </html>
