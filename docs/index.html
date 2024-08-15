@@ -14,58 +14,64 @@
 <div class="container">
     <!-- Título principal de la página -->
     <h1>Pappi</h1>
+    <div id="Calculadora de promedio">
+        <!-- Sección de buscadores para buscar carreras y asignaturas -->
+        <div class="buscador">
+            <!-- Campo de texto para buscar carreras -->
+            <input type="text" id="buscador-carrera" placeholder="Buscador carrera">
+            <!-- Div para mostrar sugerencias de autocompletado -->
+            <div id="suggestions" class="autocomplete-suggestions"></div>
 
-    <!-- Sección de buscadores para buscar carreras y asignaturas -->
-    <div class="buscador">
-        <!-- Campo de texto para buscar carreras -->
-        <input type="text" id="buscador-carrera" placeholder="Buscador carrera">
-        <!-- Div para mostrar sugerencias de autocompletado -->
-        <div id="suggestions" class="autocomplete-suggestions"></div>
+            <!-- Campo de texto para buscar asignaturas -->
+            <input type="text" id="buscador-asignatura" placeholder="Buscador asignatura">
+        </div>
 
-        <!-- Campo de texto para buscar asignaturas -->
-        <input type="text" id="buscador-asignatura" placeholder="Buscador asignatura">
+        <!-- Tabla que contiene las asignaturas, créditos y notas -->
+        <table id="tabla-asignaturas">
+            <thead>
+            <tr>
+                <!-- Encabezado de columnas de la tabla -->
+                <th>Asignatura</th>
+                <th>Créditos</th>
+                <th>Nota</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Fila de ejemplo con celdas editables para asignatura, créditos y nota -->
+            <tr>
+                <td contenteditable="true">Asignatura 1</td>
+                <td contenteditable="true">3</td>
+                <td contenteditable="true">90</td>
+            </tr>
+            <tr>
+                <td contenteditable="true">Asignatura 2</td>
+                <td contenteditable="true">4</td>
+                <td contenteditable="true">85</td>
+            </tr>
+            <tr>
+                <td contenteditable="true">Asignatura 3</td>
+                <td contenteditable="true">2</td>
+                <td contenteditable="true">88</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <!-- Botones para agregar filas y copiar texto de notas -->
+        <button class="add-row" onclick="agregarFila()">Agregar fila</button>
+        <button class="copy-text" onclick="copiarTextoNotas()">Copiar texto notas</button>
+
+        <!-- Contenedor para el cálculo de "Pappi" -->
+        <div class="calculo-container">
+            <!-- Botón para calcular el valor de "Pappi" con un espacio para mostrar el resultado -->
+            <button id="calcular-pappi">
+                Calcular Pappi: <span id="resultado-pappi"></span>
+            </button>
+        </div>
     </div>
-
-    <!-- Tabla que contiene las asignaturas, créditos y notas -->
-    <table id="tabla-asignaturas">
-        <thead>
-        <tr>
-            <!-- Encabezado de columnas de la tabla -->
-            <th>Asignatura</th>
-            <th>Créditos</th>
-            <th>Nota</th>
-        </tr>
-        </thead>
-        <tbody>
-        <!-- Fila de ejemplo con celdas editables para asignatura, créditos y nota -->
-        <tr>
-            <td contenteditable="true">Asignatura 1</td>
-            <td contenteditable="true">3</td>
-            <td contenteditable="true">90</td>
-        </tr>
-        <tr>
-            <td contenteditable="true">Asignatura 2</td>
-            <td contenteditable="true">4</td>
-            <td contenteditable="true">85</td>
-        </tr>
-        <tr>
-            <td contenteditable="true">Asignatura 3</td>
-            <td contenteditable="true">2</td>
-            <td contenteditable="true">88</td>
-        </tr>
-        </tbody>
-    </table>
-
-    <!-- Botones para agregar filas y copiar texto de notas -->
-    <button class="add-row" onclick="agregarFila()">Agregar fila</button>
-    <button class="copy-text" onclick="copiarTextoNotas()">Copiar texto notas</button>
-
-    <!-- Contenedor para el cálculo de "Pappi" -->
-    <div class="calculo-container">
-        <!-- Botón para calcular el valor de "Pappi" con un espacio para mostrar el resultado -->
-        <button id="calcular-pappi">
-            Calcular Pappi: <span id="resultado-pappi"></span>
-        </button>
+    <div id="Calculadora porcentajes de materia">
+        materia uno - porcentaje - nota
+        materia dos - porcentaje - nota
+        materia tres - porcentaje - nota
     </div>
 </div>
 
