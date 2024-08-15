@@ -1,43 +1,136 @@
+/* Estilos globales para el cuerpo del documento */
 body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            padding: 0;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .buscador {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-        .buscador input {
-            width: 48%;
-            padding: 10px;
-            font-size: 16px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-        table, th, td {
-            border: 1px solid #000;
-        }
-        th, td {
-            padding: 10px;
-            text-align: center;
-        }
-        .add-row, .copy-text {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            margin-bottom: 10px;
-            cursor: pointer;
-        }
+    font-family: Arial, sans-serif; /* Fuente estándar para el texto */
+    margin: 20px; /* Margen alrededor del contenido del cuerpo */
+    padding: 0; /* Sin relleno alrededor del cuerpo */
+}
+
+/* Contenedor principal centrado y con un ancho máximo */
+.container {
+    max-width: 800px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centrará el contenedor horizontalmente */
+}
+
+/* Estilo para el encabezado principal */
+h1 {
+    text-align: center; /* Centra el texto del encabezado */
+    margin-bottom: 20px; /* Espacio debajo del encabezado */
+}
+
+/* Estilos para la sección de buscadores */
+.buscador {
+    display: flex; /* Utiliza flexbox para alinear los elementos en una fila */
+    justify-content: space-between; /* Espacio entre los elementos de la fila */
+    position: relative; /* Posicionamiento relativo para el contenedor de sugerencias */
+    margin-bottom: 20px; /* Espacio debajo de la sección de buscadores */
+}
+
+/* Estilos para los campos de entrada dentro de la sección de buscadores */
+.buscador input {
+    width: 48%; /* Ancho del campo de entrada ajustado para que quepan dos campos en una fila */
+    padding: 10px; /* Relleno interno del campo de entrada */
+    font-size: 16px; /* Tamaño de la fuente del texto en el campo */
+    box-sizing: border-box; /* Incluye el relleno en el ancho total del campo */
+    border: none; /* Elimina el borde predeterminado del campo de entrada */
+    border-bottom: 1px solid #ccc; /* Línea sutil debajo del campo de entrada */
+}
+
+/* Estilo específico para el campo de búsqueda de asignatura */
+#buscador-asignatura {
+    background-color: #5b5e60; /* Fondo gris oscuro para el campo */
+    color: #000000; /* Texto en color negro */
+    cursor: not-allowed; /* Cursor de "no permitido" para indicar que no se puede escribir */
+}
+
+/* Estilos para el contenedor de sugerencias de autocompletado */
+.autocomplete-suggestions {
+    border: 1px solid #ccc; /* Borde alrededor del contenedor de sugerencias */
+    max-height: 150px; /* Altura máxima del contenedor, con scroll si es necesario */
+    overflow-y: auto; /* Habilita el scroll vertical si el contenido excede la altura máxima */
+    position: absolute; /* Posiciona el contenedor de manera absoluta respecto a su contenedor padre */
+    background-color: white; /* Fondo blanco para las sugerencias */
+    z-index: 1000; /* Asegura que el contenedor de sugerencias esté sobre otros elementos */
+    width: 100%; /* Ancho del contenedor igual al del campo de entrada */
+    box-sizing: border-box; /* Incluye el borde en el ancho total del contenedor */
+    top: 100%; /* Posiciona el contenedor justo debajo del campo de entrada */
+    left: 0; /* Alinea el contenedor con el campo de entrada */
+    margin-top: 2px; /* Espacio entre el campo de entrada y el contenedor de sugerencias */
+    border: none; /* Elimina el borde del contenedor de sugerencias, si es necesario */
+}
+
+/* Estilos para cada sugerencia de autocompletado */
+.autocomplete-suggestion {
+    padding: 10px; /* Relleno interno de cada sugerencia */
+    cursor: pointer; /* Cursor de mano al pasar sobre una sugerencia */
+}
+
+/* Estilo para el estado de hover en las sugerencias de autocompletado */
+.autocomplete-suggestion:hover {
+    background-color: #ddd; /* Fondo gris claro al pasar el ratón sobre una sugerencia */
+}
+
+/* Estilos para la tabla */
+table {
+    width: 100%; /* Ancho total de la tabla */
+    border-collapse: collapse; /* Elimina el espacio entre los bordes de las celdas */
+    margin-bottom: 20px; /* Espacio debajo de la tabla */
+}
+
+/* Estilos para los bordes de la tabla y sus celdas */
+table, th, td {
+    border: 1px solid #000; /* Borde negro para la tabla, encabezados y celdas */
+}
+
+/* Estilos para las celdas de la tabla */
+th, td {
+    padding: 10px; /* Relleno interno de las celdas */
+    text-align: center; /* Alineación centrada del texto en las celdas */
+}
+
+/* Estilos para los botones de agregar fila y copiar texto */
+.add-row, .copy-text {
+    display: block; /* Muestra los botones como bloques para que ocupen el ancho completo */
+    width: 100%; /* Ancho total del botón */
+    padding: 10px; /* Relleno interno del botón */
+    font-size: 16px; /* Tamaño de la fuente del botón */
+    margin-bottom: 10px; /* Espacio debajo de cada botón */
+    cursor: pointer; /* Cursor de mano al pasar sobre el botón */
+}
+
+/* Estilos para el contenedor de cálculo */
+.calculo-container {
+    display: flex; /* Utiliza flexbox para centrar el contenido */
+    justify-content: center; /* Centra horizontalmente el contenido */
+    align-items: center; /* Centra verticalmente el contenido */
+    margin-top: 20px; /* Espacio encima del contenedor */
+}
+
+/* Estilos para el botón "Calcular Pappi" */
+#calcular-pappi {
+    background-color: #f8f9fa; /* Fondo gris pálido para el botón */
+    color: #000; /* Texto en color negro */
+    border: 1px solid #000; /* Borde negro delgado */
+    padding: 10px 20px; /* Relleno interno del botón (superior/inferior y lateral) */
+    font-size: 16px; /* Tamaño de la fuente del botón */
+    cursor: pointer; /* Cursor de mano al pasar sobre el botón */
+    display: flex; /* Utiliza flexbox para alinear elementos dentro del botón */
+    align-items: center; /* Alineación vertical centrada de los elementos hijos */
+    justify-content: center; /* Alineación horizontal centrada de los elementos hijos */
+    border-radius: 2px; /* Bordes ligeramente redondeados del botón */
+    width: auto; /* Ajusta el ancho automáticamente */
+    font-weight: normal; /* Texto con peso normal (no negrita) */
+    box-shadow: none; /* Sin sombra para el botón */
+    transition: background-color 0.3s, border-color 0.3s; /* Transiciones suaves para el color de fondo y borde */
+}
+
+/* Estilo para el estado de hover del botón "Calcular Pappi" */
+#calcular-pappi:hover {
+    background-color: #e2e6ea; /* Fondo gris más oscuro al pasar el ratón sobre el botón */
+    border-color: #000; /* Asegura que el borde sigue siendo negro */
+}
+
+/* Estilo para el resultado de la calculadora de Pappi */
+#resultado-pappi {
+    margin-left: 10px; /* Espacio entre el texto del botón y el resultado */
+    font-weight: bold; /* Texto en negrita para el resultado */
+}

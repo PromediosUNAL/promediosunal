@@ -1,50 +1,75 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Define la codificación de caracteres como UTF-8 para manejar caracteres especiales -->
     <meta charset="UTF-8">
+    <!-- Asegura que la página se vea bien en dispositivos móviles ajustando el ancho del viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Enlaza a un archivo CSS externo para el estilo de la página -->
     <link rel="stylesheet" href="style.css">
+    <!-- Título que aparece en la pestaña del navegador -->
     <title>Calculadora Pappi</title>
 </head>
 <body>
-    <div class="container">
-        <h1>Pappi</h1>
-        
-        <div class="buscador">
-            <input type="text" id="buscador-carrera" placeholder="Buscador carrera">
-            <input type="text" id="buscador-asignatura" placeholder="Buscador asignatura">
-        </div>
+<div class="container">
+    <!-- Título principal de la página -->
+    <h1>Pappi</h1>
 
-        <table id="tabla-asignaturas">
-            <thead>
-                <tr>
-                    <th>Asignatura</th>
-                    <th>Crédito</th>
-                    <th>Nota</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td contenteditable="true">Asignatura 1</td>
-                    <td contenteditable="true">3</td>
-                    <td contenteditable="true">90</td>
-                </tr>
-                <tr>
-                    <td contenteditable="true">Asignatura 2</td>
-                    <td contenteditable="true">4</td>
-                    <td contenteditable="true">85</td>
-                </tr>
-                <tr>
-                    <td contenteditable="true">Asignatura 3</td>
-                    <td contenteditable="true">2</td>
-                    <td contenteditable="true">88</td>
-                </tr>
-            </tbody>
-        </table>
+    <!-- Sección de buscadores para buscar carreras y asignaturas -->
+    <div class="buscador">
+        <!-- Campo de texto para buscar carreras -->
+        <input type="text" id="buscador-carrera" placeholder="Buscador carrera">
+        <!-- Div para mostrar sugerencias de autocompletado -->
+        <div id="suggestions" class="autocomplete-suggestions"></div>
 
-        <button class="add-row" onclick="agregarFila()">Agregar fila</button>
-        <button class="copy-text" onclick="copiarTextoNotas()">Copiar texto notas</button>
+        <!-- Campo de texto para buscar asignaturas -->
+        <input type="text" id="buscador-asignatura" placeholder="Buscador asignatura">
     </div>
-    <script src="script.js"></script>
+
+    <!-- Tabla que contiene las asignaturas, créditos y notas -->
+    <table id="tabla-asignaturas">
+        <thead>
+        <tr>
+            <!-- Encabezado de columnas de la tabla -->
+            <th>Asignatura</th>
+            <th>Créditos</th>
+            <th>Nota</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Fila de ejemplo con celdas editables para asignatura, créditos y nota -->
+        <tr>
+            <td contenteditable="true">Asignatura 1</td>
+            <td contenteditable="true">3</td>
+            <td contenteditable="true">90</td>
+        </tr>
+        <tr>
+            <td contenteditable="true">Asignatura 2</td>
+            <td contenteditable="true">4</td>
+            <td contenteditable="true">85</td>
+        </tr>
+        <tr>
+            <td contenteditable="true">Asignatura 3</td>
+            <td contenteditable="true">2</td>
+            <td contenteditable="true">88</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!-- Botones para agregar filas y copiar texto de notas -->
+    <button class="add-row" onclick="agregarFila()">Agregar fila</button>
+    <button class="copy-text" onclick="copiarTextoNotas()">Copiar texto notas</button>
+
+    <!-- Contenedor para el cálculo de "Pappi" -->
+    <div class="calculo-container">
+        <!-- Botón para calcular el valor de "Pappi" con un espacio para mostrar el resultado -->
+        <button id="calcular-pappi">
+            Calcular Pappi: <span id="resultado-pappi"></span>
+        </button>
+    </div>
+</div>
+
+<!-- Enlaza a un archivo JavaScript externo para la funcionalidad de la página -->
+<script src="script.js"></script>
 </body>
 </html>
