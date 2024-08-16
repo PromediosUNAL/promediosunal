@@ -87,7 +87,6 @@ th, td {
     text-align: center; /* Alineación centrada del texto en las celdas */
 }
 
-/* Estilos para los botones de agregar fila y copiar texto */
 .add-row, .copy-text {
     display: block; /* Muestra los botones como bloques para que ocupen el ancho completo */
     width: 100%; /* Ancho total del botón */
@@ -95,6 +94,14 @@ th, td {
     font-size: 16px; /* Tamaño de la fuente del botón */
     margin-bottom: 10px; /* Espacio debajo de cada botón */
     cursor: pointer; /* Cursor de mano al pasar sobre el botón */
+    border-radius: 2px; /* Bordes redondeados de 2px */
+    border: 1px solid; /* Borde delgado de 1px */
+}
+
+/* Estilo para el estado de hover de los botones .add-row y .copy-text */
+.add-row:hover, .copy-text:hover {
+    background-color: #e2e6ea; /* Fondo gris más oscuro al pasar el ratón sobre el botón */
+    border-color: #000; /* Asegura que el borde sigue siendo negro */
 }
 
 /* Estilos para el contenedor de cálculo */
@@ -133,4 +140,21 @@ th, td {
 #resultado-pappi {
     margin-left: 10px; /* Espacio entre el texto del botón y el resultado */
     font-weight: bold; /* Texto en negrita para el resultado */
+}
+
+/* Estilo para la columna de eliminación */
+#tabla-asignaturas td:first-child {
+    width: 10px; /* Ajusta el ancho de la columna de eliminación */
+    text-align: center; /* Centra el contenido del botón */
+    padding: 0; /* Elimina el padding para evitar espacio extra */
+    border: none; /* Elimina el borde izquierdo de la columna "Eliminar" */
+}
+
+/* Estilo para el botón dentro de la columna de eliminación */
+#tabla-asignaturas button {
+    border: 1px solid #000; /* Añade un borde negro al botón */
+    background: none; /* Elimina el fondo del botón para que se vea solo el borde */
+    padding: 5px 10px; /* Ajusta el padding del botón para que tenga espacio suficiente */
+    cursor: pointer; /* Cambia el cursor a pointer cuando está sobre el botón */
+    font-size: 14px; /* Tamaño de la fuente del botón */
 }

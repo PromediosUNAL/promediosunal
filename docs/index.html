@@ -1,59 +1,53 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- Define la codificación de caracteres como UTF-8 para manejar caracteres especiales -->
     <meta charset="UTF-8">
-    <!-- Asegura que la página se vea bien en dispositivos móviles ajustando el ancho del viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Enlaza a un archivo CSS externo para el estilo de la página -->
     <link rel="stylesheet" href="style.css">
-    <!-- Título que aparece en la pestaña del navegador -->
     <title>Promedios UNAL</title>
 </head>
 <body>
 <div class="container">
-    <!-- Título principal de la página -->
+    <!-- Header -->
     <header>
-        <button>pappi</button>
-        <button href="prueba.html">porcentajes</button>
+        <!-- Aquí puedes agregar contenido para el header si lo necesitas -->
     </header>
-    
+
+    <!-- Calculadora Pappi -->
     <div id="Calculadora-pappi">
         <h1>Calculadora de Pappi</h1>
-        <!-- Sección de buscadores para buscar carreras y asignaturas -->
-        <div class="buscador">
-            <!-- Campo de texto para buscar carreras -->
-            <input type="text" id="buscador-carrera" placeholder="Buscador carrera">
-            <!-- Div para mostrar sugerencias de autocompletado -->
-            <div id="suggestions" class="autocomplete-suggestions"></div>
 
-            <!-- Campo de texto para buscar asignaturas -->
+        <div class="buscador">
+            <input type="text" id="buscador-carrera" placeholder="Buscador carrera">
+            <div id="suggestions" class="autocomplete-suggestions"></div>
             <input type="text" id="buscador-asignatura" placeholder="Buscador asignatura">
         </div>
 
-        <!-- Tabla que contiene las asignaturas, créditos y notas -->
         <table id="tabla-asignaturas">
             <thead>
             <tr>
-                <!-- Encabezado de columnas de la tabla -->
+                <th>Eliminar</th>
                 <th>Asignatura</th>
                 <th>Créditos</th>
                 <th>Nota</th>
             </tr>
             </thead>
             <tbody>
-            <!-- Fila de ejemplo con celdas editables para asignatura, créditos y nota -->
+            <!-- Filas de ejemplo -->
             <tr>
+                <td><button class="delete-row">-</button></td>
                 <td contenteditable="true">Asignatura 1</td>
                 <td contenteditable="true">3</td>
                 <td contenteditable="true">90</td>
             </tr>
             <tr>
+                <td><button class="delete-row">-</button></td>
                 <td contenteditable="true">Asignatura 2</td>
                 <td contenteditable="true">4</td>
                 <td contenteditable="true">85</td>
             </tr>
             <tr>
+                <td><button class="delete-row">-</button></td>
                 <td contenteditable="true">Asignatura 3</td>
                 <td contenteditable="true">2</td>
                 <td contenteditable="true">88</td>
@@ -61,34 +55,32 @@
             </tbody>
         </table>
 
-        <!-- Botones para agregar filas y copiar texto de notas -->
         <button class="add-row" onclick="agregarFila()">Agregar fila</button>
         <button class="copy-text" onclick="copiarTextoNotas()">Copiar texto notas</button>
 
-        <!-- Contenedor para el cálculo de "Pappi" -->
         <div class="calculo-container">
-            <!-- Botón para calcular el valor de "Pappi" con un espacio para mostrar el resultado -->
             <button id="calcular-pappi">
                 Calcular Pappi: <span id="resultado-pappi"></span>
             </button>
         </div>
     </div>
 
+    <!-- Calculadora de porcentajes -->
     <div id="Calculadora-porcentajes">
-        <h1>Calculadora de de porcentajes de materia</h1>
-        materia uno - porcentaje - nota
-        materia dos - porcentaje - nota
-        materia tres - porcentaje - nota
+        <h1>Calculadora de porcentajes de materia</h1>
+        Materia uno - porcentaje - nota
+        Materia dos - porcentaje - nota
+        Materia tres - porcentaje - nota
     </div>
-    <footer>
-        <p>Author: Mateo Rodríguez & Camilo alejandro</p>
-        <p><a href="github.com/matrodriguezpa">matrodriguezpa</a></p>
-        <p><a href="github.com/its-camilo">its-camilo</a></p>
-    </footer>
 
+    <!-- Footer -->
+    <footer>
+        <p>Author: Mateo Rodríguez & Camilo Alejandro</p>
+        <p><a href="https://github.com/matrodriguezpa">matrodriguezpa</a></p>
+        <p><a href="https://github.com/its-camilo">its-camilo</a></p>
+    </footer>
 </div>
 
-<!-- Enlaza a un archivo JavaScript externo para la funcionalidad de la página -->
 <script src="script.js"></script>
 </body>
 </html>

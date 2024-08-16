@@ -1,16 +1,39 @@
-// Función para agregar una nueva fila a la tabla
 function agregarFila() {
-    // Obtiene el elemento <tbody> de la tabla con id 'tabla-asignaturas'
     const tabla = document.getElementById('tabla-asignaturas').getElementsByTagName('tbody')[0];
-    // Inserta una nueva fila al final del <tbody>
     const nuevaFila = tabla.insertRow();
-    // Define el contenido HTML de la nueva fila, con celdas editables y valores predeterminados
-    nuevaFila.innerHTML = `
-        <td contenteditable="true">Nueva Asignatura</td>
-        <td contenteditable="true">0</td>
-        <td contenteditable="true">0</td>
-    `;
+
+    // Crea la celda para el botón de eliminación
+    const celdaEliminar = nuevaFila.insertCell(0);
+    const botonEliminar = document.createElement('button');
+    botonEliminar.textContent = '-';
+    botonEliminar.className = 'delete-row';
+    botonEliminar.onclick = function() {
+        eliminarFila(this);
+    };
+    celdaEliminar.appendChild(botonEliminar);
+
+    // Crea las celdas editables para Asignatura, Créditos y Nota
+    nuevaFila.insertCell(1).contentEditable = 'true';
+    nuevaFila.cells[1].textContent = 'Nueva Asignatura';
+    nuevaFila.insertCell(2).contentEditable = 'true';
+    nuevaFila.cells[2].textContent = '0';
+    nuevaFila.insertCell(3).contentEditable = 'true';
+    nuevaFila.cells[3].textContent = '0';
 }
+
+function eliminarFila(boton) {
+    const fila = boton.parentElement.parentElement;
+    fila.parentElement.removeChild(fila);
+}
+
+// Agrega el evento a todos los botones de eliminación al cargar la página
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.delete-row').forEach(boton => {
+        boton.addEventListener('click', function() {
+            eliminarFila(this);
+        });
+    });
+});
 
 // Función para copiar el texto de las notas al portapapeles
 function copiarTextoNotas() {
@@ -48,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
     buscadorAsignatura.style.backgroundColor = 'white'; // Establece el fondo blanco por defecto
     buscadorAsignatura.style.cursor = 'auto'; // Establece el cursor a 'auto'
 
-// Input manager en la búsqueda de carrera
+    // Input manager en la búsqueda de carrera
     buscadorCarrera.addEventListener('input', function() {
         // Quita lo que no sea letras
         const valor = this.value.replace(/[^a-zA-ZÀ-ÿ\s]/g, '').toLowerCase();
@@ -81,6 +104,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Input manager en la búsqueda de carrera
+    buscadorAsignatura.addEventListener('input', function() {
+        // Quita lo que no sea letras
+        const valor = this.value.replace(/[^a-zA-ZÀ-ÿ\s]/g, '').toLowerCase();
+        this.value = valor; // Actualiza el valor del campo de búsqueda
+
+        const palabras = valor.split(/\s+/); // Divide el valor en palabras individuales
+        suggestions.innerHTML = ''; // Limpia las sugerencias existente
+    });
+
     // Añade un evento para ocultar las sugerencias si se hace clic fuera del área de sugerencias
     document.addEventListener('click', function(event) {
         if (!suggestions.contains(event.target) && event.target !== buscadorCarrera) {
@@ -98,8 +131,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Itera sobre cada fila para calcular el Pappi
         filas.forEach(fila => {
             // Obtiene el valor de créditos y notas y lo convierte a número flotante
-            const credito = parseFloat(fila.cells[1].innerText) || 0;
-            const nota = parseFloat(fila.cells[2].innerText) || 0;
+            const credito = parseFloat(fila.cells[2].innerText) || 0;
+            const nota = parseFloat(fila.cells[3].innerText) || 0;
             // Suma los créditos multiplicados por las notas
             sumaCreditosNotas += credito * nota;
             // Suma los créditos
