@@ -48,10 +48,12 @@ document.addEventListener('DOMContentLoaded', function() {
     buscadorAsignatura.style.backgroundColor = 'white'; // Establece el fondo blanco por defecto
     buscadorAsignatura.style.cursor = 'auto'; // Establece el cursor a 'auto'
 
-    // Añade un evento para manejar la entrada en el campo de búsqueda de carrera
+// Input manager en la búsqueda de carrera
     buscadorCarrera.addEventListener('input', function() {
-        // Obtiene el valor del campo y lo convierte a minúsculas
-        const valor = this.value.toLowerCase();
+        // Quita lo que no sea letras
+        const valor = this.value.replace(/[^a-zA-ZÀ-ÿ\s]/g, '').toLowerCase();
+        this.value = valor; // Actualiza el valor del campo de búsqueda
+
         const palabras = valor.split(/\s+/); // Divide el valor en palabras individuales
         suggestions.innerHTML = ''; // Limpia las sugerencias existentes
 
