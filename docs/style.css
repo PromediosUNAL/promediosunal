@@ -135,13 +135,6 @@ h1 {
     border-bottom: 1px solid #ccc; /* Línea sutil debajo del campo de entrada */
 }
 
-/* Estilo específico para el campo de búsqueda de asignatura */
-#buscador-asignatura {
-    background-color: #5b5e60; /* Fondo gris oscuro para el campo */
-    color: #000000; /* Texto en color negro */
-    cursor: not-allowed; /* Cursor de "no permitido" para indicar que no se puede escribir */
-}
-
 /* Estilos para el contenedor de sugerencias de autocompletado */
 .autocomplete-suggestions {
     border: 1px solid #ccc; /* Borde alrededor del contenedor de sugerencias */

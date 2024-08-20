@@ -147,3 +147,30 @@ document.addEventListener('DOMContentLoaded', function() {
     // Añade el evento al botón "Calcular Pappi" para ejecutar la función calcularPappi al hacer clic
     document.getElementById('calcular-pappi').addEventListener('click', calcularPappi);
 });
+// Función para cargar una página en el contenedor <main>
+function cargarPagina(page) {
+    fetch(page)
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('contenedor').innerHTML = data;
+        })
+        .catch(error => console.error('Error al cargar la página:', error));
+}
+
+// Cargar la página "pappi.html" al cargar la página principal
+document.addEventListener('DOMContentLoaded', function() {
+    cargarPagina('pappi.html');
+});
+
+// Añadir evento a los enlaces de la navegación
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevenir el comportamiento por defecto del enlace
+
+        // Obtener la página a cargar
+        const page = this.getAttribute('data-page');
+
+        // Cargar la página seleccionada
+        cargarPagina(page);
+    });
+});

@@ -1,10 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<!-- Calculadora de porcentajes -->
+<div id="calculadora-porcentajes">
+    <h1>Calculadora de Promedios</h1>
 
-</body>
-</html>
+    <div class="buscador">
+        <input type="text" id="buscador-carrera" placeholder="Buscador carrera">
+        <div id="suggestions" class="autocomplete-suggestions"></div>
+        <input type="text" id="buscador-asignatura" placeholder="Buscador asignatura">
+    </div>
+
+    <table id="tabla-asignaturas">
+
+        <thead>
+        <tr>
+            <th>Borrar</th>
+            <th>Materia</th>
+            <th>Porcentaje</th>
+            <th>Nota</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Filas de ejemplo -->
+        <tr>
+            <td>
+                <button class="delete-row">-</button>
+            </td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+        </tr>
+    </table>
+
+    <button class="add-row" onclick="agregarFila()">Agregar fila</button>
+    <button class="copy-text" onclick="copiarTextoNotas()">Copiar texto notas</button>
+
+    <!--Resultado-->
+    <div class="calculo-container">
+        <button id="calcular-pappi">Calcular Pappi</button>
+        <button id="calcular-pappi-necesario">Calcular nota necesaria</button>
+        <span id="resultado-pappi">RESULTADO</span>
+    </div>
+
+    <p>La fórmula del Promedio de Notas por Porcentaje es sencilla pero poderosa. Consiste en multiplicar la nota
+        obtenida en cada evaluación por el porcentaje correspondiente y sumar los resultados de todas las evaluaciones.
+        Luego, se divide esta suma total entre el total de porcentajes asignados para obtener el promedio ponderado. Con
+        nuestra herramienta en línea, podrás ingresar fácilmente tus notas y los porcentajes asignados a cada
+        evaluación.
+    </p>
+    <img src="assets/media.jpg">
+</div>
