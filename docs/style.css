@@ -1,12 +1,112 @@
 /* Estilos globales para el cuerpo del documento */
 body {
     font-family: Arial, sans-serif; /* Fuente estándar para el texto */
-    margin: 20px; /* Margen alrededor del contenido del cuerpo */
+    margin: 0px; /* Margen alrededor del contenido del cuerpo */
     padding: 0; /* Sin relleno alrededor del cuerpo */
 }
 
+/* Header styles */
+header {
+    background-color: #f8f9fa; /* Color de fondo opcional */
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+}
+
+.header-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    max-width: 100px; /* Ajustar el tamaño del logo */
+    height: auto;
+    margin-right: 20px;
+}
+
+.title-container h1 {
+    margin: 0;
+    font-size: 1.8rem; /* Ajuste de tamaño del título */
+    color: #333;
+}
+
+.title-container p {
+    margin: 0;
+    font-size: 1rem; /* Ajuste de tamaño del subtítulo */
+    color: #777;
+}
+
+/* Header - responsive */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .logo {
+        margin-bottom: 15px;
+    }
+}
+
+
+/* Estilos de la barra de navegación */
+nav {
+    background-color: #fdd7c9;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para el navbar */
+}
+
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center; /* Centra los botones */
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #ffffff; /* Color del texto */
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-links a:hover {
+    background-color: #ff8e6c;; /* Color de fondo al pasar el ratón */
+}
+
+/* navegación - responsive */
+@media (max-width: 600px) {
+    .nav-links {
+        flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+        align-items: center;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .social-links{
+        display: none;
+    }
+}
+
+
+header img {
+    max-width: 100px;
+}
+
 /* Contenedor principal centrado y con un ancho máximo */
-.container {
+main {
     max-width: 800px; /* Ancho máximo del contenedor */
     margin: 0 auto; /* Centrará el contenedor horizontalmente */
 }
@@ -76,10 +176,14 @@ table {
     margin-bottom: 20px; /* Espacio debajo de la tabla */
 }
 
-/* Estilos para los bordes de la tabla y sus celdas */
+/* Estilos para los bordes de la tabla y sus celdas
+
 table, th, td {
-    border: 1px solid #000; /* Borde negro para la tabla, encabezados y celdas */
+    border: 1px solid #000;  //Borde negro para la tabla, encabezados y celdas
 }
+
+*/
+
 
 /* Estilos para las celdas de la tabla */
 th, td {
@@ -113,11 +217,12 @@ th, td {
 }
 
 /* Estilos para el botón "Calcular Pappi" */
-#calcular-pappi {
+.calculo-container button {
     background-color: #f8f9fa; /* Fondo gris pálido para el botón */
     color: #000; /* Texto en color negro */
     border: 1px solid #000; /* Borde negro delgado */
     padding: 10px 20px; /* Relleno interno del botón (superior/inferior y lateral) */
+    margin: 5px;
     font-size: 16px; /* Tamaño de la fuente del botón */
     cursor: pointer; /* Cursor de mano al pasar sobre el botón */
     display: flex; /* Utiliza flexbox para alinear elementos dentro del botón */
@@ -157,4 +262,13 @@ th, td {
     padding: 5px 10px; /* Ajusta el padding del botón para que tenga espacio suficiente */
     cursor: pointer; /* Cambia el cursor a pointer cuando está sobre el botón */
     font-size: 14px; /* Tamaño de la fuente del botón */
+}
+
+footer {
+    background-color: #fdd7c9;
+    color: #fff;
+    margin-top: 20px;
+    padding: 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
 }

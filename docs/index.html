@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Promedios UNAL</title>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <div class="header-container">
+        <img src="assets/PUN.png" alt="Logo UNAL" class="logo">
+        <div class="title-container">
+            <h1>PUN</h1>
+            <p>Calculadora de Promedios UNAL</p>
+        </div>
+        <div class="social-links">
+            <a href="https://github.com/matrodriguezpa">matrodriguezpa</a>
+            <a href="https://github.com/its-camilo">its-camilo</a>
+        </div>
+    </div>
+</header>
+
+<!-- Navegación -->
+<nav>
+    <ul class="nav-links">
+        <li><a href="#calculadora-pappi">Calculadora Pappi</a></li>
+        <li><a href="#calculadora-promedios">Calculadora Promedios</a></li>
+    </ul>
+</nav>
+
+
+<main>
+    <!-- Calculadora Pappi -->
+    <div id="Calculadora-pappi">
+        <h1>Calculadora de Pappi</h1>
+
+        <div class="buscador">
+            <input type="text" id="buscador-carrera" placeholder="Buscador carrera">
+            <div id="suggestions" class="autocomplete-suggestions"></div>
+            <input type="text" id="buscador-asignatura" placeholder="Buscador asignatura">
+        </div>
+
+        <table id="tabla-asignaturas">
+            <thead>
+            <tr>
+                <th>Borrar</th>
+                <th>Materia</th>
+                <th>Créditos</th>
+                <th>Nota</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Filas de ejemplo -->
+            <tr>
+                <td>
+                    <button class="delete-row">-</button>
+                </td>
+                <td contenteditable="true">Asignatura 1</td>
+                <td contenteditable="true">3</td>
+                <td contenteditable="true">90</td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="delete-row">-</button>
+                </td>
+                <td contenteditable="true">Asignatura 2</td>
+                <td contenteditable="true">4</td>
+                <td contenteditable="true">85</td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="delete-row">-</button>
+                </td>
+                <td contenteditable="true">Asignatura 3</td>
+                <td contenteditable="true">2</td>
+                <td contenteditable="true">88</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <button class="add-row" onclick="agregarFila()">Agregar fila</button>
+        <button class="copy-text" onclick="copiarTextoNotas()">Copiar texto notas</button>
+
+        <div class="calculo-container">
+            <button id="calcular-pappi">
+                Calcular Pappi
+            </button>
+            <button id="calcular-pappi-necesario">
+                Calcular nota necesaria
+            </button>
+            <span id="resultado-pappi"></span>
+        </div>
+    </div>
+
+    <!-- Calculadora de porcentajes -->
+    <div id="calculadora-porcentajes">
+        <div class="buscador">
+            <input type="text" id="buscador-carrera-porcentaje" placeholder="Buscador carrera">
+            <div id="suggestions-porcentaje" class="autocomplete-suggestions"></div>
+            <input type="text" id="buscador-asignatura-porcentaje" placeholder="Buscador asignatura">
+        </div>
+
+        <table id="tabla-porcentajes">
+            <thead>
+            <tr>
+                <th>Borrar</th>
+                <th>Materia</th>
+                <th>porcentaje</th>
+                <th>Nota</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Filas de ejemplo -->
+            <tr>
+                <td>
+                    <button class="delete-row">-</button>
+                </td>
+                <td contenteditable="true">Asignatura 1</td>
+                <td contenteditable="true">3</td>
+                <td contenteditable="true">90</td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="delete-row">-</button>
+                </td>
+                <td contenteditable="true">Asignatura 2</td>
+                <td contenteditable="true">4</td>
+                <td contenteditable="true">85</td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="delete-row">-</button>
+                </td>
+                <td contenteditable="true">Asignatura 3</td>
+                <td contenteditable="true">2</td>
+                <td contenteditable="true">88</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <button class="add-row" onclick="agregarFila()">Agregar fila</button>
+        <button class="copy-text" onclick="copiarTextoNotas()">Copiar texto notas</button>
+        <div class="calculo-container">
+            <button id="calcular-nota-final">
+                Calcular Pappi
+            </button>
+            <button id="calcular-nota-necesaria">
+                Calcular nota necesaria
+            </button>
+            <span id="resultado-nota"></span>
+        </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer>
+    <p style="margin: 5px; margin-bottom: 10px;">Author: Mateo Rodríguez & Camilo Alejandro</p>
+    <div class="social-links">
+        <a href="https://github.com/matrodriguezpa">matrodriguezpa</a>
+        <a href="https://github.com/its-camilo">its-camilo</a>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
