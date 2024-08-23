@@ -1,14 +1,14 @@
-<!-- Calculadora Pappi -->
 <div id="Calculadora-pappi">
-    <h1>Calculadora de Pappi</h1>
-
+    <!-- Buscadores -->
     <div class="buscador">
-        <input type="text" id="buscador-carrera" placeholder="Buscador carrera">
+        <input type="text" id="buscador-carrera" placeholder="Buscar carrera">
         <div id="suggestions" class="autocomplete-suggestions"></div>
-        <input type="text" id="buscador-asignatura" placeholder="Buscador asignatura">
+        <input type="text" id="buscador-asignatura" placeholder="Buscar asignatura">
     </div>
-    <table id="tabla-asignaturas">
 
+    <!-- Tabla de asignaturas -->
+    <table id="tabla-asignaturas">
+        <caption>Calcular Pappi</caption>
         <thead>
         <tr>
             <th>Borrar</th>
@@ -18,7 +18,6 @@
         </tr>
         </thead>
         <tbody>
-        <!-- Filas de ejemplo -->
         <tr>
             <td>
                 <button class="delete-row" onclick="eliminarFila(this)">-</button>
@@ -29,19 +28,68 @@
         </tr>
         </tbody>
     </table>
-
-    <button class="add-row" onclick="agregarFila()">Agregar fila</button>
-    <button class="copy-text" onclick="copiarTextoNotas()">Copiar texto notas</button>
-
-    <div class="calculo-container">
-        <button id="calcular-pappi" onclick="calcularPappi()">Calcular Pappi</button>
-        <button id="calcular-pappi-necesario">Calcular nota necesaria</button>
-        <span id="resultado-pappi">Resultado</span>
+    <div class="add-row">
+        <button onclick="agregarFila2()">Agregar fila</button>
     </div>
 
-    <p>El P.A.P.P.I. es la suma de la multiplicación del número de créditos de cada asignatura por la calificación
-        obtenida, dividido en la suma del número de créditos de las asignaturas cursadas y canceladas con pérdida de
-        créditos, en el último periodo cursado.
-    </p>
-    <img src="assets/pappi.png">
+    <caption>
+        Calcular notas necesarias
+        <input type="checkbox" id="calcularNotas" onclick="toggleTablaYBoton()">
+    </caption>
+    <!-- Tabla para calcular notas necesarias -->
+    <table id="tabla-asignaturas2" class="disabled">
+        <thead>
+        <tr>
+            <th>Borrar</th>
+            <th>Materia</th>
+            <th>Créditos</th>
+            <th>Nota</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                <button class="delete-row" onclick="eliminarFila(this)">-</button>
+            </td>
+            <td contenteditable="true">Asignatura 1</td>
+            <td contenteditable="true">3</td>
+            <td contenteditable="true">?</td>
+        </tr>
+        </tbody>
+
+    </table>
+    <!-- Botón para agregar filas -->
+    <div class="add-row">
+        <button id="agregar-fila-btn2" onclick="agregarFila2()" class="disabled" >Agregar fila</button>
+    </div>
+
+    <!-- Botones de cálculo -->
+    <div class="nose">
+        <!-- Botones de copiado -->
+        <div class="copiar">
+            <button class="copy-text" onclick="copiarTextoNotas()">Copiar tabla</button>
+            <button class="copy-text" onclick="copiarTextoNotas()">Copiar resultado</button>
+        </div>
+
+        <div class="calculo-container">
+            <button id="calcular-pappi" onclick="calcularPappi()">Calcular Pappi</button>
+            <button id="calcular-pappi-necesario">Calcular nota necesaria</button>
+            <span id="resultado-pappi">Resultado</span>
+        </div>
+    </div>
+
+    <!-- Descripción del P.A.P.P.I. -->
+    <div class="pappi-description">
+        <p>El P.A.P.P.I. es la suma de la multiplicación del número de créditos de cada asignatura por la calificación
+            obtenida, dividido en la suma del número de créditos de las asignaturas cursadas y canceladas con pérdida de
+            créditos, en el último periodo cursado.</p>
+        <div class="minotacionmatematica4">
+
+            <p>
+                \[x = {-x \pm \sqrt{a^3-5yz} \over 3a}\]
+            </p>
+
+        </div>
+    </div>
+
 </div>

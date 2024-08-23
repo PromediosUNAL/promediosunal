@@ -3,48 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>Promedios UNAL</title>
     <link rel="icon" href="assets/PUN.png" type="image/png">
-</head>
+    <link rel="stylesheet" href="style.css">
+   </head>
 <body>
 
 <!-- Header -->
 <header>
     <div class="header-container">
-        <img src="assets/PUN.png" alt="Logo UNAL" class="logo">
-        <div class="title-container">
-            <h1>PUN</h1>
-            <p>Promedios Universidad Nacional</p>
+        <div id="title-logo">
+            <img src="assets/PUN.png" alt="Logo UNAL" class="logo">
+            <div class="title-container">
+                <h1>PUN</h1>
+                <p>Promedios Universidad Nacional</p>
+            </div>
         </div>
-        <div class="social-links">
-            <a href="https://github.com/matrodriguezpa">matrodriguezpa</a>
-            <a href="https://github.com/its-camilo">its-camilo</a>
-        </div>
+        <nav class="social-links">
+            <ul>
+                <li><a href="https://github.com/matrodriguezpa" target="_blank">matrodriguezpa</a></li>
+                <li><a href="https://github.com/its-camilo" target="_blank">its-camilo</a></li>
+            </ul>
+        </nav>
     </div>
 </header>
 
 <!-- Navegación -->
-<nav>
-    <ul class="nav-links">
+<nav class="main-nav">
+    <ul>
         <li><a href="#" data-page="pappi.html">Calculadora Pappi</a></li>
         <li><a href="#" data-page="promedios.html">Calculadora Promedios</a></li>
         <li><a href="#" data-page="sobre.html">Sobre PUN</a></li>
     </ul>
 </nav>
-
-<main id="contenedor">
-
-</main>
+<!-- Contenido principal -->
+<main id="contenedor"></main>
 
 <!-- Footer -->
 <footer>
-    <p style="margin: 5px; margin-bottom: 10px;">Author: Mateo Rodríguez & Camilo Alejandro</p>
-    <div class="social-links">
-        <a href="https://github.com/matrodriguezpa">matrodriguezpa</a>
-        <a href="https://github.com/its-camilo">its-camilo</a>
-    </div>
+    <p>Author: Mateo Rodríguez & Camilo Alejandro</p>
+    <nav class="social-links">
+        <ul>
+            <li><a href="https://github.com/matrodriguezpa" target="_blank">matrodriguezpa</a></li>
+            <li><a href="https://github.com/its-camilo" target="_blank">its-camilo</a></li>
+        </ul>
+    </nav>
 </footer>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 <script src="script.js"></script>
 </body>

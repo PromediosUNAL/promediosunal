@@ -7,7 +7,7 @@ function agregarFila() {
     const botonEliminar = document.createElement('button');
     botonEliminar.textContent = '-';
     botonEliminar.className = 'delete-row';
-    botonEliminar.onclick = function() {
+    botonEliminar.onclick = function () {
         eliminarFila(this);
     };
     celdaEliminar.appendChild(botonEliminar);
@@ -27,9 +27,9 @@ function eliminarFila(boton) {
 }
 
 // Agrega el evento a todos los botones de eliminación al cargar la página
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.delete-row').forEach(boton => {
-        boton.addEventListener('click', function() {
+        boton.addEventListener('click', function () {
             eliminarFila(this);
         });
     });
@@ -56,7 +56,7 @@ function copiarTextoNotas() {
 }
 
 // Funcionalidad para el autocompletado del campo de búsqueda de carrera
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Obtiene los elementos del DOM necesarios para el autocompletado
     const buscadorCarrera = document.getElementById('buscador-carrera');
     const buscadorAsignatura = document.getElementById('buscador-asignatura');
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
     buscadorAsignatura.style.cursor = 'auto'; // Establece el cursor a 'auto'
 
     // Input manager en la búsqueda de carrera
-    buscadorCarrera.addEventListener('input', function() {
+    buscadorCarrera.addEventListener('input', function () {
         // Quita lo que no sea letras
         const valor = this.value.replace(/[^a-zA-ZÀ-ÿ\s]/g, '').toLowerCase();
         this.value = valor; // Actualiza el valor del campo de búsqueda
@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     div.classList.add('autocomplete-suggestion');
                     div.textContent = opcion;
                     // Añade un evento de clic para seleccionar una sugerencia
-                    div.addEventListener('click', function() {
+                    div.addEventListener('click', function () {
                         buscadorCarrera.value = opcion; // Establece el valor del campo de búsqueda a la opción seleccionada
                         suggestions.innerHTML = ''; // Limpia las sugerencias
                     });
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Input manager en la búsqueda de carrera
-    buscadorAsignatura.addEventListener('input', function() {
+    buscadorAsignatura.addEventListener('input', function () {
         // Quita lo que no sea letras
         const valor = this.value.replace(/[^a-zA-ZÀ-ÿ\s]/g, '').toLowerCase();
         this.value = valor; // Actualiza el valor del campo de búsqueda
@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Añade un evento para ocultar las sugerencias si se hace clic fuera del área de sugerencias
-    document.addEventListener('click', function(event) {
+    document.addEventListener('click', function (event) {
         if (!suggestions.contains(event.target) && event.target !== buscadorCarrera) {
             suggestions.innerHTML = ''; // Limpia las sugerencias si el clic está fuera del área de sugerencias
         }
@@ -156,13 +156,13 @@ function calcularPappi() {
 }
 
 // Cargar la página "pappi.html" al cargar la página principal
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     cargarPagina('pappi.html');
 });
 
 // Añadir evento a los enlaces de la navegación
 document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', function(event) {
+    link.addEventListener('click', function (event) {
         event.preventDefault(); // Prevenir el comportamiento por defecto del enlace
 
         // Obtener la página a cargar
@@ -172,3 +172,60 @@ document.querySelectorAll('.nav-links a').forEach(link => {
         cargarPagina(page);
     });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Función para cargar el contenido de un archivo HTML en el contenedor principal
+    function loadPage(page) {
+        fetch(page)
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('contenedor').innerHTML = html;
+
+                // Procesa el nuevo contenido para renderizar notación matemática
+                if (window.MathJax) {
+                    MathJax.typesetPromise();
+                }
+            })
+            .catch(error => {
+                console.error('Error al cargar la página:', error);
+            });
+    }
+
+    // Asigna los enlaces del menú de navegación para cargar las páginas correspondientes
+    document.querySelectorAll('.main-nav a').forEach(link => {
+        link.addEventListener('click', function (event) {
+            event.preventDefault();
+            const page = this.getAttribute('data-page');
+            loadPage(page);
+        });
+    });
+
+    // Carga la página por defecto (puedes cambiarlo según tu preferencia)
+    loadPage('pappi.html');
+});
+
+// Al cargar la página, se desactiva la tabla y el botón
+document.addEventListener('DOMContentLoaded', function () {
+    var tabla = document.getElementById('tabla-asignaturas2');
+    var botonAgregarFila = document.getElementById('agregar-fila-btn2');
+    tabla.classList.add('disabled');
+    botonAgregarFila.disabled = true;
+});
+
+function toggleTablaYBoton() {
+    // Obtener el estado del checkbox
+    var checkbox = document.getElementById('calcularNotas');
+
+    // Obtener la tabla y el botón
+    var tabla = document.getElementById('tabla-asignaturas2');
+    var botonAgregarFila = document.getElementById('agregar-fila-btn2');
+
+    // Deshabilitar o habilitar la tabla y el botón basado en el estado del checkbox
+    if (checkbox.checked) {
+        tabla.classList.remove('disabled');
+        botonAgregarFila.classList.remove('disabled');
+    } else {
+        tabla.classList.add('disabled');
+        botonAgregarFila.classList.add('disabled');
+    }
+}
