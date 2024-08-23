@@ -22,7 +22,7 @@
         <!-- Filas de ejemplo -->
         <tr>
             <td>
-                <button class="delete-row">-</button>
+                <button class="delete-row" onclick="eliminarFila(this)">-</button>
             </td>
             <td contenteditable="true"></td>
             <td contenteditable="true"></td>
@@ -35,9 +35,9 @@
 
     <!--Resultado-->
     <div class="calculo-container">
-        <button id="calcular-pappi">Calcular Pappi</button>
+        <button id="calcular-promedio" onclick="calcularPappi()">Calcular promedio</button>
         <button id="calcular-pappi-necesario">Calcular nota necesaria</button>
-        <span id="resultado-pappi">RESULTADO</span>
+        <span id="resultado-pappi">Resultado</span>
     </div>
 
     <p>La fórmula del Promedio de Notas por Porcentaje es sencilla pero poderosa. Consiste en multiplicar la nota

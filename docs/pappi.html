@@ -21,7 +21,7 @@
         <!-- Filas de ejemplo -->
         <tr>
             <td>
-                <button class="delete-row">-</button>
+                <button class="delete-row" onclick="eliminarFila(this)">-</button>
             </td>
             <td contenteditable="true">Asignatura 1</td>
             <td contenteditable="true">3</td>
@@ -34,9 +34,9 @@
     <button class="copy-text" onclick="copiarTextoNotas()">Copiar texto notas</button>
 
     <div class="calculo-container">
-        <button id="calcular-pappi">Calcular Pappi</button>
+        <button id="calcular-pappi" onclick="calcularPappi()">Calcular Pappi</button>
         <button id="calcular-pappi-necesario">Calcular nota necesaria</button>
-        <span id="resultado-pappi">RESULTADO</span>
+        <span id="resultado-pappi">Resultado</span>
     </div>
 
     <p>El P.A.P.P.I. es la suma de la multiplicación del número de créditos de cada asignatura por la calificación

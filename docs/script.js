@@ -120,33 +120,8 @@ document.addEventListener('DOMContentLoaded', function() {
             suggestions.innerHTML = ''; // Limpia las sugerencias si el clic está fuera del área de sugerencias
         }
     });
-
-    // Función para calcular el Pappi
-    function calcularPappi() {
-        // Selecciona todas las filas dentro del <tbody> de la tabla con id 'tabla-asignaturas'
-        const filas = document.querySelectorAll('#tabla-asignaturas tbody tr');
-        let sumaCreditosNotas = 0;
-        let sumaCreditos = 0;
-
-        // Itera sobre cada fila para calcular el Pappi
-        filas.forEach(fila => {
-            // Obtiene el valor de créditos y notas y lo convierte a número flotante
-            const credito = parseFloat(fila.cells[2].innerText) || 0;
-            const nota = parseFloat(fila.cells[3].innerText) || 0;
-            // Suma los créditos multiplicados por las notas
-            sumaCreditosNotas += credito * nota;
-            // Suma los créditos
-            sumaCreditos += credito;
-        });
-
-        // Calcula el resultado de Pappi (promedio ponderado) y lo muestra
-        const resultado = sumaCreditos > 0 ? (sumaCreditosNotas / sumaCreditos).toFixed(2) : 'N/A';
-        document.getElementById('resultado-pappi').textContent = resultado;
-    }
-
-    // Añade el evento al botón "Calcular Pappi" para ejecutar la función calcularPappi al hacer clic
-    document.getElementById('calcular-pappi').addEventListener('click', calcularPappi);
 });
+
 // Función para cargar una página en el contenedor <main>
 function cargarPagina(page) {
     fetch(page)
@@ -155,6 +130,29 @@ function cargarPagina(page) {
             document.getElementById('contenedor').innerHTML = data;
         })
         .catch(error => console.error('Error al cargar la página:', error));
+}
+
+// Función para calcular el Pappi
+function calcularPappi() {
+    // Selecciona todas las filas dentro del <tbody> de la tabla con id 'tabla-asignaturas'
+    const filas = document.querySelectorAll('#tabla-asignaturas tbody tr');
+    let sumaCreditosNotas = 0;
+    let sumaCreditos = 0;
+
+    // Itera sobre cada fila para calcular el Pappi
+    filas.forEach(fila => {
+        // Obtiene el valor de créditos y notas y lo convierte a número flotante
+        const credito = parseFloat(fila.cells[2].innerText) || 0;
+        const nota = parseFloat(fila.cells[3].innerText) || 0;
+        // Suma los créditos multiplicados por las notas
+        sumaCreditosNotas += credito * nota;
+        // Suma los créditos
+        sumaCreditos += credito;
+    });
+
+    // Calcula el resultado de Pappi (promedio ponderado) y lo muestra
+    const resultado = sumaCreditos > 0 ? (sumaCreditosNotas / sumaCreditos).toFixed(2) : 'N/A';
+    document.getElementById('resultado-pappi').textContent = resultado;
 }
 
 // Cargar la página "pappi.html" al cargar la página principal
