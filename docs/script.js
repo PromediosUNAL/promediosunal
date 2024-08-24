@@ -1,5 +1,5 @@
-function agregarFila() {
-    const tabla = document.getElementById('tabla-asignaturas').getElementsByTagName('tbody')[0];
+function agregarFila(tablaId) {
+    const tabla = document.getElementById(tablaId).getElementsByTagName('tbody')[0];
     const nuevaFila = tabla.insertRow();
 
     // Crea la celda para el botón de eliminación
@@ -24,6 +24,42 @@ function agregarFila() {
 function eliminarFila(boton) {
     const fila = boton.parentElement.parentElement;
     fila.parentElement.removeChild(fila);
+}
+
+function calcularNotaNecesaria() {
+    const tabla = document.getElementById('tabla-asignaturas2').getElementsByTagName('tbody')[0];
+    let porcentajeActual = 0;
+    let sumaPonderada = 0;
+
+    // Itera sobre las filas de la tabla para calcular la suma de porcentajes y la suma ponderada de las notas
+    for (let i = 0; i < tabla.rows.length; i++) {
+        const porcentaje = parseFloat(tabla.rows[i].cells[2].innerText.replace(',', '.'));
+        const nota = parseFloat(tabla.rows[i].cells[3].innerText.replace(',', '.'));
+
+        if (!isNaN(porcentaje) && !isNaN(nota)) {
+            porcentajeActual += porcentaje;
+            sumaPonderada += (porcentaje * nota) / 100;
+        }
+    }
+
+    // Verifica si la suma de porcentajes supera o alcanza el 100%
+    if (porcentajeActual >= 100) {
+        document.getElementById('resultado-pappi').innerText = "La suma de porcentajes ya es 100% o más, no es posible calcular.";
+        return;
+    }
+
+    // Calcula el porcentaje restante
+    const porcentajeRestante = 100 - porcentajeActual;
+
+    // Calcula la nota necesaria para alcanzar un promedio de 3
+    const notaNecesaria = (3 - sumaPonderada) / (porcentajeRestante / 100);
+
+    // Actualiza el resultado
+    if (notaNecesaria >= 0 && notaNecesaria <= 5) {
+        document.getElementById('resultado-pappi').innerText = `Debes sacarte ${notaNecesaria.toFixed(2)} en el ${porcentajeRestante}% restante`;
+    } else {
+        document.getElementById('resultado-pappi').innerText = "No es posible alcanzar un promedio de 3 con los datos actuales.";
+    }
 }
 
 // Agrega el evento a todos los botones de eliminación al cargar la página

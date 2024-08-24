@@ -8,12 +8,12 @@
 
     <!-- Tabla de asignaturas -->
     <table id="tabla-asignaturas">
-        <caption>Calcular promedios</caption>
+        <caption>Calcular Promedio</caption>
         <thead>
         <tr>
             <th>Borrar</th>
             <th>Materia</th>
-            <th>porcentaje</th>
+            <th>Porcentaje</th>
             <th>Nota</th>
         </tr>
         </thead>
@@ -22,14 +22,14 @@
             <td>
                 <button class="delete-row" onclick="eliminarFila(this)">-</button>
             </td>
-            <td contenteditable="true">Asignatura 1</td>
-            <td contenteditable="true">3</td>
-            <td contenteditable="true">5,0</td>
+            <td contenteditable="true">Parcial 1</td>
+            <td contenteditable="true">20</td>
+            <td contenteditable="true">5.0</td>
         </tr>
         </tbody>
     </table>
     <div class="add-row">
-        <button onclick="agregarFila()">Agregar fila</button>
+        <button onclick="agregarFila('tabla-asignaturas')">Agregar fila</button>
     </div>
 
     <caption>
@@ -42,7 +42,7 @@
         <tr>
             <th>Borrar</th>
             <th>Materia</th>
-            <th>porcentaje</th>
+            <th>Porcentaje</th>
             <th>Nota</th>
         </tr>
         </thead>
@@ -51,16 +51,16 @@
             <td>
                 <button class="delete-row" onclick="eliminarFila(this)">-</button>
             </td>
-            <td contenteditable="true">Asignatura 1</td>
-            <td contenteditable="true">30</td>
-            <td contenteditable="true">?</td>
+            <td contenteditable="true">Parcial 1</td>
+            <td contenteditable="true">20</td>
+            <td contenteditable="true">5.0</td>
         </tr>
         </tbody>
 
     </table>
     <!-- Botón para agregar filas -->
     <div class="add-row">
-        <button id="agregar-fila-btn2" onclick="agregarFila2()" class="disabled" >Agregar fila</button>
+        <button id="agregar-fila-btn2" onclick="agregarFila('tabla-asignaturas2')" class="disabled" >Agregar fila</button>
     </div>
 
     <!-- Botones de cálculo -->
@@ -72,8 +72,8 @@
         </div>
 
         <div class="calculo-container">
-            <button id="calcular-pappi" onclick="calcularPappi()">Calcular Pappi</button>
-            <button id="calcular-pappi-necesario">Calcular nota necesaria</button>
+            <button id="calcular-pappi" onclick="calcularPappi()">Calcular Promedio</button>
+            <button id="calcular-pappi-necesario" onclick="calcularNotaNecesaria()">Calcular nota necesaria</button>
             <span id="resultado-pappi">Resultado</span>
         </div>
     </div>
@@ -94,5 +94,4 @@
 
         </div>
     </div>
-
 </div>
