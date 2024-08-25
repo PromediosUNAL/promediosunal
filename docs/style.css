@@ -71,7 +71,7 @@ header {
 
 /* Navegación principal */
 .main-nav {
-    background-color: #fdd7c9;
+    background-color: #ff8e6c;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -93,12 +93,12 @@ header {
     color: #ffffff;
     font-size: 1.2rem;
     font-weight: bold;
-    padding: 5px 15px;
+    padding: 3.75px 15px;
     transition: background-color 0.3s ease;
 }
 
 .main-nav a:hover {
-    background-color: #ff8e6c;
+    background-color: #da5832;
 }
 
 /* Footer styles */
@@ -131,7 +131,6 @@ main {
     justify-content: space-between;
     margin-bottom: 20px;
     position: relative;
-    border-bottom: outset;
 }
 
 .buscador input {
@@ -182,7 +181,6 @@ td[contenteditable] {
 }
 
 .add-row {
-
     display: flex;
     justify-content: flex-end;
     border-bottom: outset;
@@ -191,7 +189,6 @@ td[contenteditable] {
 }
 
 .add-row button {
-
     background-color: #4CAF50;
     color: white;
     border: none;
@@ -210,38 +207,70 @@ td[contenteditable] {
     margin-bottom: 20px;
 }
 
-
 /* Contenedor de cálculos */
 .calculo-container {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: baseline;
-}
-
-.copiar {
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 10px;
+    background-color: #ffffff; /* Fondo claro por defecto */
+    padding: 10px;
+    border-radius: 5px;
 }
 
-.calculo-container {
-    margin-bottom: 10px;
+/* Fondo negro para el modo oscuro */
+.dark-mode .calculo-container {
+    background-color: #121212; /* Fondo negro */
 }
 
-#calcular-pappi, #calcular-pappi-necesario {
-    background-color: #ccc;
-    color: white;
+/* Botones de calcular en ambos modos */
+#calcular-pappi,
+#calcular-pappi-necesario {
+    background-color: #cccccc; /* Fondo gris claro por defecto */
+    color: #000; /* Texto negro por defecto */
     border: none;
     padding: 10px;
     margin-right: 5px;
     cursor: pointer;
 }
 
-#calcular-pappi:hover {
-    background-color: #939393;
+#calcular-pappi:hover,
+#calcular-pappi-necesario:hover {
+    background-color: #999999; /* Fondo gris más oscuro en hover */
 }
 
-#calcular-pappi-necesario:hover {
-    background-color: #939393;
+/* Estilos específicos para el modo oscuro */
+.dark-mode #calcular-pappi,
+.dark-mode #calcular-pappi-necesario {
+    background-color: #333333; /* Fondo oscuro */
+    color: #ffffff; /* Texto blanco */
+}
+
+.dark-mode #calcular-pappi:hover,
+.dark-mode #calcular-pappi-necesario:hover {
+    background-color: #4e4e4e; /* Fondo más oscuro en hover */
+}
+
+/* Estilo para el resultado */
+#resultado-pappi {
+    padding: 10px;
+    background-color: #ffffff; /* Fondo blanco por defecto */
+    color: #000; /* Texto negro por defecto */
+    border: 1px solid #ddd; /* Borde gris claro por defecto */
+}
+
+/* Fondo negro para el resultado en modo oscuro */
+.dark-mode #resultado-pappi {
+    background-color: #2e2e2e; /* Fondo gris oscuro */
+    color: #ffffff; /* Texto blanco */
+    border: 1px solid #444444; /* Borde gris oscuro */
+}
+
+/* Alineación de los botones y resultado */
+.dark-mode .calculo-container #resultado-pappi {
+    margin-left: auto; /* Alinea el resultado a la derecha */
+    margin-right: 0;
 }
 
 /* Botones de copia */
@@ -257,7 +286,6 @@ td[contenteditable] {
 .copy-text:hover {
     background-color: #004c98;
 }
-
 
 /* Descripción de Pappi */
 .pappi-description {
@@ -308,7 +336,8 @@ td[contenteditable] {
     }
 
     .main-nav {
-
+        color: #ffffff;
+        background-color: transparent;
     }
 
     /* Buscadores uno sobre otro */
@@ -356,4 +385,233 @@ td[contenteditable] {
 .disabled {
     pointer-events: none;
     opacity: 0.3;
+}
+
+.buscador {
+    width: 100%;
+}
+
+#buscador-actividad {
+    width: 100%;
+    box-sizing: border-box; /* Asegura que padding y border no afecten el ancho total */
+}
+
+.copy-container {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Botón de modo oscuro */
+#dark-mode-toggle {
+    position: fixed; /* Fija el botón en la pantalla */
+    bottom: 20px; /* Distancia desde el fondo de la pantalla */
+    right: 20px; /* Distancia desde la derecha de la pantalla */
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#dark-mode-toggle:hover {
+    background-color: #555;
+}
+
+/* Estilos globales en modo oscuro */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+.dark-mode a {
+    color: #bb86fc;
+}
+
+.dark-mode a:hover {
+    color: #bb86fc;
+    text-decoration: underline;
+}
+
+/* Header styles en modo oscuro */
+.dark-mode header {
+    background-color: #1f1f1f;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .title-container h1 {
+    color: #e0e0e0;
+}
+
+.dark-mode .title-container p {
+    color: #bbbbbb;
+}
+
+/* Navegación principal en modo oscuro */
+.dark-mode .main-nav {
+    background-color: #2e2e2e;
+}
+
+.dark-mode .main-nav a {
+    color: #ffffff;
+    background-color: transparent;
+}
+
+.dark-mode .main-nav a:hover {
+    background-color: #3c3c3c;
+    text-decoration: none;
+}
+
+/* Footer styles en modo oscuro */
+.dark-mode footer {
+    background-color: #1f1f1f;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode footer p {
+    color: #bbbbbb;
+}
+
+.dark-mode .social-links a {
+    color: #007bff;
+}
+
+/* Tabla en modo oscuro */
+.dark-mode table {
+    background-color: #1f1f1f;
+}
+
+.dark-mode th {
+    background-color: #2e2e2e;
+    color: #e0e0e0;
+}
+
+.dark-mode td {
+    background-color: #2e2e2e;
+    color: #e0e0e0;
+}
+
+.dark-mode td[contenteditable] {
+    background-color: #4e4e4e;
+}
+
+/* Botones en modo oscuro */
+.dark-mode .delete-row {
+    background-color: #cf6679;
+}
+
+.dark-mode .delete-row:hover {
+    background-color: #b04b54;
+}
+
+.dark-mode .copy-text,
+.dark-mode #calcular-pappi,
+.dark-mode #calcular-pappi-necesario {
+    background-color: #333333;
+    color: #e0e0e0;
+}
+
+.dark-mode .copy-text:hover,
+.dark-mode #calcular-pappi:hover,
+.dark-mode #calcular-pappi-necesario:hover {
+    background-color: #4e4e4e;
+}
+
+.dark-mode .add-row button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.dark-mode .add-row button:hover {
+    background-color: #2e7031;
+}
+
+/* Contenedor de cálculos en modo oscuro */
+.dark-mode .calculo-container {
+    background-color: #121212;
+}
+
+/* Descripción de Pappi en modo oscuro */
+.dark-mode .pappi-description {
+    background-color: #2e2e2e;
+    color: #e0e0e0;
+}
+
+/* Botón de modo oscuro */
+#dark-mode-toggle {
+    position: fixed; /* Fija el botón en la pantalla */
+    bottom: 20px; /* Distancia desde el fondo de la pantalla */
+    right: 20px; /* Distancia desde la derecha de la pantalla */
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#dark-mode-toggle:hover {
+    background-color: #555;
+}
+
+/* Modo oscuro para pantallas pequeñas */
+@media (max-width: 768px) {
+    .dark-mode .title-container h1 {
+        color: #e0e0e0;
+    }
+
+    .dark-mode .title-container p {
+        color: #bbbbbb;
+    }
+
+    /* Otros ajustes se mantienen similares a los originales, pero con los colores adaptados */
+}
+
+/* Deshabilitar tabla en modo oscuro */
+.dark-mode .disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.dark-mode #resultado-pappi {
+    background-color: #2e2e2e; /* Fondo gris oscuro */
+    color: #ffffff; /* Texto blanco */
+    border-color: #444444; /* Opcional: color del borde para mayor contraste */
+}
+
+/* Estilo para los inputs de búsqueda en modo oscuro */
+.dark-mode .buscador input {
+    background-color: #777; /* Fondo gris claro */
+    color: #ffffff; /* Letras blancas */
+    border: 1px solid #000000; /* Borde más oscuro */
+}
+
+.dark-mode #buscador-actividad {
+    background-color: #777;
+    color: #ffffff;
+    border: 1px solid #777;
+}
+
+/* Estilo de los textos de previsualización (placeholders) en modo oscuro */
+.dark-mode ::placeholder {
+    color: #ffffff; /* Letras blancas */
+    opacity: 1; /* Asegura que el color sea completamente opaco */
+}
+
+/* Estilo específico para los input en modo oscuro */
+.dark-mode input::placeholder {
+    color: #ffffff; /* Letras blancas */
+    opacity: 1;
 }
