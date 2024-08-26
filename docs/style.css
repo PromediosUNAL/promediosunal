@@ -309,6 +309,10 @@ td[contenteditable] {
     background-color: #f2f2f2;
 }
 
+.mobile-math {
+    display: none;
+}
+
 /* Estilos para pantallas pequeñas */
 @media (max-width: 768px) {
     #title-logo {
@@ -379,6 +383,14 @@ td[contenteditable] {
         margin-right: 0;
         margin-bottom: 10px;
     }
+
+    .desktop-math {
+        display: none;
+    }
+
+    .mobile-math {
+        display: inherit;
+    }
 }
 
 .dark-mode .calculo-container span {
@@ -429,7 +441,7 @@ button:hover {
 /* Botón de modo oscuro */
 #dark-mode-toggle {
     position: fixed; /* Fija el botón en la pantalla */
-    bottom: 20px; /* Distancia desde el fondo de la pantalla */
+    bottom: 40px; /* Distancia desde el fondo de la pantalla */
     right: 20px; /* Distancia desde la derecha de la pantalla */
     background-color: #333;
     color: #fff;
@@ -439,9 +451,10 @@ button:hover {
     cursor: pointer;
 }
 
-#dark-mode-toggle:hover {
-    background-color: #555;
+.dark-mode #dark-mode-toggle:hover {
+    background-color: #c5c5c5;
 }
+
 
 /* Estilos globales en modo oscuro */
 body.dark-mode {

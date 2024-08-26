@@ -69,7 +69,7 @@
     <div class="tabla-buttons" class="disabled">
         <!-- Botón para agregar filas -->
         <div class="add-row">
-            <button onclick="agregarFila('tabla-asignaturas')" >Agregar fila</button>
+            <button onclick="agregarFila('tabla-asignaturas')">Agregar fila</button>
         </div>
         <div class="calculo-container">
             <button onclick="calcularPappi()">Calcular Pappi</button>
@@ -95,11 +95,23 @@
             evaluación.
         </p>
         <div class="minotacionmatematica4">
+            <div class="mobile-math">
+                <p>
+                    \(X = \text{Promedio ponderado}\)
+                    \(N = \text{Nota de la materia}\)
+                    \(P = \text{Porcentaje de la materia}\)
+                    \[X = \frac{\sum_{i=1}^{n}N{i} P{i}}{100}\]
+                    \[X = \frac{N_{1}P_{1}+N_{2}P_{2}+...+N_{n}P_{n}}{100}\]
+                </p>
+            </div>
+            <div class="desktop-math">
+                <p>
+                    \[Promedio = \frac{\sum_{1}^{n}Nota_{n}\cdot Porcentaje_{n}}{100}\]
 
-            <p>
-                \[x = {-x \pm \sqrt{a^3-5yz} \over 3a}\]
-            </p>
-
+                    \[Promedio = \frac{Nota_{1}\cdot Porcentaje_{1}+Nota_{2}\cdot Porcentaje_{2}+...Nota_{n}\cdot
+                    Porcentaje_{n}}{100}\]
+                </p>
+            </div>
         </div>
     </div>
 </div>
