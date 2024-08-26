@@ -321,7 +321,7 @@ td[contenteditable] {
     }
 
     .logo {
-        margin-right: 0px;
+        margin-right: 0;
     }
 
     .title-container {
@@ -390,6 +390,10 @@ td[contenteditable] {
     background-color: royalblue;
 }
 
+.calculo-container button:hover {
+    background-color: #2c4eb5;
+}
+
 /* Estilos para deshabilitar la tabla */
 .disabled {
     pointer-events: none;
@@ -419,7 +423,7 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #5a5a5a;
 }
 
 /* Botón de modo oscuro */
