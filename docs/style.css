@@ -381,7 +381,7 @@ td[contenteditable] {
     }
 }
 
-.dark-mode .calculo-container span{
+.dark-mode .calculo-container span {
     color: lightgray;
     background-color: #5b5b5b;
 }
@@ -474,7 +474,7 @@ body.dark-mode {
 
 /* Navegación principal en modo oscuro */
 .dark-mode .main-nav {
-    background-color: #2e2e2e;
+    background-color: midnightblue;
 }
 
 .dark-mode .main-nav a {
@@ -613,4 +613,9 @@ body.dark-mode {
 .dark-mode input::placeholder {
     color: #ffffff; /* Letras blancas */
     opacity: 1;
+}
+
+.dark-mode .logo {
+    filter: invert(.9
+    );
 }
