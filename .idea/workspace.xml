@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc93fc84-89b4-47d1-9cc9-6ee6f94a5747" name="Changes" comment="Arreglos de la ui">
+    <list default="true" id="bc93fc84-89b4-47d1-9cc9-6ee6f94a5747" name="Changes" comment="Update styles.css">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/pappi.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/pappi.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/docs/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/promedios.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/promedios.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +115,7 @@
       <workItem from="1724435155593" duration="10093000" />
       <workItem from="1724512254957" duration="126000" />
       <workItem from="1724633689024" duration="498000" />
-      <workItem from="1724634204556" duration="3953000" />
+      <workItem from="1724634204556" duration="6908000" />
     </task>
     <task id="LOCAL-00001" summary="creación de un JSON para almacenar las materias">
       <option name="closed" value="true" />
@@ -213,7 +213,23 @@
       <option name="project" value="LOCAL" />
       <updated>1724637731111</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Arreglos de la ui">
+      <option name="closed" value="true" />
+      <created>1724638707785</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1724638707785</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Update styles.css">
+      <option name="closed" value="true" />
+      <created>1724641254930</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1724641254930</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -243,6 +259,7 @@
     <MESSAGE value="agregar tablas para calcular nota necesaria :V" />
     <MESSAGE value="Sin querer habia jodido el botón de arreglar fila otra vez, jajja peldon" />
     <MESSAGE value="Arreglos de la ui" />
-    <option name="LAST_COMMIT_MESSAGE" value="Arreglos de la ui" />
+    <MESSAGE value="Update styles.css" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update styles.css" />
   </component>
 </project>

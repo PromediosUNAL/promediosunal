@@ -27,9 +27,17 @@
         </tr>
         </tbody>
     </table>
-    <div class="add-row">
-        <button onclick="agregarFila('tabla-asignaturas')">Agregar fila</button>
+    <div class="tabla-buttons">
+        <!-- Botón para agregar filas -->
+        <div class="add-row">
+            <button onclick="agregarFila('tabla-asignaturas')">Agregar fila</button>
+        </div>
+        <div class="calculo-container">
+            <button onclick="calcularPappi()">Calcular Pappi</button>
+            <span>Resultado</span>
+        </div>
     </div>
+
 
     <caption>
         Calcular notas necesarias
@@ -58,30 +66,31 @@
 
     </table>
     <!-- Botón para agregar filas -->
-    <div class="add-row">
-        <button id="agregar-fila-btn2" onclick="agregarFila('tabla-asignaturas2')" class="disabled" >Agregar fila</button>
-    </div>
-
-    <!-- Botones de cálculo -->
-    <div class="nose">
-        <!-- Botones de copiado -->
-        <div class="copiar">
-            <button class="copy-text" onclick="copiarTextoNotas()">Copiar tabla</button>
-            <button class="copy-text" onclick="copiarTextoNotas()">Copiar resultado</button>
+    <div class="tabla-buttons" class="disabled">
+        <!-- Botón para agregar filas -->
+        <div class="add-row">
+            <button onclick="agregarFila('tabla-asignaturas')" >Agregar fila</button>
         </div>
-
         <div class="calculo-container">
-            <button id="calcular-pappi" onclick="calcularPappi()">Calcular Promedio</button>
-            <button id="calcular-pappi-necesario" onclick="calcularNotaNecesaria()">Calcular nota necesaria</button>
-            <span id="resultado-pappi">Resultado</span>
+            <button onclick="calcularPappi()">Calcular Pappi</button>
+            <span>Resultado</span>
         </div>
     </div>
+
+    <!-- Botones de copiado -->
+    <div class="copiar">
+        <button class="copy-text" onclick="copiarTextoNotas()">Copiar tabla</button>
+        <button class="copy-text" onclick="copiarTextoNotas()">Copiar resultado</button>
+    </div>
+
 
     <!-- Descripción del P.A.P.P.I. -->
     <div class="pappi-description">
         <p>La fórmula del Promedio de Notas por Porcentaje es sencilla pero poderosa. Consiste en multiplicar la nota
-            obtenida en cada evaluación por el porcentaje correspondiente y sumar los resultados de todas las evaluaciones.
-            Luego, se divide esta suma total entre el total de porcentajes asignados para obtener el promedio ponderado. Con
+            obtenida en cada evaluación por el porcentaje correspondiente y sumar los resultados de todas las
+            evaluaciones.
+            Luego, se divide esta suma total entre el total de porcentajes asignados para obtener el promedio ponderado.
+            Con
             nuestra herramienta en línea, podrás ingresar fácilmente tus notas y los porcentajes asignados a cada
             evaluación.
         </p>
