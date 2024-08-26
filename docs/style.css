@@ -11,9 +11,6 @@ header {
     background-color: #f8f9fa;
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.header-container {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -71,7 +68,7 @@ header {
 
 /* Navegación principal */
 .main-nav {
-    background-color: #ff8e6c;
+    background-color: royalblue;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -155,7 +152,6 @@ table caption {
 }
 
 th, td {
-    border: 1px solid #ccc;
     padding: 10px;
     text-align: left;
 }
@@ -181,11 +177,6 @@ td[contenteditable] {
 }
 
 .add-row {
-    display: flex;
-    justify-content: flex-end;
-    border-bottom: outset;
-    padding-bottom: 30px;
-    margin-bottom: 20px;
 }
 
 .add-row button {
@@ -207,16 +198,32 @@ td[contenteditable] {
     margin-bottom: 20px;
 }
 
+.tabla-buttons {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: ridge;
+    margin-bottom: 40px;
+    padding-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.tabla-buttons button, .tabla-buttons span {
+    margin-bottom: 10px;
+}
+
 /* Contenedor de cálculos */
 .calculo-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
     background-color: #ffffff; /* Fondo claro por defecto */
-    padding: 10px;
     border-radius: 5px;
+}
+
+.calculo-container span {
+    background-color: #e8e8e8;
+    padding: 5px 15px;
 }
 
 /* Fondo negro para el modo oscuro */
@@ -273,19 +280,6 @@ td[contenteditable] {
     margin-right: 0;
 }
 
-/* Botones de copia */
-.copy-text {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px;
-    margin-right: 5px;
-    cursor: pointer;
-}
-
-.copy-text:hover {
-    background-color: #004c98;
-}
 
 /* Descripción de Pappi */
 .pappi-description {
@@ -322,6 +316,10 @@ td[contenteditable] {
         align-items: center;
     }
 
+    header {
+        flex-direction: column;
+    }
+
     .logo {
         margin-right: 0px;
     }
@@ -333,11 +331,6 @@ td[contenteditable] {
     /* Header: eliminar link en teléfonos */
     .social-links {
         display: none;
-    }
-
-    .main-nav {
-        color: #ffffff;
-        background-color: transparent;
     }
 
     /* Buscadores uno sobre otro */
@@ -358,6 +351,12 @@ td[contenteditable] {
         justify-content: center;
     }
 
+    .add-row {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
     .calculo-container {
         display: flex;
         flex-direction: column;
@@ -373,12 +372,22 @@ td[contenteditable] {
 
     .copiar button {
         margin-bottom: 10px;
+        background-color: darkgray;
     }
 
     .calculo-container button {
         margin-right: 0;
         margin-bottom: 10px;
     }
+}
+
+.dark-mode .calculo-container span{
+    color: lightgray;
+    background-color: #5b5b5b;
+}
+
+.calculo-container button {
+    background-color: royalblue;
 }
 
 /* Estilos para deshabilitar la tabla */
@@ -402,7 +411,7 @@ td[contenteditable] {
 }
 
 button {
-    background-color: #007bff;
+    background-color: darkgray;
     color: white;
     border: none;
     padding: 10px 15px;
@@ -529,14 +538,6 @@ body.dark-mode {
     background-color: #4e4e4e;
 }
 
-.dark-mode .add-row button {
-    background-color: #4CAF50;
-    color: white;
-}
-
-.dark-mode .add-row button:hover {
-    background-color: #2e7031;
-}
 
 /* Contenedor de cálculos en modo oscuro */
 .dark-mode .calculo-container {
@@ -583,12 +584,6 @@ body.dark-mode {
 .dark-mode .disabled {
     pointer-events: none;
     opacity: 0.5;
-}
-
-.dark-mode #resultado-pappi {
-    background-color: #2e2e2e; /* Fondo gris oscuro */
-    color: #ffffff; /* Texto blanco */
-    border-color: #444444; /* Opcional: color del borde para mayor contraste */
 }
 
 /* Estilo para los inputs de búsqueda en modo oscuro */

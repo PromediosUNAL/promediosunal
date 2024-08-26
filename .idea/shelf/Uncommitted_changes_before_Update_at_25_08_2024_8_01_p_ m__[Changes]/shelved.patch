@@ -1,0 +1,103 @@
+Index: docs/promedios.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><div id=\"Calculadora-promedios\">\r\n    <!-- Buscadores -->\r\n    <div class=\"buscador\">\r\n        <input type=\"text\" id=\"buscador-carrera\" placeholder=\"Buscar carrera\">\r\n        <div id=\"suggestions\" class=\"autocomplete-suggestions\"></div>\r\n        <input type=\"text\" id=\"buscador-asignatura\" placeholder=\"Buscar asignatura\">\r\n    </div>\r\n\r\n    <!-- Tabla de asignaturas -->\r\n    <table id=\"tabla-asignaturas\">\r\n        <caption>Calcular promedios</caption>\r\n        <thead>\r\n        <tr>\r\n            <th>Borrar</th>\r\n            <th>Materia</th>\r\n            <th>porcentaje</th>\r\n            <th>Nota</th>\r\n        </tr>\r\n        </thead>\r\n        <tbody>\r\n        <tr>\r\n            <td>\r\n                <button class=\"delete-row\" onclick=\"eliminarFila(this)\">-</button>\r\n            </td>\r\n            <td contenteditable=\"true\">Asignatura 1</td>\r\n            <td contenteditable=\"true\">3</td>\r\n            <td contenteditable=\"true\">5,0</td>\r\n        </tr>\r\n        </tbody>\r\n    </table>\r\n    <div class=\"add-row\">\r\n        <button onclick=\"agregarFila()\">Agregar fila</button>\r\n    </div>\r\n\r\n    <caption>\r\n        Calcular notas necesarias\r\n        <input type=\"checkbox\" id=\"calcularNotas\" onclick=\"toggleTablaYBoton()\">\r\n    </caption>\r\n    <!-- Tabla para calcular notas necesarias -->\r\n    <table id=\"tabla-asignaturas2\" class=\"disabled\">\r\n        <thead>\r\n        <tr>\r\n            <th>Borrar</th>\r\n            <th>Materia</th>\r\n            <th>porcentaje</th>\r\n            <th>Nota</th>\r\n        </tr>\r\n        </thead>\r\n        <tbody>\r\n        <tr>\r\n            <td>\r\n                <button class=\"delete-row\" onclick=\"eliminarFila(this)\">-</button>\r\n            </td>\r\n            <td contenteditable=\"true\">Asignatura 1</td>\r\n            <td contenteditable=\"true\">30</td>\r\n            <td contenteditable=\"true\">?</td>\r\n        </tr>\r\n        </tbody>\r\n\r\n    </table>\r\n    <!-- Botón para agregar filas -->\r\n    <div class=\"add-row\">\r\n        <button id=\"agregar-fila-btn2\" onclick=\"agregarFila2()\" class=\"disabled\" >Agregar fila</button>\r\n    </div>\r\n\r\n    <!-- Botones de cálculo -->\r\n    <div class=\"nose\">\r\n        <!-- Botones de copiado -->\r\n        <div class=\"copiar\">\r\n            <button class=\"copy-text\" onclick=\"copiarTextoNotas()\">Copiar tabla</button>\r\n            <button class=\"copy-text\" onclick=\"copiarTextoNotas()\">Copiar resultado</button>\r\n        </div>\r\n\r\n        <div class=\"calculo-container\">\r\n            <button id=\"calcular-pappi\" onclick=\"calcularPappi()\">Calcular Pappi</button>\r\n            <button id=\"calcular-pappi-necesario\">Calcular nota necesaria</button>\r\n            <span id=\"resultado-pappi\">Resultado</span>\r\n        </div>\r\n    </div>\r\n\r\n    <!-- Descripción del P.A.P.P.I. -->\r\n    <div class=\"pappi-description\">\r\n        <p>La fórmula del Promedio de Notas por Porcentaje es sencilla pero poderosa. Consiste en multiplicar la nota\r\n            obtenida en cada evaluación por el porcentaje correspondiente y sumar los resultados de todas las evaluaciones.\r\n            Luego, se divide esta suma total entre el total de porcentajes asignados para obtener el promedio ponderado. Con\r\n            nuestra herramienta en línea, podrás ingresar fácilmente tus notas y los porcentajes asignados a cada\r\n            evaluación.\r\n        </p>\r\n        <div class=\"minotacionmatematica4\">\r\n\r\n            <p>\r\n                \\[x = {-x \\pm \\sqrt{a^3-5yz} \\over 3a}\\]\r\n            </p>\r\n\r\n        </div>\r\n    </div>\r\n\r\n</div>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/docs/promedios.html b/docs/promedios.html
+--- a/docs/promedios.html	(revision ababcb8ac387507c1ff39430af01a6adf3fd8b76)
++++ b/docs/promedios.html	(date 1724634026277)
+@@ -5,7 +5,6 @@
+         <div id="suggestions" class="autocomplete-suggestions"></div>
+         <input type="text" id="buscador-asignatura" placeholder="Buscar asignatura">
+     </div>
+-
+     <!-- Tabla de asignaturas -->
+     <table id="tabla-asignaturas">
+         <caption>Calcular promedios</caption>
+@@ -28,16 +27,23 @@
+         </tr>
+         </tbody>
+     </table>
+-    <div class="add-row">
+-        <button onclick="agregarFila()">Agregar fila</button>
++    <div>
++        <!-- Botón para agregar filas -->
++        <div class="add-row">
++            <button id="agregar-fila-btn" onclick="agregarFila()" class="disabled">Agregar fila</button>
++        </div>
++        <!-- Botones de cálculo -->
++        <div class="calculo-container">
++            <button id="calcular-pappi" onclick="calcularPappi()">Calcular Pappi</button>
++            <span class="resultado-pappi">Resultado</span>
++        </div>
+     </div>
+-
+-    <caption>
+-        Calcular notas necesarias
+-        <input type="checkbox" id="calcularNotas" onclick="toggleTablaYBoton()">
+-    </caption>
+-    <!-- Tabla para calcular notas necesarias -->
+-    <table id="tabla-asignaturas2" class="disabled">
++    <!-- Tabla para calcular notas necesarias -->
++    <table id="tabla-asignaturas2" class="disabled">
++        <caption>
++            Calcular notas necesarias
++            <input type="checkbox" id="calcularNotas" onclick="toggleTablaYBoton()">
++        </caption>
+         <thead>
+         <tr>
+             <th>Borrar</th>
+@@ -58,31 +64,31 @@
+         </tbody>
+ 
+     </table>
+-    <!-- Botón para agregar filas -->
+-    <div class="add-row">
+-        <button id="agregar-fila-btn2" onclick="agregarFila2()" class="disabled" >Agregar fila</button>
+-    </div>
+-
+-    <!-- Botones de cálculo -->
+-    <div class="nose">
+-        <!-- Botones de copiado -->
+-        <div class="copiar">
+-            <button class="copy-text" onclick="copiarTextoNotas()">Copiar tabla</button>
+-            <button class="copy-text" onclick="copiarTextoNotas()">Copiar resultado</button>
+-        </div>
+-
+-        <div class="calculo-container">
+-            <button id="calcular-pappi" onclick="calcularPappi()">Calcular Pappi</button>
+-            <button id="calcular-pappi-necesario">Calcular nota necesaria</button>
+-            <span id="resultado-pappi">Resultado</span>
+-        </div>
++    <div>
++        <!-- Botón para agregar filas -->
++        <div class="add-row">
++            <button id="agregar-fila-btn2" onclick="agregarFila2()" class="disabled">Agregar fila</button>
++        </div>
++        <!-- Botones de cálculo -->
++        <div class="calculo-container">
++            <button class="calcular-pappi-necesario">Calcular nota necesaria</button>
++            <span class="resultado-pappi">Resultado</span>
++        </div>
++    </div>
++
++    <!-- Botones de copiado -->
++    <div class="copiar">
++        <button class="copy-text" onclick="copiarTextoNotas()">Copiar tabla</button>
++        <button class="copy-text" onclick="copiarTextoNotas()">Copiar resultado</button>
+     </div>
+ 
+     <!-- Descripción del P.A.P.P.I. -->
+     <div class="pappi-description">
+         <p>La fórmula del Promedio de Notas por Porcentaje es sencilla pero poderosa. Consiste en multiplicar la nota
+-            obtenida en cada evaluación por el porcentaje correspondiente y sumar los resultados de todas las evaluaciones.
+-            Luego, se divide esta suma total entre el total de porcentajes asignados para obtener el promedio ponderado. Con
++            obtenida en cada evaluación por el porcentaje correspondiente y sumar los resultados de todas las
++            evaluaciones.
++            Luego, se divide esta suma total entre el total de porcentajes asignados para obtener el promedio ponderado.
++            Con
+             nuestra herramienta en línea, podrás ingresar fácilmente tus notas y los porcentajes asignados a cada
+             evaluación.
+         </p>
