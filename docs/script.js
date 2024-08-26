@@ -271,3 +271,81 @@ toggle.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
 });
 
+// Función para buscar materias
+function buscarMaterias() {
+    const carrera = document.getElementById('carreraSelect').value;
+    const busqueda = document.getElementById('buscador').value.toLowerCase();
+    const metodologia = document.getElementById('metodologiaSelect').value;
+
+    fetch('materias.json')
+        .then(response => response.json())
+        .then(data => {
+            const sugerencias = data.filter(materia => {
+                return (materia.codigo.toLowerCase().includes(busqueda) || materia.nombre.toLowerCase().includes(busqueda)) &&
+                    (carrera === "" || materia.carrera === carrera) &&
+                    (metodologia === "" || materia.metodologia === metodologia);
+            });
+
+            // Mostrar las sugerencias en una lista
+            const sugerenciasDiv = document.getElementById('suggestions');
+            sugerenciasDiv.innerHTML = '';
+            const listaSugerencias = document.createElement('ul');
+            sugerencias.forEach(materia => {
+                const li = document.createElement('li');
+                li.textContent = materia.nombre;
+                // Agregar un evento para seleccionar la sugerencia
+                li.addEventListener('click', () => {
+                    agregarMateriaATabla(materia);
+                    sugerenciasDiv.innerHTML = '';
+                    document.getElementById('buscador').value = materia.nombre;
+                });
+                listaSugerencias.appendChild(li);
+            });
+            sugerenciasDiv.appendChild(listaSugerencias);
+        });
+}
+
+// Función para agregar la materia seleccionada a la tabla
+function agregarMateriaATabla(materia) {
+    const tabla = document.getElementById('tabla-asignaturas').getElementsByTagName('tbody')[0];
+    const nuevaFila = tabla.insertRow();
+
+    // Botón para borrar la fila
+    const celdaBorrar = nuevaFila.insertCell(0);
+    const botonBorrar = document.createElement('button');
+    botonBorrar.textContent = '-';
+    botonBorrar.className = 'delete-row';
+    botonBorrar.onclick = function() { eliminarFila(this); };
+    celdaBorrar.appendChild(botonBorrar);
+
+    // Celda para el nombre de la materia
+    const celdaMateria = nuevaFila.insertCell(1);
+    celdaMateria.textContent = materia.nombre;
+    celdaMateria.contentEditable = "true";
+
+    // Celda para los créditos de la materia
+    const celdaCreditos = nuevaFila.insertCell(2);
+    celdaCreditos.textContent = "3"; // Aquí podrías agregar un valor dinámico si tienes la información
+    celdaCreditos.contentEditable = "true";
+
+    // Celda para la nota
+    const celdaNota = nuevaFila.insertCell(3);
+    celdaNota.textContent = "5.0"; // Aquí podrías agregar un valor dinámico si tienes la información
+    celdaNota.contentEditable = "true";
+}
+
+// Función para eliminar una fila de la tabla
+function eliminarFila(boton) {
+    const fila = boton.parentNode.parentNode;
+    fila.parentNode.removeChild(fila);
+}
+
+// Llenar dinámicamente las opciones de carrera
+const carreras = ['Ingeniería en Sistemas', 'Física', 'Matemáticas'];
+const carreraSelect = document.getElementById('carreraSelect');
+carreras.forEach(carrera => {
+    const option = document.createElement('option');
+    option.value = carrera;
+    option.textContent = carrera;
+    carreraSelect.appendChild(option);
+});

@@ -1,55 +1,20 @@
-{
-  "carreras": [
-    {
-      "nombre": "Ingeniería en Software",
-      "materias": [
-        {
-          "nombre": "Programación Orientada a Objetos",
-          "creditos": 4
-        },
-        {
-          "nombre": "Bases de Datos",
-          "creditos": 3
-        },
-        {
-          "nombre": "Estructuras de Datos",
-          "creditos": 3
-        }
-      ]
-    },
-    {
-      "nombre": "Ingeniería Civil",
-      "materias": [
-        {
-          "nombre": "Mecánica de Suelos",
-          "creditos": 4
-        },
-        {
-          "nombre": "Resistencia de Materiales",
-          "creditos": 3
-        },
-        {
-          "nombre": "Cálculo Diferencial",
-          "creditos": 2
-        }
-      ]
-    },
-    {
-      "nombre": "Administración de Empresas",
-      "materias": [
-        {
-          "nombre": "Contabilidad Financiera",
-          "creditos": 3
-        },
-        {
-          "nombre": "Economía",
-          "creditos": 3
-        },
-        {
-          "nombre": "Gestión de Recursos Humanos",
-          "creditos": 4
-        }
-      ]
-    }
-  ]
-}
+[
+  {
+    "codigo": "MAT101",
+    "carrera": "Ingeniería en Sistemas",
+    "nombre": "Cálculo I",
+    "metodologia": "Fundamentación"
+  },
+  {
+    "codigo": "FIS102",
+    "carrera": "Física",
+    "nombre": "Mecánica Clásica",
+    "metodologia": "Nivelación"
+  },
+  {
+    "codigo": "FIS102",
+    "carrera": "Física",
+    "nombre": "Cuantica",
+    "metodologia": "Nivelación"
+  }
+]

@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bc93fc84-89b4-47d1-9cc9-6ee6f94a5747" name="Changes" comment="que pereza mamawebo, ya va a ser media noche">
+      <change afterPath="$PROJECT_DIR$/docs/actividades.JSON" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/materias.JSON" beforeDir="false" afterPath="$PROJECT_DIR$/docs/materias.JSON" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/pappi.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/pappi.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/promedios.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/promedios.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/docs/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,24 +63,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Usuario/Documents/GitHub/promediosunal",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "Errors",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Usuario/Documents/GitHub/promediosunal&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="promediosunal" />
@@ -113,7 +119,8 @@
       <workItem from="1724435155593" duration="10093000" />
       <workItem from="1724512254957" duration="126000" />
       <workItem from="1724633689024" duration="498000" />
-      <workItem from="1724634204556" duration="11809000" />
+      <workItem from="1724634204556" duration="13415000" />
+      <workItem from="1724682290519" duration="4688000" />
     </task>
     <task id="LOCAL-00001" summary="creación de un JSON para almacenar las materias">
       <option name="closed" value="true" />
@@ -243,7 +250,23 @@
       <option name="project" value="LOCAL" />
       <updated>1724646390443</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="que pereza mamawebo, ya va a ser media noche">
+      <option name="closed" value="true" />
+      <created>1724646768040</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1724646768040</updated>
+    </task>
+    <task id="LOCAL-00018" summary="que pereza mamawebo, ya va a ser media noche">
+      <option name="closed" value="true" />
+      <created>1724646796430</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1724646796430</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

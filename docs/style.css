@@ -632,3 +632,77 @@ body.dark-mode {
     filter: invert(.9
     );
 }
+
+
+/* Estilos generales */
+.buscador {
+    position: relative;
+    margin: 0 auto;
+}
+
+#buscador {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+#suggestions {
+    position: absolute;
+    top: 100%;
+    left: 160px;
+    right: 190px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-top: none;
+    z-index: 1000;
+    max-height: 200px;
+    overflow-y: auto;
+    max-width: 500px;
+}
+
+#suggestions ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#suggestions li {
+    padding: 8px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+}
+
+#suggestions li:hover {
+    background-color: #f0f0f0;
+}
+
+/* Estilo para la tabla */
+#tabla-asignaturas {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#tabla-asignaturas th, #tabla-asignaturas td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#tabla-asignaturas th {
+    background-color: #f2f2f2;
+    text-align: left;
+}
+
+.delete-row {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.delete-row:hover {
+    background-color: #ff1a1a;
+}
+

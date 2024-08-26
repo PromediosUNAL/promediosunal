@@ -1,11 +1,20 @@
 <div id="Calculadora-pappi">
+
     <!-- Buscadores -->
     <div class="buscador">
-        <input type="text" id="buscador-carrera" placeholder="Buscar carrera">
+        <select id="carreraSelect">
+            <option value="Física">Física</option>
+            <option value="Ingeniería en Sistemas">Ingeniería en Sistemas</option>
+        </select>
+        <input type="text" id="buscador" placeholder="Buscar por ID o nombre" oninput="buscarMaterias()">
         <div id="suggestions" class="autocomplete-suggestions"></div>
-        <input type="text" id="buscador-asignatura" placeholder="Buscar asignatura">
+        <select id="metodologiaSelect">
+            <option value="">Selecciona una metodología</option>
+            <option value="Nivelación">Nivelación</option>
+            <option value="Fundamentación">Fundamentación</option>
+            <option value="Disciplinar">Disciplinar</option>
+        </select>
     </div>
-
 
     <!-- Tabla de asignaturas -->
     <table id="tabla-asignaturas">
@@ -29,6 +38,7 @@
         </tr>
         </tbody>
     </table>
+
     <div class="tabla-buttons">
         <!-- Botón para agregar filas -->
         <div class="add-row">
@@ -61,7 +71,13 @@
             </td>
             <td contenteditable="true">Asignatura 1</td>
             <td contenteditable="true">3</td>
-            <td contenteditable="true">5.0</td>
+            <td contenteditable="false">?</td>
+        </tr>
+        <tr>
+            <td contenteditable="false"></td>
+            <td contenteditable="false"></td>
+            <td contenteditable="false">PAPPI deseado</td>
+            <td contenteditable="true">3</td>
         </tr>
         </tbody>
 
@@ -96,6 +112,7 @@
                     \(N = \text{Nota de la materia}\)
                     \[X = \frac{\sum_{i=1}^{n}C{i} N{i}}{\sum_{i=1}^{n}C{i}}\]
                     \[X = \frac{C_{1}N_{1}+C_{2}N_{2}+...+C_{n}N_{n}}{C{1}+C{2}+...+C{n}}\]
+                </p>
             </div>
 
             <div class="desktop-math">
