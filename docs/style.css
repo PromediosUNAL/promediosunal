@@ -693,6 +693,24 @@ body.dark-mode {
     text-align: left;
 }
 
+/* Estilo para la tabla en modo oscuro */
+.dark-mode #tabla-asignaturas {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.dark-mode #tabla-asignaturas th, .dark-mode #tabla-asignaturas td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.dark-mode #tabla-asignaturas th {
+    background-color: #333; /* Fondo gris oscuro */
+    color: #fff; /* Color del texto blanco */
+    text-align: left;
+}
+
 .delete-row {
     background-color: #ff4d4d;
     color: white;
