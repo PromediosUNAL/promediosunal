@@ -1,8 +1,14 @@
 <div id="Calculadora-promedios">
     <!-- Buscadores -->
     <div class="buscador">
-        <input type="text" id="buscador-actividad" placeholder="Buscar actividad">
-        <div id="suggestions" class="autocomplete-suggestions"></div>
+        <select id="actividadesSelect">
+            <option value="Parcial">Parcial</option>
+            <option value="Tarea">Tarea</option>
+            <option value="Laboratorio">Laboratorio</option>
+            <option value="Proyecto">Proyecto</option>
+            <option value="Quiz">Quiz</option>
+            <option value="Taller">Taller</option>
+        </select>
     </div>
 
     <!-- Tabla de asignaturas -->
@@ -11,7 +17,7 @@
         <thead>
         <tr>
             <th>Borrar</th>
-            <th>Materia</th>
+            <th>Actividad</th>
             <th>Porcentaje</th>
             <th>Nota</th>
         </tr>
@@ -21,7 +27,7 @@
             <td>
                 <button class="delete-row" onclick="eliminarFila(this)">-</button>
             </td>
-            <td contenteditable="true">Parcial 1</td>
+            <td contenteditable="true">Parcial</td>
             <td contenteditable="true">20</td>
             <td contenteditable="true">5.0</td>
         </tr>
@@ -30,11 +36,11 @@
     <div class="tabla-buttons">
         <!-- Botón para agregar filas -->
         <div class="add-row">
-            <button onclick="agregarFila('tabla-asignaturas')">Agregar fila</button>
+            <button onclick="agregarFila('tabla-asignaturas', 'Parcial', '20', '5.0')">Agregar fila</button>
         </div>
         <div class="calculo-container">
             <button onclick="calcularPappi()">Calcular Promedio</button>
-            <span>Resultado</span>
+            <span id="resultado-pappi-total">Resultado</span>
         </div>
     </div>
 
@@ -48,7 +54,7 @@
         <thead>
         <tr>
             <th>Borrar</th>
-            <th>Materia</th>
+            <th>Actividad</th>
             <th>Porcentaje</th>
             <th>Nota</th>
         </tr>
@@ -58,9 +64,9 @@
             <td>
                 <button class="delete-row" onclick="eliminarFila(this)">-</button>
             </td>
-            <td contenteditable="true">Parcial 1</td>
+            <td contenteditable="true">Parcial</td>
             <td contenteditable="true">20</td>
-            <td contenteditable="false">?</td>
+            <td contenteditable="false"></td>
         </tr>
         </tbody>
 
@@ -69,11 +75,11 @@
     <div class="tabla-buttons" class="disabled">
         <!-- Botón para agregar filas -->
         <div class="add-row">
-            <button onclick="agregarFila('tabla-asignaturas')">Agregar fila</button>
+            <button onclick="agregarFila('tabla-asignaturas2', 'Parcial', '20', '')">Agregar fila</button>
         </div>
         <div class="calculo-container">
-            <button onclick="calcularPappi()">Calcular Pappi</button>
-            <span>Resultado</span>
+            <button onclick="calcularNotaNecesaria()">Calcular notas necesarias</button>
+            <span id="resultado-pappi-necesario">Resultado</span>
         </div>
     </div>
 

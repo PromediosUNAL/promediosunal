@@ -122,14 +122,6 @@ main {
     padding: 20px;
 }
 
-/* Buscador */
-.buscador {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    position: relative;
-}
-
 .buscador input {
     width: 48%;
     padding: 10px;
@@ -414,6 +406,10 @@ td[contenteditable] {
 
 .buscador {
     width: 100%;
+    position: relative;
+    margin: 0 auto 20px auto; /* Combina los márgenes */
+    display: flex;
+    justify-content: space-between;
 }
 
 #buscador-actividad {
@@ -633,13 +629,6 @@ body.dark-mode {
     );
 }
 
-
-/* Estilos generales */
-.buscador {
-    position: relative;
-    margin: 0 auto;
-}
-
 #buscador {
     width: 100%;
     padding: 8px;
@@ -724,3 +713,12 @@ body.dark-mode {
     background-color: #ff1a1a;
 }
 
+.buscador {
+    width: 100%; /* Ocupa todo el ancho de pantalla */
+}
+
+.buscador select {
+    width: 100%; /* Ocupa todo el ancho de pantalla */
+    box-sizing: border-box; /* Ajusta el ancho para incluir padding y border */
+    padding: 10px; /* Agrega un padding para que no se vea tan ajustado */
+}
