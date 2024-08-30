@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc93fc84-89b4-47d1-9cc9-6ee6f94a5747" name="Changes" comment="UwU">
+    <list default="true" id="bc93fc84-89b4-47d1-9cc9-6ee6f94a5747" name="Changes" comment="OwO">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/pappi.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/pappi.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/promedios.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/promedios.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/sobre.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/sobre.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/docs/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -121,7 +117,7 @@
       <workItem from="1724634204556" duration="13415000" />
       <workItem from="1724682290519" duration="4798000" />
       <workItem from="1724795850169" duration="7179000" />
-      <workItem from="1725035851483" duration="6381000" />
+      <workItem from="1725035851483" duration="7949000" />
     </task>
     <task id="LOCAL-00001" summary="creación de un JSON para almacenar las materias">
       <option name="closed" value="true" />
@@ -291,7 +287,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725037199407</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="OwO">
+      <option name="closed" value="true" />
+      <created>1725042318203</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1725042318203</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -326,6 +330,7 @@
     <MESSAGE value="que pereza mamawebo, ya va a ser media noche" />
     <MESSAGE value="mamawebo no le metamos mas al css v:" />
     <MESSAGE value="UwU" />
-    <option name="LAST_COMMIT_MESSAGE" value="UwU" />
+    <MESSAGE value="OwO" />
+    <option name="LAST_COMMIT_MESSAGE" value="OwO" />
   </component>
 </project>

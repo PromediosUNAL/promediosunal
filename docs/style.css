@@ -113,7 +113,7 @@ body {
     margin-top: 10px;
 }
 
-.calculadora-pappi{
+.calculadora-pappi {
     display: flex;
     justify-content: center;
 }
@@ -175,9 +175,6 @@ body {
     background-color: #f9f9f9;
 }
 
-.tabla__row {
-    border-bottom: 1px solid #ddd;
-}
 
 .tabla__header {
     padding: 10px;
@@ -237,7 +234,7 @@ body {
     background-color: #f39c12;
     color: white;
     border: none;
-    border-radius: 5px 0   0 5px;
+    border-radius: 5px 0 0 5px;
     cursor: pointer;
 }
 
@@ -254,10 +251,10 @@ body {
     display: none;
 }
 
-.sobre-description{
+.sobre-description {
     background-color: white;
     padding: 15px;
-    margin:15px ;
+    margin: 15px;
     border-radius: 15px;
 }
 
@@ -267,7 +264,6 @@ body {
 }
 
 /* Dark Mode */
-
 .dark-mode-toggle {
     position: fixed;
     right: 20px;
@@ -281,23 +277,81 @@ body {
 }
 
 body.dark-mode {
-    background-color: #181818;
+    background-color: #4e4e4e;
+}
+
+body.dark-mode .calculadora-pappi__sub {
+    background-color: #303030;
     color: #e0e0e0;
 }
 
+body.dark-mode .buscador {
+    background-color: #303030;
+    color: #e0e0e0;
+    border: 1px solid #444;
+}
+
 body.dark-mode .header,
-body.dark-mode .footer,
+body.dark-mode .footer {
+    background-color: #272727;
+}
+
 body.dark-mode .main-nav {
-    background-color: #1c1c1c;
+    background-color: #424242;
 }
 
 body.dark-mode .tabla__head {
     background-color: #2c2c2c;
 }
 
-body.dark-mode .tabla__body {
+
+body.dark-mode .tabla {
     background-color: #1c1c1c;
 }
+
+body.dark-mode .tabla__header {
+    background-color: #1c1c1c;
+}
+
+body.dark-mode .tabla__body .tabla__row {
+    background-color: #1c1c1c;
+}
+
+
+body.dark-mode .tabla__body td {
+    background-color: #1c1c1c;
+}
+
+body.dark-mode .calculo-container {
+    background-color: #1c1c1c;
+}
+
+body.dark-mode .add-row__button {
+    background-color: #44bf49;
+}
+body.dark-mode .delete-row {
+    background-color: #aa0000;
+}
+
+body.dark-mode .copy-container__button {
+    background-color: #2078cf;
+}
+
+body.dark-mode .calculo-container__button {
+    background-color: #e36a16;
+}
+
+
+body.dark-mode .sobre-description{
+    background-color: #272727;
+    color: white;
+}
+
+
+body.dark-mode a{
+    color: #7cbcff;
+}
+
 
 body.dark-mode .footer__dark-mode-toggle {
     color: #e0e0e0;
@@ -334,12 +388,13 @@ body.dark-mode .footer__dark-mode-toggle {
         display: none;
     }
 
-    .calculadora-pappi{
+    .calculadora-pappi {
         display: flex;
         flex-direction: column;
         margin: 30px 2px;
         justify-content: center;
     }
+
     /* Calculadora Pappi */
     .calculadora-pappi__sub {
         margin: 30px 5px;
