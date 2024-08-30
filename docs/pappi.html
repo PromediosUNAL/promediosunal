@@ -1,155 +1,113 @@
-<div id="Calculadora-pappi">
-
-    <div class="buscador-container">
-        <input type="text" id="buscador" placeholder="Buscar por ID o nombre" oninput="buscarMaterias()">
-        <div id="suggestions" class="autocomplete-suggestions"></div>
-        <div class="add-row">
-            <button onclick="agregarFila('tabla-asignaturas', 'Asignatura', '3', '5.0')">Agregar fila</button>
-        </div>
-    </div>
-
-    <table id="tabla-asignaturas">
-        <caption>Calcular Pappi</caption>
-        <thead>
-        <tr>
-            <th>Borrar</th>
-            <th>Materia</th>
-            <th>Créditos</th>
-            <th>Nota</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>
-                <button class="delete-row" onclick="eliminarFila(this)">-</button>
-            </td>
-            <td contenteditable="true">Asignatura</td>
-            <td contenteditable="true">3</td>
-            <td contenteditable="true">5.0</td>
-        </tr>
-        </tbody>
-    </table>
-
-    <div class="tabla-buttons">
-
-        <!-- Botones de copiado -->
-        <div class="copiar">
-            <button class="copy-text" onclick="copiarTextoNotas()">Copiar tabla</button>
-            <button class="copy-text" onclick="copiarTextoNotas()">Copiar resultado</button>
+<div id="calculadora-pappi" class="calculadora-pappi">
+    <div class="calculadora-pappi__sub">
+        <div class="calculadora-pappi__buscador-container">
+            <input type="text" id="buscador" class="buscador" placeholder="Buscar por ID o nombre"
+                   oninput="buscarMaterias()">
+            <div id="suggestions" class="autocomplete-suggestions"></div>
+            <div class="add-row">
+                <button class="add-row__button" onclick="agregarFila('tabla-asignaturas', 'Asignatura', '3', '5.0')">
+                    Agregar
+                    fila
+                </button>
+            </div>
         </div>
 
-        <!-- Botón para agregar filas -->
-        <div class="calculo-container">
-            <button onclick="calcularPappi()">Calcular Pappi</button>
-            <span id="resultado-pappi-total">Resultado</span>
-        </div>
+        <table id="tabla-asignaturas" class="tabla">
+            <caption class="tabla__caption">Calcular Pappi</caption>
+            <thead class="tabla__head">
+            <tr class="tabla__row">
+                <th class="tabla__header">Borrar</th>
+                <th class="tabla__header">Materia</th>
+                <th class="tabla__header">Créditos</th>
+                <th class="tabla__header">Nota</th>
+            </tr>
+            </thead>
+            <tbody class="tabla__body">
+            <tr class="tabla__row">
+                <td>
+                    <button class="delete-row" onclick="eliminarFila(this)">-</button>
+                </td>
+                <td contenteditable="true" class="tabla__cell">Asignatura</td>
+                <td contenteditable="true" class="tabla__cell">3</td>
+                <td contenteditable="true" class="tabla__cell">5.0</td>
+            </tr>
+            </tbody>
+        </table>
 
-    </div>
+        <div class="calculadora-pappi__buttons">
 
-    <div class="pappi-description">
-        <p>El P.A.P.P.I. es la suma de la multiplicación del número de créditos de cada asignatura por la calificación
-            obtenida, dividido en la suma del número de créditos de las asignaturas cursadas y canceladas con pérdida de
-            créditos, en el último periodo cursado.</p>
-        <div class="minotacionmatematica4">
-            <div class="mobile-math">
-                <p>
-                    \(X = \text{PAPPI}\)
-                    \(C = \text{Creditos de la materia}\)
-                    \(N = \text{Nota de la materia}\)
-                    \[X = \frac{\sum_{i=1}^{n}C{i} N{i}}{\sum_{i=1}^{n}C{i}}\]
-                    \[X = \frac{C_{1}N_{1}+C_{2}N_{2}+...+C_{n}N_{n}}{C{1}+C{2}+...+C{n}}\]
-                </p>
+            <!-- Botones de copiado -->
+            <div class="copy-container">
+                <button class="copy-container__button" onclick="copiarTextoNotas()">Copiar tabla</button>
+                <button class="copy-container__button" onclick="copiarTextoNotas()">Copiar resultado</button>
             </div>
 
-            <div class="desktop-math">
-                <p>
-                    \[PAPPI= \frac{\sum_{i=1}^{n}Credito_{i}\cdot Nota_{i}}{\sum_{i=1}^{n}Credito_{i}}\]
-                    \[PAPPI= \frac{Credito_{1}\cdot Nota_{1}+Credito_{2}\cdot Nota_{2}+...+Credito_{n}\cdot
-                    Nota_{n}}{Credito_{1}+Credito_{2}+...+Credito_{n}}\]
-                </p>
+            <!-- Botón para agregar filas -->
+            <div class="calculo-container">
+                <button class="calculo-container__button" onclick="calcularPappi()">Calcular Pappi</button>
+                <span class="calculo-container__resultado">Resultado</span>
             </div>
 
         </div>
     </div>
-
-
-    <div class="buscador-container">
-        <div style="display: flex;">
-            Calcular notas que necesito para pasar la materia
-            <input type="checkbox" class="calcularNotas" onclick="toggleTablaYBoton()">
-        </div>
-        <!-- Botón para agregar filas -->
-        <div class="add-row">
-            <button onclick="agregarFila('tabla-asignaturas2', 'Asignatura', '3', '')">Agregar fila</button>
-        </div>
-    </div>
-
-    <table id="tabla-asignaturas2" class="disabled">
-        <thead>
-        <tr>
-            <th>Borrar</th>
-            <th>Materia</th>
-            <th>Créditos</th>
-            <th>Nota</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>
-                <button class="delete-row" onclick="eliminarFila(this)">-</button>
-            </td>
-            <td contenteditable="true">Asignatura 1</td>
-            <td contenteditable="true">3</td>
-            <td contenteditable="false">?</td>
-        </tr>
-        <tr>
-            <td contenteditable="false"></td>
-            <td contenteditable="false"></td>
-            <td contenteditable="false">PAPPI deseado</td>
-            <td contenteditable="true">3</td>
-        </tr>
-        </tbody>
-
-    </table>
-
-    <div class="tabla-buttons" class="disabled">
-
-        <!-- Botones de copiado -->
-        <div class="copiar">
-            <button class="copy-text" onclick="copiarTextoNotas()">Copiar tabla</button>
-            <button class="copy-text" onclick="copiarTextoNotas()">Copiar resultado</button>
+    <div class="calculadora-pappi__sub">
+        <div class="calculadora-pappi__buscador-container">
+            <div class="buscador-checkbox-container">
+                Calcular notas que necesito para pasar la materia
+                <input type="checkbox" class="calcularNotas" onclick="toggleTablaYBoton()">
+            </div>
+            <!-- Botón para agregar filas -->
+            <div class="add-row disabled">
+                <button class="add-row__button" onclick="agregarFila('tabla-asignaturas2', 'Asignatura', '3', '')">
+                    Agregar
+                    fila
+                </button>
+            </div>
         </div>
 
-        <div class="calculo-container">
-            <button onclick="calcularPappi()">Calcular notas necesarias</button>
-            <span>Resultado</span>
-        </div>
-    </div>
+        <table id="tabla-asignaturas2" class="tabla disabled">
+            <thead class="tabla__head">
+            <tr class="tabla__row">
+                <th class="tabla__header">Borrar</th>
+                <th class="tabla__header">Materia</th>
+                <th class="tabla__header">Créditos</th>
+                <th class="tabla__header">Nota</th>
+            </tr>
+            </thead>
+            <tbody class="tabla__body">
+            <tr class="tabla__row">
+                <td class="tabla__cell">
+                    <button class="delete-row" onclick="eliminarFila(this)">-</button>
+                </td>
+                <td contenteditable="true" class="tabla__cell">Asignatura 1</td>
+                <td contenteditable="true" class="tabla__cell">3</td>
+                <td contenteditable="false" class="tabla__cell">?</td>
+            </tr>
+            <tr class="tabla__row">
+                <td contenteditable="false" class="tabla__cell"></td>
+                <td contenteditable="false" class="tabla__cell"></td>
+                <td contenteditable="false" class="tabla__cell">PAPPI deseado</td>
+                <td contenteditable="true" class="tabla__cell">3</td>
+            </tr>
+            </tbody>
 
-    <div class="pappi-description">
-        <p>El P.A.P.P.I. es la suma de la multiplicación del número de créditos de cada asignatura por la calificación
-            obtenida, dividido en la suma del número de créditos de las asignaturas cursadas y canceladas con pérdida de
-            créditos, en el último periodo cursado.</p>
-        <div class="minotacionmatematica4">
-            <div class="mobile-math">
-                <p>
-                    \(X = \text{PAPPI}\)
-                    \(C = \text{Creditos de la materia}\)
-                    \(N = \text{Nota de la materia}\)
-                    \[X = \frac{\sum_{i=1}^{n}C{i} N{i}}{\sum_{i=1}^{n}C{i}}\]
-                    \[X = \frac{C_{1}N_{1}+C_{2}N_{2}+...+C_{n}N_{n}}{C{1}+C{2}+...+C{n}}\]
-                </p>
+        </table>
+
+        <div class="calculadora-pappi__buttons disabled">
+
+            <!-- Botones de copiado -->
+            <div class="copy-container">
+                <button class="copy-container__button" onclick="copiarTextoNotas()">Copiar tabla</button>
+                <button class="copy-container__button" onclick="copiarTextoNotas()">Copiar resultado</button>
             </div>
 
-            <div class="desktop-math">
-                <p>
-                    \[PAPPI= \frac{\sum_{i=1}^{n}Credito_{i}\cdot Nota_{i}}{\sum_{i=1}^{n}Credito_{i}}\]
-                    \[PAPPI= \frac{Credito_{1}\cdot Nota_{1}+Credito_{2}\cdot Nota_{2}+...+Credito_{n}\cdot
-                    Nota_{n}}{Credito_{1}+Credito_{2}+...+Credito_{n}}\]
-                </p>
+            <!-- Botón para agregar filas -->
+            <div class="calculo-container">
+                <button class="calculo-container__button" onclick="calcularPappi()">Calcular Notas</button>
+                <span class="calculo-container__resultado">Resultado</span>
             </div>
 
         </div>
-    </div>
 
+    </div>
 </div>

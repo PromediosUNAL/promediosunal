@@ -10,44 +10,46 @@
 <body>
 
 <!-- Header -->
-<header>
-    <div id="title-logo">
-        <img src="assets/PUN.png" alt="Logo UNAL" class="logo">
-        <div class="title-container">
-            <h1>PUN</h1>
-            <p>Promedios Universidad Nacional</p>
+<header class="header">
+    <div class="header__logo-container">
+        <img src="assets/PUN.png" alt="Logo UNAL" class="header__logo">
+        <div class="header__title-container">
+            <h1 class="header__title">PUN</h1>
+            <sub class="header__subtitle">Promedios Universidad Nacional</sub>
         </div>
     </div>
-    <nav class="social-links">
-        <ul>
-            <li><a href="https://github.com/matrodriguezpa" target="_blank">matrodriguezpa</a></li>
-            <li><a href="https://github.com/its-camilo" target="_blank">its-camilo</a></li>
+    <nav class="header__social-links">
+        <ul class="social-links__list">
+            <li class="social-links__item"><a href="https://github.com/matrodriguezpa"
+                                              target="_blank">matrodriguezpa</a></li>
+            <li class="social-links__item"><a href="https://github.com/its-camilo" target="_blank">its-camilo</a></li>
         </ul>
     </nav>
+    <!-- Toggle de Modo Oscuro -->
+    <button id="dark-mode-toggle" class="dark-mode-toggle">🌙</button>
 </header>
 
 <!-- Navegación -->
 <nav class="main-nav">
-    <ul>
-        <li><a href="#" data-page="pappi.html">Calculadora Pappi</a></li>
-        <li><a href="#" data-page="promedios.html">Calculadora Promedio</a></li>
-        <li><a href="#" data-page="sobre.html">Sobre PUN</a></li>
+    <ul class="main-nav__list">
+        <li class="main-nav__item"><a href="#" data-page="pappi.html">Calculadora Pappi</a></li>
+        <li class="main-nav__item"><a href="#" data-page="promedios.html">Calculadora Promedio</a></li>
+        <li class="main-nav__item"><a href="#" data-page="sobre.html">Sobre PUN</a></li>
     </ul>
 </nav>
+
 <!-- Contenido principal -->
 <main id="contenedor"></main>
 
 <!-- Footer -->
-<footer>
-    <p>Author: Mateo Rodríguez & Camilo Alejandro</p>
-    <nav class="social-links">
-        <ul>
-            <li><a href="https://github.com/matrodriguezpa" target="_blank">matrodriguezpa</a></li>
-            <li><a href="https://github.com/its-camilo" target="_blank">its-camilo</a></li>
+<footer class="footer">
+    <p class="footer__author">Creado por</p>
+    <nav class="footer__social-links">
+        <ul class="social-links__list">
+            <li class="social-links__item"><a href="https://github.com/matrodriguezpa"target="_blank">matrodriguezpa</a></li>
+            <li class="social-links__item"><a href="https://github.com/its-camilo" target="_blank">its-camilo</a></li>
         </ul>
     </nav>
-    <!-- Toggle de Modo Oscuro -->
-    <button id="dark-mode-toggle">🌙</button>
 </footer>
 
 <!--libreria de modo oscuro-->

@@ -1,163 +1,192 @@
-/* Estilos globales */
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    line-height: 1.6;
+    background-color: #f4f4f4;
 }
 
-/* Header styles */
-header {
-    background-color: #f8f9fa;
+/* Header */
+.header {
+    background-color: #333;
+    color: white;
     padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
-    flex-direction: row;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
 }
 
-#title-logo {
+.header__logo-container {
     display: flex;
-    flex-direction: row;
+    align-items: center;
 }
 
-.logo {
-    max-width: 100px;
-    height: auto;
-    margin-right: 20px;
+.header__logo {
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
 }
 
-.title-container {
-    display: inline-flex;
-    flex-direction: column;
+.header__title-container {
+    line-height: 1;
 }
 
-.title-container h1 {
+.header__title {
+    font-size: 48px;
     margin: 0;
-    font-size: 1.8rem;
-    color: #333;
 }
 
-.title-container p {
+.header__subtitle {
+    font-size: 16px;
+    font-weight: bold;
     margin: 0;
-    font-size: 1rem;
-    color: #777;
 }
 
-.social-links ul {
-    list-style: none;
+.header__social-links {
     display: flex;
+    align-items: center;
+}
+
+.social-links__list {
+    list-style-type: none;
     margin: 0;
     padding: 0;
+    display: flex;
 }
 
-.social-links li {
+.social-links__item {
     margin-left: 15px;
 }
 
-.social-links a {
-    color: #007bff;
+.social-links__item a {
+    color: white;
     text-decoration: none;
-    font-size: 1rem;
 }
 
-.social-links a:hover {
+.social-links__item a:hover {
     text-decoration: underline;
 }
 
-/* Navegación principal */
+/* Main Navigation */
 .main-nav {
-    background-color: royalblue;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #555;
 }
 
-.main-nav ul {
-    list-style: none;
+.main-nav__list {
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
     display: flex;
     justify-content: center;
-    margin: 0;
-    padding: 0;
-    flex-wrap: wrap;
 }
 
-.main-nav li {
+.main-nav__item {
     margin: 0 15px;
 }
 
-.main-nav a {
+.main-nav__item a {
+    color: white;
     text-decoration: none;
-    color: #ffffff;
-    font-size: 1.2rem;
     font-weight: bold;
-    padding: 3.75px 15px;
-    transition: background-color 0.3s ease;
+    font-size: small;
 }
 
-.main-nav a:hover {
-    background-color: #004c98;
+.main-nav__item a:hover {
+    text-decoration: underline;
 }
 
-/* Footer styles */
-footer {
-    background-color: #f8f9fa;
-    padding: 10px;
-    text-align: center;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+/* Footer */
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-footer p {
-    margin: 5px 0;
-    color: #777;
+.footer__author {
+    margin: 0;
 }
 
-footer .social-links ul {
+.footer__social-links {
+    margin-top: 10px;
+}
+
+.calculadora-pappi{
+    display: flex;
     justify-content: center;
 }
 
-/* Contenido principal */
-main {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-}
-
-.buscador input {
-    width: 48%;
+/* Calculadora Pappi */
+.calculadora-pappi__sub {
     padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
+    background-color: white;
+    margin: 60px 20px;
+    border-radius: 5px;
+    max-width: 800px;
 }
 
-/* Tabla */
-table {
+.calculadora-pappi__buscador-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.buscador {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.add-row {
+    display: flex;
+    align-items: center;
+}
+
+.add-row__button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-row__button:hover {
+    background-color: #45a049;
+}
+
+/* Table Styles */
+.tabla {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
 }
 
-table caption {
-    text-align: left;
+.tabla__caption {
     font-weight: bold;
+    text-align: left;
     margin-bottom: 10px;
-    padding: 5px;
 }
 
-th, td {
+.tabla__head, .tabla__body {
+    background-color: #f9f9f9;
+}
+
+.tabla__row {
+    border-bottom: 1px solid #ddd;
+}
+
+.tabla__header {
     padding: 10px;
     text-align: left;
-}
-
-th {
     background-color: #f2f2f2;
 }
 
-td[contenteditable] {
-    background-color: #fffbcc;
-}
-
 .delete-row {
-    background-color: #ff6666;
+    background-color: #e74c3c;
     color: white;
     border: none;
     padding: 5px 10px;
@@ -165,226 +194,182 @@ td[contenteditable] {
 }
 
 .delete-row:hover {
-    background-color: #d65454;
+    background-color: #c0392b;
 }
 
+/* Buttons */
+.calculadora-pappi__buttons {
+    display: flex;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
 
-.add-row button {
-    background-color: #4CAF50;
-    padding: 10px 15px;
+.copy-container {
+    display: flex;
+    align-items: center;
+}
+
+.copy-container__button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
-    min-width: 120px;
+    margin-right: 10px;
 }
 
-.add-row button:hover {
-    background-color: #2e7031;
+.copy-container__button:hover {
+    background-color: #2980b9;
 }
 
-.nose {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
-}
-
-.tabla-buttons {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: ridge;
-    margin-bottom: 40px;
-    padding-bottom: 10px;
-    flex-wrap: wrap;
-}
-
-.tabla-buttons button, .tabla-buttons span {
-    margin-bottom: 10px;
-}
-
-/* Contenedor de cálculos */
 .calculo-container {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     align-items: center;
-    background-color: #ffffff; /* Fondo claro por defecto */
+    background: #f4f4f4;
     border-radius: 5px;
+    padding-right: 15px;
 }
 
-.calculo-container span {
-    background-color: #e8e8e8;
-    padding: 5px 15px;
-}
-
-/* Fondo negro para el modo oscuro */
-.dark-mode .calculo-container {
-    background-color: #121212; /* Fondo negro */
-}
-
-/* Botones de calcular en ambos modos */
-#calcular-pappi,
-#calcular-pappi-necesario {
-    background-color: #cccccc; /* Fondo gris claro por defecto */
-    color: #000; /* Texto negro por defecto */
+.calculo-container__button {
+    padding: 10px 20px;
+    background-color: #f39c12;
+    color: white;
     border: none;
-    padding: 10px;
-    margin-right: 5px;
+    border-radius: 5px 0   0 5px;
     cursor: pointer;
 }
 
-#calcular-pappi:hover,
-#calcular-pappi-necesario:hover {
-    background-color: #999999; /* Fondo gris más oscuro en hover */
+.calculo-container__button:hover {
+    background-color: #e67e22;
 }
 
-/* Estilos específicos para el modo oscuro */
-.dark-mode #calcular-pappi,
-.dark-mode #calcular-pappi-necesario {
-    background-color: #333333; /* Fondo oscuro */
-    color: #ffffff; /* Texto blanco */
-}
-
-.dark-mode #calcular-pappi:hover,
-.dark-mode #calcular-pappi-necesario:hover {
-    background-color: #4e4e4e; /* Fondo más oscuro en hover */
-}
-
-/* Estilo para el resultado */
-#resultado-pappi {
-    padding: 10px;
-    background-color: #ffffff; /* Fondo blanco por defecto */
-    color: #000; /* Texto negro por defecto */
-    border: 1px solid #ddd; /* Borde gris claro por defecto */
-}
-
-/* Fondo negro para el resultado en modo oscuro */
-.dark-mode #resultado-pappi {
-    background-color: #2e2e2e; /* Fondo gris oscuro */
-    color: #ffffff; /* Texto blanco */
-    border: 1px solid #444444; /* Borde gris oscuro */
-}
-
-/* Alineación de los botones y resultado */
-.dark-mode .calculo-container #resultado-pappi {
-    margin-left: auto; /* Alinea el resultado a la derecha */
-    margin-right: 0;
-}
-
-
-/* Descripción de Pappi */
-.pappi-description {
-    background-color: #f2f2f2;
-    padding: 20px;
-    border-radius: 5px;
-    margin-top: 60px;
-    text-align: justify;
-    margin-bottom: 100px;
-}
-.calcularNotas{
-    width: 15px;
-    height: 15px;
-}
-
-.buscador-container{
-    display: flex;
-    justify-content: space-between;
-}
-
-/* Estilos generales para pantallas grandes */
-.header-link {
-    display: inline-block;
-}
-
-.search-bar {
-    display: inline-block;
-    width: 48%;
-}
-
-.table {
-    width: 100%;
-}
-
-#resultado-pappi {
-    padding: 5px;
-    background-color: #f2f2f2;
+.calculo-container__resultado {
+    margin-left: 10px;
+    font-weight: bold;
 }
 
 .mobile-math {
     display: none;
 }
 
-/* Estilos para pantallas pequeñas */
+.sobre-description{
+    background-color: white;
+    padding: 15px;
+    margin:15px ;
+    border-radius: 15px;
+}
+
+/* Notation Description */
+.pappi-description {
+    margin-top: 20px;
+}
+
+/* Dark Mode */
+
+.dark-mode-toggle {
+    position: fixed;
+    right: 20px;
+    bottom: 65px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+}
+
+body.dark-mode {
+    background-color: #181818;
+    color: #e0e0e0;
+}
+
+body.dark-mode .header,
+body.dark-mode .footer,
+body.dark-mode .main-nav {
+    background-color: #1c1c1c;
+}
+
+body.dark-mode .tabla__head {
+    background-color: #2c2c2c;
+}
+
+body.dark-mode .tabla__body {
+    background-color: #1c1c1c;
+}
+
+body.dark-mode .footer__dark-mode-toggle {
+    color: #e0e0e0;
+}
+
+/* Media Queries */
 @media (max-width: 768px) {
-    #title-logo {
+    .main-nav__list {
         flex-direction: column;
         align-items: center;
     }
 
-    header {
+    .header {
         flex-direction: column;
     }
 
-    .logo {
-        margin-right: 0;
-    }
-
-    .title-container {
+    .header__logo-container {
+        display: flex;
+        flex-direction: column;
         align-items: center;
     }
 
-    /* Header: eliminar link en teléfonos */
-    .social-links {
+    .header__logo-container img {
+        margin-right: unset;
+    }
+
+    .header__title-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header__social-links {
         display: none;
     }
 
-    /* Buscadores uno sobre otro */
-    .search-bar {
-        display: block;
-        width: 100%;
-        margin-bottom: 10px;
-    }
-
-    /* Ajuste de la tabla */
-    .table {
-        display: block;
-        width: 100%;
-        overflow-x: auto;
-    }
-
-    .nose {
-        justify-content: center;
-    }
-
-    .calculo-container {
+    .calculadora-pappi{
         display: flex;
         flex-direction: column;
+        margin: 30px 2px;
+        justify-content: center;
+    }
+    /* Calculadora Pappi */
+    .calculadora-pappi__sub {
+        margin: 30px 5px;
+    }
+
+    .calculadora-pappi__buttons {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .calculadora-pappi__buscador-container {
+        flex-direction: column;
         align-items: stretch;
-        width: 100%;
     }
 
-    .buscador-container{
-        display: block;
+    .copy-container {
+        margin-bottom: 20px;
     }
 
-    .add-row {
-        width: 100%;
-    }
-    .add-row button{
-        width: 100%;
+    .add-row__button {
+        width: 100%
     }
 
-    .copiar {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
+    .calculadora-pappi__buttons {
+        align-items: center;
     }
 
-    .copiar button {
-        margin-bottom: 10px;
-        background-color: darkgray;
-    }
-
-    .calculo-container button {
-        margin-right: 0;
+    .buscador {
+        width: inherit;
         margin-bottom: 10px;
     }
 
@@ -393,344 +378,11 @@ td[contenteditable] {
     }
 
     .mobile-math {
-        display: inherit;
+        display: block;
     }
 }
 
-.dark-mode .calculo-container span {
-    color: lightgray;
-    background-color: #5b5b5b;
-}
-
-.calculo-container button {
-    background-color: royalblue;
-}
-
-.calculo-container button:hover {
-    background-color: #2c4eb5;
-}
-
-/* Estilos para deshabilitar la tabla */
 .disabled {
     pointer-events: none;
-    opacity: 0.3;
-}
-
-.buscador {
-    width: 100%;
-    position: relative;
-    margin: 0 auto 20px auto; /* Combina los márgenes */
-    display: flex;
-    justify-content: space-between;
-}
-
-#buscador-actividad {
-    width: 100%;
-    box-sizing: border-box; /* Asegura que padding y border no afecten el ancho total */
-}
-
-.copy-container {
-    display: flex;
-    flex-direction: column;
-}
-
-button {
-    background-color: darkgray;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #5a5a5a;
-}
-
-/* Botón de modo oscuro */
-#dark-mode-toggle {
-    position: fixed; /* Fija el botón en la pantalla */
-    bottom: 40px; /* Distancia desde el fondo de la pantalla */
-    right: 20px; /* Distancia desde la derecha de la pantalla */
-    background-color: #333;
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    padding: 10px;
-    cursor: pointer;
-}
-
-.dark-mode #dark-mode-toggle:hover {
-    background-color: #c5c5c5;
-}
-
-
-/* Estilos globales en modo oscuro */
-body.dark-mode {
-    background-color: #121212;
-    color: #e0e0e0;
-}
-
-.dark-mode a {
-    color: #bb86fc;
-}
-
-.dark-mode a:hover {
-    color: #bb86fc;
-    text-decoration: underline;
-}
-
-/* Header styles en modo oscuro */
-.dark-mode header {
-    background-color: #1f1f1f;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.dark-mode .title-container h1 {
-    color: #e0e0e0;
-}
-
-.dark-mode .title-container p {
-    color: #bbbbbb;
-}
-
-/* Navegación principal en modo oscuro */
-.dark-mode .main-nav {
-    background-color: midnightblue;
-}
-
-.dark-mode .main-nav a {
-    color: #ffffff;
-    background-color: transparent;
-}
-
-.dark-mode .main-nav a:hover {
-    background-color: #3c3c3c;
-    text-decoration: none;
-}
-
-/* Footer styles en modo oscuro */
-.dark-mode footer {
-    background-color: #1f1f1f;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.dark-mode footer p {
-    color: #bbbbbb;
-}
-
-.dark-mode .social-links a {
-    color: #007bff;
-}
-
-/* Tabla en modo oscuro */
-.dark-mode table {
-    background-color: #1f1f1f;
-}
-
-.dark-mode th {
-    background-color: #2e2e2e;
-    color: #e0e0e0;
-}
-
-.dark-mode td {
-    background-color: #2e2e2e;
-    color: #e0e0e0;
-}
-
-.dark-mode td[contenteditable] {
-    background-color: #4e4e4e;
-}
-
-/* Botones en modo oscuro */
-.dark-mode .delete-row {
-    background-color: #cf6679;
-}
-
-.dark-mode .delete-row:hover {
-    background-color: #b04b54;
-}
-
-.dark-mode .copy-text,
-.dark-mode #calcular-pappi,
-.dark-mode #calcular-pappi-necesario {
-    background-color: #333333;
-    color: #e0e0e0;
-}
-
-.dark-mode .copy-text:hover,
-.dark-mode #calcular-pappi:hover,
-.dark-mode #calcular-pappi-necesario:hover {
-    background-color: #4e4e4e;
-}
-
-
-/* Contenedor de cálculos en modo oscuro */
-.dark-mode .calculo-container {
-    background-color: #121212;
-}
-
-/* Descripción de Pappi en modo oscuro */
-.dark-mode .pappi-description {
-    background-color: #2e2e2e;
-    color: #e0e0e0;
-}
-
-/* Botón de modo oscuro */
-#dark-mode-toggle {
-    position: fixed; /* Fija el botón en la pantalla */
-    bottom: 20px; /* Distancia desde el fondo de la pantalla */
-    right: 20px; /* Distancia desde la derecha de la pantalla */
-    background-color: #333;
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    padding: 10px;
-    cursor: pointer;
-}
-
-#dark-mode-toggle:hover {
-    background-color: #555;
-}
-
-/* Modo oscuro para pantallas pequeñas */
-@media (max-width: 768px) {
-    .dark-mode .title-container h1 {
-        color: #e0e0e0;
-    }
-
-    .dark-mode .title-container p {
-        color: #bbbbbb;
-    }
-
-    /* Otros ajustes se mantienen similares a los originales, pero con los colores adaptados */
-}
-
-/* Deshabilitar tabla en modo oscuro */
-.dark-mode .disabled {
-    pointer-events: none;
-    opacity: 0.5;
-}
-
-/* Estilo para los inputs de búsqueda en modo oscuro */
-.dark-mode .buscador input {
-    background-color: #777; /* Fondo gris claro */
-    color: #ffffff; /* Letras blancas */
-    border: 1px solid #000000; /* Borde más oscuro */
-}
-
-.dark-mode #buscador-actividad {
-    background-color: #777;
-    color: #ffffff;
-    border: 1px solid #777;
-}
-
-/* Estilo de los textos de previsualización (placeholders) en modo oscuro */
-.dark-mode ::placeholder {
-    color: #ffffff; /* Letras blancas */
-    opacity: 1; /* Asegura que el color sea completamente opaco */
-}
-
-/* Estilo específico para los input en modo oscuro */
-.dark-mode input::placeholder {
-    color: #ffffff; /* Letras blancas */
-    opacity: 1;
-}
-
-.dark-mode .logo {
-    filter: invert(.9
-    );
-}
-
-#buscador {
-    width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
-}
-
-#suggestions {
-    position: absolute;
-    top: 100%;
-    left: 160px;
-    right: 190px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-top: none;
-    z-index: 1000;
-    max-height: 200px;
-    overflow-y: auto;
-    max-width: 500px;
-}
-
-#suggestions ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-#suggestions li {
-    padding: 8px;
-    cursor: pointer;
-    border-bottom: 1px solid #eee;
-}
-
-#suggestions li:hover {
-    background-color: #f0f0f0;
-}
-
-/* Estilo para la tabla */
-#tabla-asignaturas {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-#tabla-asignaturas th, #tabla-asignaturas td {
-    border: 1px solid #ddd;
-    padding: 8px;
-}
-
-#tabla-asignaturas th {
-    background-color: #f2f2f2;
-    text-align: left;
-}
-
-/* Estilo para la tabla en modo oscuro */
-.dark-mode #tabla-asignaturas {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-.dark-mode #tabla-asignaturas th, .dark-mode #tabla-asignaturas td {
-    border: 1px solid #ddd;
-    padding: 8px;
-}
-
-.dark-mode #tabla-asignaturas th {
-    background-color: #333; /* Fondo gris oscuro */
-    color: #fff; /* Color del texto blanco */
-    text-align: left;
-}
-
-.delete-row {
-    background-color: #ff4d4d;
-    color: white;
-    border: none;
-    padding: 4px 8px;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-.delete-row:hover {
-    background-color: #ff1a1a;
-}
-
-.buscador {
-    width: 100%; /* Ocupa todo el ancho de pantalla */
-}
-
-.buscador select {
-    width: 100%; /* Ocupa todo el ancho de pantalla */
-    box-sizing: border-box; /* Ajusta el ancho para incluir padding y border */
-    padding: 10px; /* Agrega un padding para que no se vea tan ajustado */
+    opacity: 0.1;
 }

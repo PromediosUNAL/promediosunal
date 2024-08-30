@@ -1,36 +1,39 @@
-<div id="Calculadora-promedios">
+<div id="calculadora-pappi" class="calculadora-pappi">
 
-    <div class="buscador">
-        <input type="text" id="buscador-actividad" placeholder="Buscar actividad">
+    <div class="calculadora-pappi__buscador-container">
+        <input type="text" id="buscador" class="buscador" placeholder="Buscar por ID o nombre"
+               oninput="buscarMaterias()">
         <div id="suggestions" class="autocomplete-suggestions"></div>
         <div class="add-row">
-            <button onclick="agregarFila('tabla-asignaturas', 'Parcial', '20', '5.0')">Agregar fila</button>
+            <button class="add-row__button" onclick="agregarFila('tabla-asignaturas', 'Asignatura', '3', '5.0')">Agregar
+                fila
+            </button>
         </div>
     </div>
 
-    <table id="tabla-asignaturas">
-        <caption>Calcular Promedio</caption>
-        <thead>
-        <tr>
-            <th>Borrar</th>
-            <th>Actividad</th>
-            <th>Porcentaje</th>
-            <th>Nota</th>
+    <table id="tabla-asignaturas" class="tabla">
+        <caption class="tabla__caption">Calcular Pappi</caption>
+        <thead class="tabla__head">
+        <tr class="tabla__row">
+            <th class="tabla__header">Borrar</th>
+            <th class="tabla__header">Materia</th>
+            <th class="tabla__header">Créditos</th>
+            <th class="tabla__header">Nota</th>
         </tr>
         </thead>
-        <tbody>
-        <tr>
-            <td>
+        <tbody class="tabla__body">
+        <tr class="tabla__row">
+            <td class="tabla__cell">
                 <button class="delete-row" onclick="eliminarFila(this)">-</button>
             </td>
-            <td contenteditable="true">Parcial</td>
-            <td contenteditable="true">20</td>
-            <td contenteditable="true">5.0</td>
+            <td contenteditable="true" class="tabla__cell">Asignatura</td>
+            <td contenteditable="true" class="tabla__cell">3</td>
+            <td contenteditable="true" class="tabla__cell">5.0</td>
         </tr>
         </tbody>
     </table>
 
-    <div class="tabla-buttons">
+    <div class="calculadora-pappi__buttons">
 
         <!-- Botones de copiado -->
         <div class="copiar">
@@ -40,118 +43,67 @@
 
         <!-- Botón para agregar filas -->
         <div class="calculo-container">
-            <button onclick="calcularPappi()">Calcular Promedio</button>
-            <span id="resultado-pappi-total">Resultado</span>
+            <button class="calculo-container__button" onclick="calcularPappi()">Calcular Pappi</button>
+            <span id="resultado-pappi-total" class="calculo-container__resultado">Resultado</span>
         </div>
 
     </div>
 
-    <div class="pappi-description">
-        <p>La fórmula del Promedio de Notas por Porcentaje es sencilla pero poderosa. Consiste en multiplicar la nota
-            obtenida en cada evaluación por el porcentaje correspondiente y sumar los resultados de todas las
-            evaluaciones.
-            Luego, se divide esta suma total entre el total de porcentajes asignados para obtener el promedio ponderado.
-            Con
-            nuestra herramienta en línea, podrás ingresar fácilmente tus notas y los porcentajes asignados a cada
-            evaluación.
-        </p>
-        <div class="minotacionmatematica4">
-            <div class="mobile-math">
-                <p>
-                    \(X = \text{Promedio ponderado}\)
-                    \(N = \text{Nota de la materia}\)
-                    \(P = \text{Porcentaje de la materia}\)
-                    \[X = \frac{\sum_{i=1}^{n}N{i} P{i}}{100}\]
-                    \[X = \frac{N_{1}P_{1}+N_{2}P_{2}+...+N_{n}P_{n}}{100}\]
-                </p>
-            </div>
-
-            <div class="desktop-math">
-                <p>
-                    \[Promedio = \frac{\sum_{1}^{n}Nota_{n}\cdot Porcentaje_{n}}{100}\]
-
-                    \[Promedio = \frac{Nota_{1}\cdot Porcentaje_{1}+Nota_{2}\cdot Porcentaje_{2}+...Nota_{n}\cdot
-                    Porcentaje_{n}}{100}\]
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <div class="buscador">
-        <div style="display: flex;">
+    <div class="calculadora-pappi__buscador-container">
+        <div class="buscador-checkbox-container">
             Calcular notas que necesito para pasar la materia
             <input type="checkbox" class="calcularNotas" onclick="toggleTablaYBoton()">
         </div>
         <!-- Botón para agregar filas -->
         <div class="add-row">
-            <button onclick="agregarFila('tabla-asignaturas2', 'Parcial', '20', '')">Agregar fila</button>
+            <button class="add-row__button" onclick="agregarFila('tabla-asignaturas2', 'Asignatura', '3', '')">Agregar
+                fila
+            </button>
         </div>
-
     </div>
 
-    <table id="tabla-asignaturas2" class="disabled">
-        <thead>
-        <tr>
-            <th>Borrar</th>
-            <th>Actividad</th>
-            <th>Porcentaje</th>
-            <th>Nota</th>
+    <table id="tabla-asignaturas2" class="tabla disabled">
+        <thead class="tabla__head">
+        <tr class="tabla__row">
+            <th class="tabla__header">Borrar</th>
+            <th class="tabla__header">Materia</th>
+            <th class="tabla__header">Créditos</th>
+            <th class="tabla__header">Nota</th>
         </tr>
         </thead>
-        <tbody>
-        <tr>
-            <td>
+        <tbody class="tabla__body">
+        <tr class="tabla__row">
+            <td class="tabla__cell">
                 <button class="delete-row" onclick="eliminarFila(this)">-</button>
             </td>
-            <td contenteditable="true">Parcial</td>
-            <td contenteditable="true">20</td>
-            <td contenteditable="false"></td>
+            <td contenteditable="true" class="tabla__cell">Asignatura 1</td>
+            <td contenteditable="true" class="tabla__cell">3</td>
+            <td contenteditable="false" class="tabla__cell">?</td>
+        </tr>
+        <tr class="tabla__row">
+            <td contenteditable="false" class="tabla__cell"></td>
+            <td contenteditable="false" class="tabla__cell"></td>
+            <td contenteditable="false" class="tabla__cell">PAPPI deseado</td>
+            <td contenteditable="true" class="tabla__cell">3</td>
         </tr>
         </tbody>
 
     </table>
 
-    <div class="tabla-buttons" class="disabled">
+    <div class="calculadora-pappi__buttons disabled">
+
         <!-- Botones de copiado -->
         <div class="copiar">
             <button class="copy-text" onclick="copiarTextoNotas()">Copiar tabla</button>
             <button class="copy-text" onclick="copiarTextoNotas()">Copiar resultado</button>
         </div>
 
+        <!-- Botón para agregar filas -->
         <div class="calculo-container">
-            <button onclick="calcularNotaNecesaria()">Calcular notas necesarias</button>
-            <span id="resultado-pappi-necesario">Resultado</span>
+            <button class="calculo-container__button" onclick="calcularPappi()">Calcular Notas</button>
+            <span id="resultado-pappi-total" class="calculo-container__resultado">Resultado</span>
         </div>
+
     </div>
 
-    <div class="pappi-description">
-        <p>La fórmula del Promedio de Notas por Porcentaje es sencilla pero poderosa. Consiste en multiplicar la nota
-            obtenida en cada evaluación por el porcentaje correspondiente y sumar los resultados de todas las
-            evaluaciones.
-            Luego, se divide esta suma total entre el total de porcentajes asignados para obtener el promedio ponderado.
-            Con
-            nuestra herramienta en línea, podrás ingresar fácilmente tus notas y los porcentajes asignados a cada
-            evaluación.
-        </p>
-        <div class="minotacionmatematica4">
-            <div class="mobile-math">
-                <p>
-                    \(X = \text{Promedio ponderado}\)
-                    \(N = \text{Nota de la materia}\)
-                    \(P = \text{Porcentaje de la materia}\)
-                    \[X = \frac{\sum_{i=1}^{n}N{i} P{i}}{100}\]
-                    \[X = \frac{N_{1}P_{1}+N_{2}P_{2}+...+N_{n}P_{n}}{100}\]
-                </p>
-            </div>
-
-            <div class="desktop-math">
-                <p>
-                    \[Promedio = \frac{\sum_{1}^{n}Nota_{n}\cdot Porcentaje_{n}}{100}\]
-
-                    \[Promedio = \frac{Nota_{1}\cdot Porcentaje_{1}+Nota_{2}\cdot Porcentaje_{2}+...Nota_{n}\cdot
-                    Porcentaje_{n}}{100}\]
-                </p>
-            </div>
-        </div>
-    </div>
 </div>
