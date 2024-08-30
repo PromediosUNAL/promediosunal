@@ -3,6 +3,9 @@
     <div class="buscador">
         <input type="text" id="buscador-actividad" placeholder="Buscar actividad">
         <div id="suggestions" class="autocomplete-suggestions"></div>
+        <div class="add-row">
+            <button onclick="agregarFila('tabla-asignaturas')">Agregar fila</button>
+        </div>
     </div>
 
     <!-- Tabla de asignaturas -->
@@ -29,20 +32,61 @@
     </table>
     <div class="tabla-buttons">
         <!-- Botón para agregar filas -->
-        <div class="add-row">
-            <button onclick="agregarFila('tabla-asignaturas')">Agregar fila</button>
-        </div>
+
         <div class="calculo-container">
             <button onclick="calcularPappi()">Calcular Pappi</button>
             <span>Resultado</span>
         </div>
     </div>
 
+    <!-- Botones de copiado -->
+    <div class="copiar">
+        <button class="copy-text" onclick="copiarTextoNotas()">Copiar tabla</button>
+        <button class="copy-text" onclick="copiarTextoNotas()">Copiar resultado</button>
+    </div>
 
-    <caption>
-        Calcular notas necesarias
-        <input type="checkbox" id="calcularNotas" onclick="toggleTablaYBoton()">
-    </caption>
+    <!-- Descripción del P.A.P.P.I. -->
+    <div class="pappi-description">
+        <p>La fórmula del Promedio de Notas por Porcentaje es sencilla pero poderosa. Consiste en multiplicar la nota
+            obtenida en cada evaluación por el porcentaje correspondiente y sumar los resultados de todas las
+            evaluaciones.
+            Luego, se divide esta suma total entre el total de porcentajes asignados para obtener el promedio ponderado.
+            Con
+            nuestra herramienta en línea, podrás ingresar fácilmente tus notas y los porcentajes asignados a cada
+            evaluación.
+        </p>
+        <div class="minotacionmatematica4">
+            <div class="mobile-math">
+                <p>
+                    \(X = \text{Promedio ponderado}\)
+                    \(N = \text{Nota de la materia}\)
+                    \(P = \text{Porcentaje de la materia}\)
+                    \[X = \frac{\sum_{i=1}^{n}N{i} P{i}}{100}\]
+                    \[X = \frac{N_{1}P_{1}+N_{2}P_{2}+...+N_{n}P_{n}}{100}\]
+                </p>
+            </div>
+
+            <div class="desktop-math">
+                <p>
+                    \[Promedio = \frac{\sum_{1}^{n}Nota_{n}\cdot Porcentaje_{n}}{100}\]
+
+                    \[Promedio = \frac{Nota_{1}\cdot Porcentaje_{1}+Nota_{2}\cdot Porcentaje_{2}+...Nota_{n}\cdot
+                    Porcentaje_{n}}{100}\]
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="buscador">
+        <div style="display: flex;">
+            Calcular notas que necesito para pasar la materia
+            <input type="checkbox" class="calcularNotas" onclick="toggleTablaYBoton()">
+        </div>
+        <!-- Botón para agregar filas -->
+        <div class="add-row">
+            <button class="disabled" onclick="agregarFila('tabla-asignaturas')">Agregar fila</button>
+        </div>
+    </div>
+
     <!-- Tabla para calcular notas necesarias -->
     <table id="tabla-asignaturas2" class="disabled">
         <thead>
@@ -67,21 +111,18 @@
     </table>
     <!-- Botón para agregar filas -->
     <div class="tabla-buttons" class="disabled">
-        <!-- Botón para agregar filas -->
-        <div class="add-row">
-            <button onclick="agregarFila('tabla-asignaturas')">Agregar fila</button>
+        <!-- Botones de copiado -->
+        <div class="copiar">
+            <button class="copy-text" onclick="copiarTextoNotas()">Copiar tabla</button>
+            <button class="copy-text" onclick="copiarTextoNotas()">Copiar resultado</button>
         </div>
+
         <div class="calculo-container">
             <button onclick="calcularPappi()">Calcular Pappi</button>
             <span>Resultado</span>
         </div>
     </div>
 
-    <!-- Botones de copiado -->
-    <div class="copiar">
-        <button class="copy-text" onclick="copiarTextoNotas()">Copiar tabla</button>
-        <button class="copy-text" onclick="copiarTextoNotas()">Copiar resultado</button>
-    </div>
 
 
     <!-- Descripción del P.A.P.P.I. -->

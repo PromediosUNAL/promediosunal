@@ -176,15 +176,12 @@ td[contenteditable] {
     background-color: #d65454;
 }
 
-.add-row {
-}
 
 .add-row button {
     background-color: #4CAF50;
-    color: white;
-    border: none;
     padding: 10px 15px;
     cursor: pointer;
+    min-width: 120px;
 }
 
 .add-row button:hover {
@@ -288,7 +285,13 @@ td[contenteditable] {
     border-radius: 5px;
     margin-top: 60px;
     text-align: justify;
+    margin-bottom: 100px;
 }
+.calcularNotas{
+    width: 15px;
+    height: 15px;
+}
+
 
 /* Estilos generales para pantallas grandes */
 .header-link {
@@ -355,16 +358,20 @@ td[contenteditable] {
         justify-content: center;
     }
 
-    .add-row {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-    }
-
     .calculo-container {
         display: flex;
         flex-direction: column;
         align-items: stretch;
+        width: 100%;
+    }
+
+    .buscador{
+        display: block;
+    }
+    .add-row {
+        width: 100%;
+    }
+    .add-row button{
         width: 100%;
     }
 
