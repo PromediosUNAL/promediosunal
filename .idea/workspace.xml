@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc93fc84-89b4-47d1-9cc9-6ee6f94a5747" name="Changes" comment="que pereza mamawebo, ya va a ser media noche">
+    <list default="true" id="bc93fc84-89b4-47d1-9cc9-6ee6f94a5747" name="Changes" comment="mamawebo no le metamos mas al css v:">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/materias.JSON" beforeDir="false" afterPath="$PROJECT_DIR$/docs/materias.JSON" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/actividades.JSON" beforeDir="false" afterPath="$PROJECT_DIR$/docs/actividades.JSON" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/pappi.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/pappi.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/promedios.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/promedios.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/docs/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,12 +38,12 @@
     &quot;assignee&quot;: &quot;matrodriguezpa&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/PromediosUNAL/promediosunal.git&quot;,
-    &quot;accountId&quot;: &quot;640af1a6-7f46-485a-b199-2c9588f21837&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/PromediosUNAL/promediosunal.git",
+    "accountId": "3ff66790-f608-4e6b-8c1e-7dab583d003b"
   }
-}</component>
+}]]></component>
   <component name="ProblemsViewState">
     <hideBySeverity>
       <option value="11" />
@@ -97,8 +98,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.300" />
-        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.300" />
+        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-WS-242.20224.426" />
       </set>
     </attachedChunks>
   </component>
@@ -119,9 +119,7 @@
       <workItem from="1724633689024" duration="498000" />
       <workItem from="1724634204556" duration="13415000" />
       <workItem from="1724682290519" duration="4798000" />
-      <workItem from="1724869312175" duration="1455000" />
-      <workItem from="1724968938590" duration="243000" />
-      <workItem from="1725031354343" duration="3510000" />
+      <workItem from="1724795850169" duration="7179000" />
     </task>
     <task id="LOCAL-00001" summary="creación de un JSON para almacenar las materias">
       <option name="closed" value="true" />
@@ -275,7 +273,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724687057912</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="mamawebo no le metamos mas al css v:">
+      <option name="closed" value="true" />
+      <created>1724797019428</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1724797019428</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -308,6 +314,7 @@
     <MESSAGE value="Update styles.css" />
     <MESSAGE value="Update buttons" />
     <MESSAGE value="que pereza mamawebo, ya va a ser media noche" />
-    <option name="LAST_COMMIT_MESSAGE" value="que pereza mamawebo, ya va a ser media noche" />
+    <MESSAGE value="mamawebo no le metamos mas al css v:" />
+    <option name="LAST_COMMIT_MESSAGE" value="mamawebo no le metamos mas al css v:" />
   </component>
 </project>

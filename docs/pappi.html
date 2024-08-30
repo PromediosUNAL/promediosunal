@@ -5,7 +5,7 @@
         <input type="text" id="buscador" placeholder="Buscar por ID o nombre" oninput="buscarMaterias()">
         <div id="suggestions" class="autocomplete-suggestions"></div>
         <div class="add-row">
-            <button onclick="agregarFila('tabla-asignaturas')">Agregar fila</button>
+            <button onclick="agregarFila('tabla-asignaturas', 'Asignatura', '3', '5.0')">Agregar fila</button>
         </div>
     </div>
 
@@ -25,7 +25,7 @@
             <td>
                 <button class="delete-row" onclick="eliminarFila(this)">-</button>
             </td>
-            <td contenteditable="true">Asignatura 1</td>
+            <td contenteditable="true">Asignatura</td>
             <td contenteditable="true">3</td>
             <td contenteditable="true">5.0</td>
         </tr>
@@ -34,10 +34,9 @@
 
     <div class="tabla-buttons">
         <!-- Botón para agregar filas -->
-
         <div class="calculo-container">
             <button onclick="calcularPappi()">Calcular Pappi</button>
-            <span>Resultado</span>
+            <span id="resultado-pappi-total">Resultado</span>
         </div>
     </div>
 
@@ -81,7 +80,7 @@
         </div>
         <!-- Botón para agregar filas -->
         <div class="add-row">
-            <button class="disabled" onclick="agregarFila('tabla-asignaturas2')">Agregar fila</button>
+            <button onclick="agregarFila('tabla-asignaturas2', 'Asignatura', '3', '')">Agregar fila</button>
         </div>
     </div>
     <!-- Tabla para calcular notas necesarias -->

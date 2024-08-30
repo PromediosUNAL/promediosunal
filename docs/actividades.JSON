@@ -1,9 +1,9 @@
 {
-  "actividades": {
-    "nombre": "Parcial",
-    "materias": "Tarea",
-    "materias": "Laboratorio",
-    "materias": "Proyecto",
-    "materias": "Quiz"
-  }
+  "actividades": [
+    "Parcial",
+    "Tarea",
+    "Laboratorio",
+    "Proyecto",
+    "Quiz"
+  ]
 }

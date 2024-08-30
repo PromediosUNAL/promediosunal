@@ -1,6 +1,18 @@
-function agregarFila(tablaId) {
+function agregarFila(tablaId, asignatura, creditos, nota) {
     const tabla = document.getElementById(tablaId).getElementsByTagName('tbody')[0];
-    const nuevaFila = tabla.insertRow();
+    let nuevaFila;
+
+    if (tablaId === 'tabla-asignaturas2') {
+        // Inserta en la penúltima posición si la tabla es "tabla-asignaturas2"
+        const filas = tabla.getElementsByTagName('tr');
+        const numFilas = filas.length;
+
+        // Crea una nueva fila
+        nuevaFila = tabla.insertRow(numFilas - 1);
+    } else {
+        // Inserta al final de la tabla para otras tablas
+        nuevaFila = tabla.insertRow();
+    }
 
     // Crea la celda para el botón de eliminación
     const celdaEliminar = nuevaFila.insertCell(0);
@@ -14,11 +26,11 @@ function agregarFila(tablaId) {
 
     // Crea las celdas editables para Asignatura, Créditos y Nota
     nuevaFila.insertCell(1).contentEditable = 'true';
-    nuevaFila.cells[1].textContent = 'Nueva Asignatura';
+    nuevaFila.cells[1].textContent = asignatura;
     nuevaFila.insertCell(2).contentEditable = 'true';
-    nuevaFila.cells[2].textContent = '0';
+    nuevaFila.cells[2].textContent = creditos;
     nuevaFila.insertCell(3).contentEditable = 'true';
-    nuevaFila.cells[3].textContent = '0';
+    nuevaFila.cells[3].textContent = nota;
 }
 
 function eliminarFila(boton) {
@@ -56,9 +68,9 @@ function calcularNotaNecesaria() {
 
     // Actualiza el resultado
     if (notaNecesaria >= 0 && notaNecesaria <= 5) {
-        document.getElementById('resultado-pappi').innerText = `Debes sacarte ${notaNecesaria.toFixed(2)} en el ${porcentajeRestante}% restante`;
+        document.getElementById('resultado-pappi-necesario').innerText = `Debes sacarte ${notaNecesaria.toFixed(2)} en el ${porcentajeRestante}% restante`;
     } else {
-        document.getElementById('resultado-pappi').innerText = "No es posible alcanzar un promedio de 3 con los datos actuales.";
+        document.getElementById('resultado-pappi-necesario').innerText = "No es posible alcanzar un promedio de 3 con los datos actuales.";
     }
 }
 
@@ -174,21 +186,35 @@ function calcularPappi() {
     const filas = document.querySelectorAll('#tabla-asignaturas tbody tr');
     let sumaCreditosNotas = 0;
     let sumaCreditos = 0;
+    let notaInvalida = false;
 
     // Itera sobre cada fila para calcular el Pappi
     filas.forEach(fila => {
         // Obtiene el valor de créditos y notas y lo convierte a número flotante
         const credito = parseFloat(fila.cells[2].innerText) || 0;
-        const nota = parseFloat(fila.cells[3].innerText) || 0;
+        const nota = parseFloat(fila.cells[3].innerText);
+
+        // Si la nota no es un número válido, establece notaInvalida en true
+        if (isNaN(nota)) {
+            notaInvalida = true;
+            return;  // Detiene la iteración sobre las filas si encuentra una nota inválida
+        }
+
         // Suma los créditos multiplicados por las notas
         sumaCreditosNotas += credito * nota;
         // Suma los créditos
         sumaCreditos += credito;
     });
 
+    // Si se encontró una nota inválida, muestra "N/A"
+    if (notaInvalida) {
+        document.getElementById('resultado-pappi-total').textContent = 'N/A';
+        return;
+    }
+
     // Calcula el resultado de Pappi (promedio ponderado) y lo muestra
     const resultado = sumaCreditos > 0 ? (sumaCreditosNotas / sumaCreditos).toFixed(2) : 'N/A';
-    document.getElementById('resultado-pappi').textContent = resultado;
+    document.getElementById('resultado-pappi-total').textContent = resultado;
 }
 
 // Cargar la página "pappi.html" al cargar la página principal
