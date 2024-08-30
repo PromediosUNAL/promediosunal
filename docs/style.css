@@ -352,6 +352,10 @@ body.dark-mode .footer__dark-mode-toggle {
     color: #e0e0e0;
 }
 
+body.dark-mode .header__logo{
+    filter: invert(.87);
+}
+
 /* Media Queries */
 @media (max-width: 768px) {
     .main-nav__list {
