@@ -284,6 +284,10 @@ td[contenteditable] {
     height: 15px;
 }
 
+.buscador-container{
+    display: flex;
+    justify-content: space-between;
+}
 
 /* Estilos generales para pantallas grandes */
 .header-link {
@@ -357,9 +361,10 @@ td[contenteditable] {
         width: 100%;
     }
 
-    .buscador{
+    .buscador-container{
         display: block;
     }
+
     .add-row {
         width: 100%;
     }

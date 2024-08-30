@@ -1,7 +1,6 @@
 <div id="Calculadora-pappi">
 
-    <!-- Buscadores -->
-    <div class="buscador">
+    <div class="buscador-container">
         <input type="text" id="buscador" placeholder="Buscar por ID o nombre" oninput="buscarMaterias()">
         <div id="suggestions" class="autocomplete-suggestions"></div>
         <div class="add-row">
@@ -9,7 +8,6 @@
         </div>
     </div>
 
-    <!-- Tabla de asignaturas -->
     <table id="tabla-asignaturas">
         <caption>Calcular Pappi</caption>
         <thead>
@@ -33,20 +31,21 @@
     </table>
 
     <div class="tabla-buttons">
+
+        <!-- Botones de copiado -->
+        <div class="copiar">
+            <button class="copy-text" onclick="copiarTextoNotas()">Copiar tabla</button>
+            <button class="copy-text" onclick="copiarTextoNotas()">Copiar resultado</button>
+        </div>
+
         <!-- Botón para agregar filas -->
         <div class="calculo-container">
             <button onclick="calcularPappi()">Calcular Pappi</button>
             <span id="resultado-pappi-total">Resultado</span>
         </div>
+
     </div>
 
-    <!-- Botones de copiado -->
-    <div class="copiar">
-        <button class="copy-text" onclick="copiarTextoNotas()">Copiar tabla</button>
-        <button class="copy-text" onclick="copiarTextoNotas()">Copiar resultado</button>
-    </div>
-
-    <!-- Descripción del P.A.P.P.I. -->
     <div class="pappi-description">
         <p>El P.A.P.P.I. es la suma de la multiplicación del número de créditos de cada asignatura por la calificación
             obtenida, dividido en la suma del número de créditos de las asignaturas cursadas y canceladas con pérdida de
@@ -73,7 +72,8 @@
         </div>
     </div>
 
-    <div class="buscador">
+
+    <div class="buscador-container">
         <div style="display: flex;">
             Calcular notas que necesito para pasar la materia
             <input type="checkbox" class="calcularNotas" onclick="toggleTablaYBoton()">
@@ -83,7 +83,7 @@
             <button onclick="agregarFila('tabla-asignaturas2', 'Asignatura', '3', '')">Agregar fila</button>
         </div>
     </div>
-    <!-- Tabla para calcular notas necesarias -->
+
     <table id="tabla-asignaturas2" class="disabled">
         <thead>
         <tr>
@@ -111,6 +111,7 @@
         </tbody>
 
     </table>
+
     <div class="tabla-buttons" class="disabled">
 
         <!-- Botones de copiado -->
@@ -125,8 +126,6 @@
         </div>
     </div>
 
-
-    <!-- Descripción del P.A.P.P.I. -->
     <div class="pappi-description">
         <p>El P.A.P.P.I. es la suma de la multiplicación del número de créditos de cada asignatura por la calificación
             obtenida, dividido en la suma del número de créditos de las asignaturas cursadas y canceladas con pérdida de

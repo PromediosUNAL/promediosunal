@@ -1,5 +1,5 @@
 <div id="Calculadora-promedios">
-    <!-- Buscadores -->
+
     <div class="buscador">
         <input type="text" id="buscador-actividad" placeholder="Buscar actividad">
         <div id="suggestions" class="autocomplete-suggestions"></div>
@@ -8,7 +8,6 @@
         </div>
     </div>
 
-    <!-- Tabla de asignaturas -->
     <table id="tabla-asignaturas">
         <caption>Calcular Promedio</caption>
         <thead>
@@ -30,21 +29,23 @@
         </tr>
         </tbody>
     </table>
+
     <div class="tabla-buttons">
+
+        <!-- Botones de copiado -->
+        <div class="copiar">
+            <button class="copy-text" onclick="copiarTextoNotas()">Copiar tabla</button>
+            <button class="copy-text" onclick="copiarTextoNotas()">Copiar resultado</button>
+        </div>
+
         <!-- Botón para agregar filas -->
         <div class="calculo-container">
             <button onclick="calcularPappi()">Calcular Promedio</button>
             <span id="resultado-pappi-total">Resultado</span>
         </div>
+
     </div>
 
-    <!-- Botones de copiado -->
-    <div class="copiar">
-        <button class="copy-text" onclick="copiarTextoNotas()">Copiar tabla</button>
-        <button class="copy-text" onclick="copiarTextoNotas()">Copiar resultado</button>
-    </div>
-
-    <!-- Descripción del P.A.P.P.I. -->
     <div class="pappi-description">
         <p>La fórmula del Promedio de Notas por Porcentaje es sencilla pero poderosa. Consiste en multiplicar la nota
             obtenida en cada evaluación por el porcentaje correspondiente y sumar los resultados de todas las
@@ -75,6 +76,7 @@
             </div>
         </div>
     </div>
+
     <div class="buscador">
         <div style="display: flex;">
             Calcular notas que necesito para pasar la materia
@@ -87,7 +89,6 @@
 
     </div>
 
-    <!-- Tabla para calcular notas necesarias -->
     <table id="tabla-asignaturas2" class="disabled">
         <thead>
         <tr>
@@ -109,7 +110,7 @@
         </tbody>
 
     </table>
-    <!-- Botón para agregar filas -->
+
     <div class="tabla-buttons" class="disabled">
         <!-- Botones de copiado -->
         <div class="copiar">
@@ -123,9 +124,6 @@
         </div>
     </div>
 
-
-
-    <!-- Descripción del P.A.P.P.I. -->
     <div class="pappi-description">
         <p>La fórmula del Promedio de Notas por Porcentaje es sencilla pero poderosa. Consiste en multiplicar la nota
             obtenida en cada evaluación por el porcentaje correspondiente y sumar los resultados de todas las
