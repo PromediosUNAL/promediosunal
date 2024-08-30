@@ -100,6 +100,7 @@ body {
     background-color: #333;
     color: white;
     padding: 20px;
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -346,12 +347,6 @@ body.dark-mode .sobre-description{
     background-color: #272727;
     color: white;
 }
-
-
-body.dark-mode a{
-    color: #7cbcff;
-}
-
 
 body.dark-mode .footer__dark-mode-toggle {
     color: #e0e0e0;

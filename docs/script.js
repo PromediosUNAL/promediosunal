@@ -1,3 +1,56 @@
+/*Navegación y cargado de páginas*/
+// Al cargar la página, se desactiva la tabla y el botón
+document.addEventListener('DOMContentLoaded', function () {
+    var tabla = document.getElementById('tabla-secundaria');
+    tabla.classList.add('disabled');
+    botonAgregarFila.disabled = true;
+});
+// Función para cargar HTML en el contenedor principal
+document.addEventListener('DOMContentLoaded', function () {
+    // Función para cargar el contenido de un archivo HTML en el contenedor principal
+    function loadPage(page) {
+        fetch(page)
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('contenedor').innerHTML = html;
+
+                // Procesa el nuevo contenido para renderizar notación matemática
+                if (window.MathJax) {
+                    MathJax.typesetPromise();
+                }
+            })
+            .catch(error => {
+                console.error('Error al cargar la página:', error);
+            });
+    }
+
+    // Asigna los enlaces del menú de navegación para cargar las páginas correspondientes
+    document.querySelectorAll('.main-nav a').forEach(link => {
+        link.addEventListener('click', function (event) {
+            event.preventDefault();
+            const page = this.getAttribute('data-page');
+            loadPage(page);
+        });
+    });
+
+    // Carga la página por defecto (puedes cambiarlo según tu preferencia)
+    loadPage('pappi.html');
+});
+// Añadir evento de navegación a los enlaces de la navegación
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', function (event) {
+        event.preventDefault(); // Prevenir el comportamiento por defecto del enlace
+
+        // Obtener la página a cargar
+        const page = this.getAttribute('data-page');
+
+        // Cargar la página seleccionada
+        cargarPagina(page);
+    });
+});
+
+/*Botones de tablas y filas*/
+//Agregar filas a una determinada tabla
 function agregarFila(tablaId, asignatura, creditos, nota) {
     const tabla = document.getElementById(tablaId).getElementsByTagName('tbody')[0];
     let nuevaFila;
@@ -32,12 +85,189 @@ function agregarFila(tablaId, asignatura, creditos, nota) {
     nuevaFila.insertCell(3).contentEditable = 'true';
     nuevaFila.cells[3].textContent = nota;
 }
-
+//Elminiar una fia que aparece en una tabla
 function eliminarFila(boton) {
     const fila = boton.parentElement.parentElement;
     fila.parentElement.removeChild(fila);
 }
 
+// Agrega el evento eliminarFila a todos los botones eliminación cuando se actualiza el documento
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.delete-row').forEach(boton => {
+        boton.addEventListener('click', function () {
+            eliminarFila(this);
+        });
+    });
+});
+
+//Activar tablas ocultas
+function toggleTablaButton() {
+    // Obtener el estado del checkbox
+    var checkbox = document.getElementById('calcularNotas');
+
+    // Obtener la tabla y el botón
+    var tabla = document.getElementById('tabla-asignaturas2');
+    var botonAgregarFila = document.getElementById('agregar-fila-btn2');
+
+    // Deshabilitar o habilitar la tabla y el botón basado en el estado del checkbox
+    if (checkbox.checked) {
+        tabla.classList.remove('disabled');
+        botonAgregarFila.classList.remove('disabled');
+    } else {
+        tabla.classList.add('disabled');
+        botonAgregarFila.classList.add('disabled');
+    }
+}
+
+/*Botones de copiado*/
+
+//copiar el texto de la tabla al portapapeles
+function copiarTabla() {
+    // Selecciona todas las filas dentro del <tbody> de la tabla con id 'tabla-asignaturas'
+    const filas = document.querySelectorAll('#tabla-asignaturas tbody tr');
+    let texto = '';
+    // Itera sobre cada fila para construir el texto a copiar
+    filas.forEach(fila => {
+        // Obtiene el texto de cada celda en la fila
+        const asignatura = fila.cells[0].innerText;
+        const credito = fila.cells[1].innerText;
+        const nota = fila.cells[2].innerText;
+        // Concatena la información en el formato deseado
+        texto += `Asignatura: ${asignatura}, Crédito: ${credito}, Nota: ${nota}\n`;
+    });
+    // Usa la API Clipboard para copiar el texto al portapapeles
+    navigator.clipboard.writeText(texto)
+        .then(() => alert('Texto copiado al portapapeles')) // Muestra un mensaje de éxito si la operación se completa
+        .catch(err => alert('Error al copiar texto')); // Muestra un mensaje de error si ocurre un problema
+}
+
+//Copiar el resultado a el portapapeles
+function copiarResultado() {
+    // Selecciona todas las filas dentro del <tbody> de la tabla con id 'tabla-asignaturas'
+    const filas = document.querySelectorAll('#tabla-asignaturas tbody tr');
+    let texto = '';
+    // Itera sobre cada fila para construir el texto a copiar
+    filas.forEach(fila => {
+        // Obtiene el texto de cada celda en la fila
+        const asignatura = fila.cells[0].innerText;
+        const credito = fila.cells[1].innerText;
+        const nota = fila.cells[2].innerText;
+        // Concatena la información en el formato deseado
+        texto += `Asignatura: ${asignatura}, Crédito: ${credito}, Nota: ${nota}\n`;
+    });
+    // Usa la API Clipboard para copiar el texto al portapapeles
+    navigator.clipboard.writeText(texto)
+        .then(() => alert('Texto copiado al portapapeles')) // Muestra un mensaje de éxito si la operación se completa
+        .catch(err => alert('Error al copiar texto')); // Muestra un mensaje de error si ocurre un problema
+}
+
+/*Buscadores*/
+
+// Autocompletado búsqueda
+function buscarMaterias() {
+    const carrera = document.getElementById('carreraSelect').value;
+    const busqueda = document.getElementById('buscador').value.toLowerCase();
+    const metodologia = document.getElementById('metodologiaSelect').value;
+
+    fetch('materias.json')
+        .then(response => response.json())
+        .then(data => {
+            const sugerencias = data.filter(materia => {
+                return (materia.codigo.toLowerCase().includes(busqueda) || materia.nombre.toLowerCase().includes(busqueda)) &&
+                    (carrera === "" || materia.carrera === carrera) &&
+                    (metodologia === "" || materia.metodologia === metodologia);
+            });
+
+            // Mostrar las sugerencias en una lista
+            const sugerenciasDiv = document.getElementById('suggestions');
+            sugerenciasDiv.innerHTML = '';
+            const listaSugerencias = document.createElement('ul');
+            sugerencias.forEach(materia => {
+                const li = document.createElement('li');
+                li.textContent = materia.nombre;
+                // Agregar un evento para seleccionar la sugerencia
+                li.addEventListener('click', () => {
+                    agregarMateriaATabla(materia);
+                    sugerenciasDiv.innerHTML = '';
+                    document.getElementById('buscador').value = materia.nombre;
+                });
+                listaSugerencias.appendChild(li);
+            });
+            sugerenciasDiv.appendChild(listaSugerencias);
+        });
+}
+
+// Función para agregar la busqueda a la tabla
+function agregarBusquedaTabla() {
+    const tabla = document.getElementById('tabla-asignaturas').getElementsByTagName('tbody')[0];
+    const nuevaFila = tabla.insertRow();
+
+    // Botón para borrar la fila
+    const celdaBorrar = nuevaFila.insertCell(0);
+    const botonBorrar = document.createElement('button');
+    botonBorrar.textContent = '-';
+    botonBorrar.className = 'delete-row';
+    botonBorrar.onclick = function () {
+        eliminarFila(this);
+    };
+    celdaBorrar.appendChild(botonBorrar);
+
+    // Celda para el nombre de la materia
+    const celdaMateria = nuevaFila.insertCell(1);
+    celdaMateria.textContent = materia.nombre;
+    celdaMateria.contentEditable = "true";
+
+    // Celda para los créditos de la materia
+    const celdaCreditos = nuevaFila.insertCell(2);
+    celdaCreditos.textContent = "3"; // Aquí podrías agregar un valor dinámico si tienes la información
+    celdaCreditos.contentEditable = "true";
+
+    // Celda para la nota
+    const celdaNota = nuevaFila.insertCell(3);
+    celdaNota.textContent = "5.0"; // Aquí podrías agregar un valor dinámico si tienes la información
+    celdaNota.contentEditable = "true";
+}
+
+/*Cálculo de promedios*/
+
+// Función para calcular el promedio (Ya sea PAPPI o Podenrado normal)
+function calcularPromedio() {
+    // Selecciona todas las filas dentro del <tbody> de la tabla con id 'tabla-asignaturas'
+    const filas = document.querySelectorAll('#tabla-asignaturas tbody tr');
+    let sumaCreditosNotas = 0;
+    let sumaCreditos = 0;
+    let notaInvalida = false;
+
+    // Itera sobre cada fila para calcular el Pappi
+    filas.forEach(fila => {
+        // Obtiene el valor de créditos y notas y lo convierte a número flotante
+        const credito = parseFloat(fila.cells[2].innerText) || 0;
+        const nota = parseFloat(fila.cells[3].innerText);
+
+        // Si la nota no es un número válido, establece notaInvalida en true
+        if (isNaN(nota)) {
+            notaInvalida = true;
+            return;  // Detiene la iteración sobre las filas si encuentra una nota inválida
+        }
+
+        // Suma los créditos multiplicados por las notas
+        sumaCreditosNotas += credito * nota;
+        // Suma los créditos
+        sumaCreditos += credito;
+    });
+
+    // Si se encontró una nota inválida, muestra "N/A"
+    if (notaInvalida) {
+        document.getElementById('resultado-pappi-total').textContent = 'N/A';
+        return;
+    }
+
+    // Calcula el resultado de Pappi (promedio ponderado) y lo muestra
+    const resultado = sumaCreditos > 0 ? (sumaCreditosNotas / sumaCreditos).toFixed(2) : 'N/A';
+    document.getElementById('resultado-pappi-total').textContent = resultado;
+}
+
+//Calcular la nota que necesitas para sacar cierta nota
 function calcularNotaNecesaria() {
     const tabla = document.getElementById('tabla-asignaturas2').getElementsByTagName('tbody')[0];
     let porcentajeActual = 0;
@@ -74,304 +304,8 @@ function calcularNotaNecesaria() {
     }
 }
 
-// Agrega el evento a todos los botones de eliminación al cargar la página
-document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('.delete-row').forEach(boton => {
-        boton.addEventListener('click', function () {
-            eliminarFila(this);
-        });
-    });
-});
-
-// Función para copiar el texto de las notas al portapapeles
-function copiarTextoNotas() {
-    // Selecciona todas las filas dentro del <tbody> de la tabla con id 'tabla-asignaturas'
-    const filas = document.querySelectorAll('#tabla-asignaturas tbody tr');
-    let texto = '';
-    // Itera sobre cada fila para construir el texto a copiar
-    filas.forEach(fila => {
-        // Obtiene el texto de cada celda en la fila
-        const asignatura = fila.cells[0].innerText;
-        const credito = fila.cells[1].innerText;
-        const nota = fila.cells[2].innerText;
-        // Concatena la información en el formato deseado
-        texto += `Asignatura: ${asignatura}, Crédito: ${credito}, Nota: ${nota}\n`;
-    });
-    // Usa la API Clipboard para copiar el texto al portapapeles
-    navigator.clipboard.writeText(texto)
-        .then(() => alert('Texto copiado al portapapeles')) // Muestra un mensaje de éxito si la operación se completa
-        .catch(err => alert('Error al copiar texto')); // Muestra un mensaje de error si ocurre un problema
-}
-
-// Funcionalidad para el autocompletado del campo de búsqueda de carrera
-document.addEventListener('DOMContentLoaded', function () {
-    // Obtiene los elementos del DOM necesarios para el autocompletado
-    const buscadorCarrera = document.getElementById('buscador-carrera');
-    const buscadorAsignatura = document.getElementById('buscador-asignatura');
-    const suggestions = document.getElementById('suggestions');
-    // Lista de opciones para autocompletado
-    const opciones = [
-        "Ingeniería de Sistemas y Computación",
-        "Libre elección"
-    ];
-
-    // Inicializa el estilo del campo de asignatura
-    buscadorAsignatura.style.backgroundColor = 'white'; // Establece el fondo blanco por defecto
-    buscadorAsignatura.style.cursor = 'auto'; // Establece el cursor a 'auto'
-
-    // Input manager en la búsqueda de carrera
-    buscadorCarrera.addEventListener('input', function () {
-        // Quita lo que no sea letras
-        const valor = this.value.replace(/[^a-zA-ZÀ-ÿ\s]/g, '').toLowerCase();
-        this.value = valor; // Actualiza el valor del campo de búsqueda
-
-        const palabras = valor.split(/\s+/); // Divide el valor en palabras individuales
-        suggestions.innerHTML = ''; // Limpia las sugerencias existentes
-
-        if (valor) {
-            // Itera sobre las opciones para encontrar coincidencias
-            opciones.forEach(opcion => {
-                const textoOpcion = opcion.toLowerCase();
-                // Verifica si cada palabra en el valor está incluida en la opción
-                let coincidencias = palabras.every(palabra => textoOpcion.includes(palabra));
-
-                if (coincidencias) {
-                    // Crea un nuevo div para una opción de sugerencia
-                    const div = document.createElement('div');
-                    div.classList.add('autocomplete-suggestion');
-                    div.textContent = opcion;
-                    // Añade un evento de clic para seleccionar una sugerencia
-                    div.addEventListener('click', function () {
-                        buscadorCarrera.value = opcion; // Establece el valor del campo de búsqueda a la opción seleccionada
-                        suggestions.innerHTML = ''; // Limpia las sugerencias
-                    });
-                    // Añade el div de sugerencia al contenedor de sugerencias
-                    suggestions.appendChild(div);
-                }
-            });
-        }
-    });
-
-    // Input manager en la búsqueda de carrera
-    buscadorAsignatura.addEventListener('input', function () {
-        // Quita lo que no sea letras
-        const valor = this.value.replace(/[^a-zA-ZÀ-ÿ\s]/g, '').toLowerCase();
-        this.value = valor; // Actualiza el valor del campo de búsqueda
-
-        const palabras = valor.split(/\s+/); // Divide el valor en palabras individuales
-        suggestions.innerHTML = ''; // Limpia las sugerencias existente
-    });
-
-    // Añade un evento para ocultar las sugerencias si se hace clic fuera del área de sugerencias
-    document.addEventListener('click', function (event) {
-        if (!suggestions.contains(event.target) && event.target !== buscadorCarrera) {
-            suggestions.innerHTML = ''; // Limpia las sugerencias si el clic está fuera del área de sugerencias
-        }
-    });
-});
-
-// Función para cargar una página en el contenedor <main>
-function cargarPagina(page) {
-    fetch(page)
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('contenedor').innerHTML = data;
-        })
-        .catch(error => console.error('Error al cargar la página:', error));
-}
-
-// Función para calcular el Pappi
-function calcularPappi() {
-    // Selecciona todas las filas dentro del <tbody> de la tabla con id 'tabla-asignaturas'
-    const filas = document.querySelectorAll('#tabla-asignaturas tbody tr');
-    let sumaCreditosNotas = 0;
-    let sumaCreditos = 0;
-    let notaInvalida = false;
-
-    // Itera sobre cada fila para calcular el Pappi
-    filas.forEach(fila => {
-        // Obtiene el valor de créditos y notas y lo convierte a número flotante
-        const credito = parseFloat(fila.cells[2].innerText) || 0;
-        const nota = parseFloat(fila.cells[3].innerText);
-
-        // Si la nota no es un número válido, establece notaInvalida en true
-        if (isNaN(nota)) {
-            notaInvalida = true;
-            return;  // Detiene la iteración sobre las filas si encuentra una nota inválida
-        }
-
-        // Suma los créditos multiplicados por las notas
-        sumaCreditosNotas += credito * nota;
-        // Suma los créditos
-        sumaCreditos += credito;
-    });
-
-    // Si se encontró una nota inválida, muestra "N/A"
-    if (notaInvalida) {
-        document.getElementById('resultado-pappi-total').textContent = 'N/A';
-        return;
-    }
-
-    // Calcula el resultado de Pappi (promedio ponderado) y lo muestra
-    const resultado = sumaCreditos > 0 ? (sumaCreditosNotas / sumaCreditos).toFixed(2) : 'N/A';
-    document.getElementById('resultado-pappi-total').textContent = resultado;
-}
-
-// Cargar la página "pappi.html" al cargar la página principal
-document.addEventListener('DOMContentLoaded', function () {
-    cargarPagina('pappi.html');
-});
-
-// Añadir evento a los enlaces de la navegación
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', function (event) {
-        event.preventDefault(); // Prevenir el comportamiento por defecto del enlace
-
-        // Obtener la página a cargar
-        const page = this.getAttribute('data-page');
-
-        // Cargar la página seleccionada
-        cargarPagina(page);
-    });
-});
-
-document.addEventListener('DOMContentLoaded', function () {
-    // Función para cargar el contenido de un archivo HTML en el contenedor principal
-    function loadPage(page) {
-        fetch(page)
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById('contenedor').innerHTML = html;
-
-                // Procesa el nuevo contenido para renderizar notación matemática
-                if (window.MathJax) {
-                    MathJax.typesetPromise();
-                }
-            })
-            .catch(error => {
-                console.error('Error al cargar la página:', error);
-            });
-    }
-
-    // Asigna los enlaces del menú de navegación para cargar las páginas correspondientes
-    document.querySelectorAll('.main-nav a').forEach(link => {
-        link.addEventListener('click', function (event) {
-            event.preventDefault();
-            const page = this.getAttribute('data-page');
-            loadPage(page);
-        });
-    });
-
-    // Carga la página por defecto (puedes cambiarlo según tu preferencia)
-    loadPage('pappi.html');
-});
-
-// Al cargar la página, se desactiva la tabla y el botón
-document.addEventListener('DOMContentLoaded', function () {
-    var tabla = document.getElementById('tabla-asignaturas2');
-    var botonAgregarFila = document.getElementById('agregar-fila-btn2');
-    tabla.classList.add('disabled');
-    botonAgregarFila.disabled = true;
-});
-
-function toggleTablaYBoton() {
-    // Obtener el estado del checkbox
-    var checkbox = document.getElementById('calcularNotas');
-
-    // Obtener la tabla y el botón
-    var tabla = document.getElementById('tabla-asignaturas2');
-    var botonAgregarFila = document.getElementById('agregar-fila-btn2');
-
-    // Deshabilitar o habilitar la tabla y el botón basado en el estado del checkbox
-    if (checkbox.checked) {
-        tabla.classList.remove('disabled');
-        botonAgregarFila.classList.remove('disabled');
-    } else {
-        tabla.classList.add('disabled');
-        botonAgregarFila.classList.add('disabled');
-    }
-}
-
+/*Cargar el modo oscuro*/
 const toggle = document.getElementById('dark-mode-toggle');
 toggle.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
-});
-
-// Función para buscar materias
-function buscarMaterias() {
-    const carrera = document.getElementById('carreraSelect').value;
-    const busqueda = document.getElementById('buscador').value.toLowerCase();
-    const metodologia = document.getElementById('metodologiaSelect').value;
-
-    fetch('materias.json')
-        .then(response => response.json())
-        .then(data => {
-            const sugerencias = data.filter(materia => {
-                return (materia.codigo.toLowerCase().includes(busqueda) || materia.nombre.toLowerCase().includes(busqueda)) &&
-                    (carrera === "" || materia.carrera === carrera) &&
-                    (metodologia === "" || materia.metodologia === metodologia);
-            });
-
-            // Mostrar las sugerencias en una lista
-            const sugerenciasDiv = document.getElementById('suggestions');
-            sugerenciasDiv.innerHTML = '';
-            const listaSugerencias = document.createElement('ul');
-            sugerencias.forEach(materia => {
-                const li = document.createElement('li');
-                li.textContent = materia.nombre;
-                // Agregar un evento para seleccionar la sugerencia
-                li.addEventListener('click', () => {
-                    agregarMateriaATabla(materia);
-                    sugerenciasDiv.innerHTML = '';
-                    document.getElementById('buscador').value = materia.nombre;
-                });
-                listaSugerencias.appendChild(li);
-            });
-            sugerenciasDiv.appendChild(listaSugerencias);
-        });
-}
-
-// Función para agregar la materia seleccionada a la tabla
-function agregarMateriaATabla(materia) {
-    const tabla = document.getElementById('tabla-asignaturas').getElementsByTagName('tbody')[0];
-    const nuevaFila = tabla.insertRow();
-
-    // Botón para borrar la fila
-    const celdaBorrar = nuevaFila.insertCell(0);
-    const botonBorrar = document.createElement('button');
-    botonBorrar.textContent = '-';
-    botonBorrar.className = 'delete-row';
-    botonBorrar.onclick = function() { eliminarFila(this); };
-    celdaBorrar.appendChild(botonBorrar);
-
-    // Celda para el nombre de la materia
-    const celdaMateria = nuevaFila.insertCell(1);
-    celdaMateria.textContent = materia.nombre;
-    celdaMateria.contentEditable = "true";
-
-    // Celda para los créditos de la materia
-    const celdaCreditos = nuevaFila.insertCell(2);
-    celdaCreditos.textContent = "3"; // Aquí podrías agregar un valor dinámico si tienes la información
-    celdaCreditos.contentEditable = "true";
-
-    // Celda para la nota
-    const celdaNota = nuevaFila.insertCell(3);
-    celdaNota.textContent = "5.0"; // Aquí podrías agregar un valor dinámico si tienes la información
-    celdaNota.contentEditable = "true";
-}
-
-// Función para eliminar una fila de la tabla
-function eliminarFila(boton) {
-    const fila = boton.parentNode.parentNode;
-    fila.parentNode.removeChild(fila);
-}
-
-// Llenar dinámicamente las opciones de carrera
-const carreras = ['Ingeniería en Sistemas', 'Física', 'Matemáticas'];
-const carreraSelect = document.getElementById('carreraSelect');
-carreras.forEach(carrera => {
-    const option = document.createElement('option');
-    option.value = carrera;
-    option.textContent = carrera;
-    carreraSelect.appendChild(option);
 });
