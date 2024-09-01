@@ -42,8 +42,7 @@
 
             <!-- Botón para agregar filas -->
             <div class="calculo-container">
-                <button class="calculo-container__button" onclick="calcularPromedio('tabla-principal')">Calcular Pappi
-                </button>
+                <button class="calculo-container__button" onclick="calcularPromedioPonderado('tabla-principal')">Calcular Pappi</button>
                 <span class="calculo-container__resultado">Resultado</span>
             </div>
 
@@ -53,7 +52,7 @@
         <div class="calculadora-pappi__buscador-container">
             <div class="buscador-checkbox-container">
                 Calcular notas que necesito para tener cierto PAPPI
-                <input type="checkbox" class="calcularNotas" onclick="toggleTablaButton('tabla-secundaria')">
+                <input type="checkbox" id="calcularNotas" class="calcularNotas" onclick="toggleTablaButton('tabla-secundaria')">
             </div>
             <!-- Botón para agregar filas -->
             <div class="add-row disabled">
@@ -100,7 +99,7 @@
 
             <!-- Botón para agregar filas -->
             <div class="calculo-container">
-                <button class="calculo-container__button" onclick="calcularPromedio('tabla-secuandaria')">Calcular
+                <button class="calculo-container__button" onclick="calcularPromedio('tabla-secundaria')">Calcular
                     Notas
                 </button>
                 <span class="calculo-container__resultado">Resultado</span>

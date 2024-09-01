@@ -40,7 +40,7 @@
 
             <!-- Botón para agregar filas -->
             <div class="calculo-container">
-                <button class="calculo-container__button" onclick="calcularPappi()">Calcular Pappi</button>
+                <button class="calculo-container__button" onclick="calcularPromedioPonderado('tabla-asignaturas')">Calcular Promedio</button>
                 <span class="calculo-container__resultado">Resultado</span>
             </div>
 
@@ -49,8 +49,8 @@
     <div class="calculadora-pappi__sub">
         <div class="calculadora-pappi__buscador-container">
             <div class="buscador-checkbox-container">
-                Calcular notas que necesito para tener cierto PAPPI
-                <input type="checkbox" class="calcularNotas" onclick="toggleTablaYBoton()">
+                Calcular notas que necesito para tener cierto Promedio
+                <input type="checkbox" id="calcularNotas" class="calcularNotas" onclick="toggleTablaButton('tabla-asignaturas2')">
             </div>
             <!-- Botón para agregar filas -->
             <div class="add-row disabled">
@@ -78,6 +78,12 @@
                 <td contenteditable="true" class="tabla__cell">Asignatura 1</td>
                 <td contenteditable="true" class="tabla__cell">3</td>
                 <td contenteditable="false" class="tabla__cell">?</td>
+            </tr>
+            <tr class="tabla__row">
+                <td contenteditable="false" class="tabla__cell"></td>
+                <td contenteditable="false" class="tabla__cell"></td>
+                <td contenteditable="false" class="tabla__cell">Promedio deseado</td>
+                <td contenteditable="true" class="tabla__cell">3</td>
             </tr>
             </tbody>
 

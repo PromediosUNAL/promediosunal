@@ -50,7 +50,7 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 });
 
 /*Botones de tablas y filas*/
-//Agregar filas a una determinada tabla
+//Agregar filas a una determinada tabla, con determinados datos
 function agregarFila(tablaId, asignatura, creditos, nota) {
     const tabla = document.getElementById(tablaId).getElementsByTagName('tbody')[0];
     let nuevaFila;
@@ -85,7 +85,8 @@ function agregarFila(tablaId, asignatura, creditos, nota) {
     nuevaFila.insertCell(3).contentEditable = 'true';
     nuevaFila.cells[3].textContent = nota;
 }
-//Elminiar una fia que aparece en una tabla
+
+//Eliminar la ultima fila de la tabla
 function eliminarFila(boton) {
     const fila = boton.parentElement.parentElement;
     fila.parentElement.removeChild(fila);
@@ -100,14 +101,13 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-//Activar tablas ocultas
-function toggleTablaButton() {
+function toggleTablaButton(tablaId) {
     // Obtener el estado del checkbox
     var checkbox = document.getElementById('calcularNotas');
 
     // Obtener la tabla y el botón
-    var tabla = document.getElementById('tabla-asignaturas2');
-    var botonAgregarFila = document.getElementById('agregar-fila-btn2');
+    var tabla = document.getElementById(tablaId);
+    var botonAgregarFila = document.getElementById('add-row__button');
 
     // Deshabilitar o habilitar la tabla y el botón basado en el estado del checkbox
     if (checkbox.checked) {
@@ -121,9 +121,9 @@ function toggleTablaButton() {
 
 /*Botones de copiado*/
 
-//copiar el texto de la tabla al portapapeles
+//Copiar el texto de la tabla al portapapeles
 function copiarTabla() {
-    // Selecciona todas las filas dentro del <tbody> de la tabla con id 'tabla-asignaturas'
+    // Selecciona todas las filas dentro del <tbody> de la tabla con ID 'tabla-asignaturas'
     const filas = document.querySelectorAll('#tabla-asignaturas tbody tr');
     let texto = '';
     // Itera sobre cada fila para construir el texto a copiar
@@ -141,9 +141,9 @@ function copiarTabla() {
         .catch(err => alert('Error al copiar texto')); // Muestra un mensaje de error si ocurre un problema
 }
 
-//Copiar el resultado a el portapapeles
+//Copiar el resultado al portapapeles
 function copiarResultado() {
-    // Selecciona todas las filas dentro del <tbody> de la tabla con id 'tabla-asignaturas'
+    // Selecciona todas las filas dentro del <tbody> de la tabla con ID 'tabla-asignaturas'
     const filas = document.querySelectorAll('#tabla-asignaturas tbody tr');
     let texto = '';
     // Itera sobre cada fila para construir el texto a copiar
@@ -230,41 +230,31 @@ function agregarBusquedaTabla() {
 
 /*Cálculo de promedios*/
 
-// Función para calcular el promedio (Ya sea PAPPI o Podenrado normal)
-function calcularPromedio() {
-    // Selecciona todas las filas dentro del <tbody> de la tabla con id 'tabla-asignaturas'
-    const filas = document.querySelectorAll('#tabla-asignaturas tbody tr');
-    let sumaCreditosNotas = 0;
+function calcularPromedioPonderado(idTabla) {
+    const filas = document.querySelectorAll(`#${idTabla} tbody > tr`);
+
+    // Inicializar variables para los cálculos
+    let sumaProductos = 0;
     let sumaCreditos = 0;
-    let notaInvalida = false;
 
-    // Itera sobre cada fila para calcular el Pappi
+    // Iterar sobre cada fila y realizar los cálculos
     filas.forEach(fila => {
-        // Obtiene el valor de créditos y notas y lo convierte a número flotante
-        const credito = parseFloat(fila.cells[2].innerText) || 0;
-        const nota = parseFloat(fila.cells[3].innerText);
+        // Obtener las celdas de crédito y nota
+        const celdas = fila.querySelectorAll('td');
+        const creditos = parseFloat(celdas[2].textContent);
+        const nota = parseFloat(celdas[3].textContent);
 
-        // Si la nota no es un número válido, establece notaInvalida en true
-        if (isNaN(nota)) {
-            notaInvalida = true;
-            return;  // Detiene la iteración sobre las filas si encuentra una nota inválida
-        }
-
-        // Suma los créditos multiplicados por las notas
-        sumaCreditosNotas += credito * nota;
-        // Suma los créditos
-        sumaCreditos += credito;
+        // Sumar los productos de crédito por nota y la suma total de créditos
+        sumaProductos += creditos * nota;
+        sumaCreditos += creditos;
     });
 
-    // Si se encontró una nota inválida, muestra "N/A"
-    if (notaInvalida) {
-        document.getElementById('resultado-pappi-total').textContent = 'N/A';
-        return;
-    }
+    // Calcular el promedio ponderado
+    const promedioPonderado = sumaProductos / sumaCreditos;
 
-    // Calcula el resultado de Pappi (promedio ponderado) y lo muestra
-    const resultado = sumaCreditos > 0 ? (sumaCreditosNotas / sumaCreditos).toFixed(2) : 'N/A';
-    document.getElementById('resultado-pappi-total').textContent = resultado;
+    // Mostrar el resultado en el span
+    const resultadoSpan = document.querySelector('.calculo-container__resultado');
+    resultadoSpan.textContent = promedioPonderado.toFixed(2);
 }
 
 //Calcular la nota que necesitas para sacar cierta nota
