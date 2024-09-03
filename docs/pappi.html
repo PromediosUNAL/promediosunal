@@ -52,11 +52,11 @@
         <div class="calculadora-pappi__buscador-container">
             <div class="buscador-checkbox-container">
                 Calcular notas que necesito para tener cierto PAPPI
-                <input type="checkbox" id="calcularNotas" class="calcularNotas" onclick="toggleTablaButton('tabla-secundaria')">
+                <input type="checkbox" id="checkboxPappi" class="calcularNotas" onclick="toggleTablaButton('tabla-secundaria', 'checkboxPappi', 'add_row_pappi', 'buttons_pappi')">
             </div>
             <!-- Botón para agregar filas -->
-            <div class="add-row disabled">
-                <button class="add-row__button" onclick="agregarFila()">Agregar fila</button>
+            <div class="add-row disabled" id="add_row_pappi">
+                <button class="add-row__button" onclick="agregarFila('tabla-secundaria', 'Asignatura', '3', '5.0')">Agregar fila</button>
             </div>
         </div>
 
@@ -76,7 +76,7 @@
                 </td>
                 <td contenteditable="true" class="tabla__cell">Asignatura</td>
                 <td contenteditable="true" class="tabla__cell">3</td>
-                <td contenteditable="false" class="tabla__cell">?</td>
+                <td contenteditable="true" class="tabla__cell"></td>
             </tr>
             <tr class="tabla__row">
                 <td contenteditable="false" class="tabla__cell"></td>
@@ -88,7 +88,7 @@
 
         </table>
 
-        <div class="calculadora-pappi__buttons disabled">
+        <div class="calculadora-pappi__buttons disabled" id="buttons_pappi">
 
             <div class="copy-container">
                 <button class="copy-container__button" onclick="copiarTabla('tabla-principal')">Copiar tabla</button>

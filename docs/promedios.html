@@ -50,11 +50,11 @@
         <div class="calculadora-pappi__buscador-container">
             <div class="buscador-checkbox-container">
                 Calcular notas que necesito para tener cierto Promedio
-                <input type="checkbox" id="calcularNotas" class="calcularNotas" onclick="toggleTablaButton('tabla-asignaturas2')">
+                <input type="checkbox" id="checkboxPromedio" class="calcularNotas" onclick="toggleTablaButton('tabla-asignaturas2', 'checkboxPromedio', 'add_row_promedio', 'buttons_promedio')">
             </div>
             <!-- Botón para agregar filas -->
-            <div class="add-row disabled">
-                <button class="add-row__button" onclick="agregarFila('tabla-asignaturas2', 'Asignatura', '3', '')">
+            <div class="add-row disabled" id="add_row_promedio">
+                <button class="add-row__button" onclick="agregarFila('tabla-asignaturas2', 'Parcial', '20', '5.0')">
                     Agregar
                     fila
                 </button>
@@ -75,9 +75,9 @@
                 <td class="tabla__cell">
                     <button class="delete-row" onclick="eliminarFila(this)">-</button>
                 </td>
-                <td contenteditable="true" class="tabla__cell">Asignatura 1</td>
-                <td contenteditable="true" class="tabla__cell">3</td>
-                <td contenteditable="false" class="tabla__cell">?</td>
+                <td contenteditable="true" class="tabla__cell">Parcial</td>
+                <td contenteditable="true" class="tabla__cell">20</td>
+                <td contenteditable="true" class="tabla__cell">5.0</td>
             </tr>
             <tr class="tabla__row">
                 <td contenteditable="false" class="tabla__cell"></td>
@@ -89,7 +89,7 @@
 
         </table>
 
-        <div class="calculadora-pappi__buttons disabled">
+        <div class="calculadora-pappi__buttons disabled" id="buttons_promedio">
 
             <!-- Botones de copiado -->
             <div class="copy-container">
@@ -99,8 +99,8 @@
 
             <!-- Botón para agregar filas -->
             <div class="calculo-container">
-                <button class="calculo-container__button" onclick="calcularPappi()">Calcular Notas</button>
-                <span class="calculo-container__resultado">Resultado</span>
+                <button class="calculo-container__button" onclick="calcularNotaNecesaria('tabla-asignaturas2')">Calcular Notas</button>
+                <span class="calculo-container__resultado" id="promedio_necesario">Resultado</span>
             </div>
 
         </div>

@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc93fc84-89b4-47d1-9cc9-6ee6f94a5747" name="Changes" comment="U-U">
+    <list default="true" id="bc93fc84-89b4-47d1-9cc9-6ee6f94a5747" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_08_2024_8_01_p_m___Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_08_2024_8_01_p_ m__[Changes]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/pappi.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/pappi.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/promedios.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/promedios.html" afterDir="false" />
@@ -36,22 +38,12 @@
     &quot;assignee&quot;: &quot;matrodriguezpa&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/PromediosUNAL/promediosunal.git",
-    "accountId": "3ff66790-f608-4e6b-8c1e-7dab583d003b"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/PromediosUNAL/promediosunal.git&quot;,
+    &quot;accountId&quot;: &quot;3ff66790-f608-4e6b-8c1e-7dab583d003b&quot;
   }
-}]]></component>
-  <component name="ProblemsViewState">
-    <hideBySeverity>
-      <option value="11" />
-      <option value="12" />
-      <option value="13" />
-      <option value="14" />
-      <option value="15" />
-      <option value="16" />
-    </hideBySeverity>
-  </component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -119,7 +111,8 @@
       <workItem from="1724682290519" duration="4798000" />
       <workItem from="1724795850169" duration="7179000" />
       <workItem from="1725035851483" duration="12763000" />
-      <workItem from="1725151553004" duration="4506000" />
+      <workItem from="1725151553004" duration="4565000" />
+      <workItem from="1725384092945" duration="4487000" />
     </task>
     <task id="LOCAL-00001" summary="creación de un JSON para almacenar las materias">
       <option name="closed" value="true" />
@@ -321,7 +314,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725054017495</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="arregle lo d calcular pappi/promedio, cosas d redaccion tanto en los comentarios como en la pagina y avance el toggle, pero solo se activan y desactivan ciertas cosas, toca q se actve o desactive todo">
+      <option name="closed" value="true" />
+      <created>1725156230691</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1725156230691</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -359,6 +360,7 @@
     <MESSAGE value="OwO" />
     <MESSAGE value="UnU" />
     <MESSAGE value="U-U" />
-    <option name="LAST_COMMIT_MESSAGE" value="U-U" />
+    <MESSAGE value="arregle lo d calcular pappi/promedio, cosas d redaccion tanto en los comentarios como en la pagina y avance el toggle, pero solo se activan y desactivan ciertas cosas, toca q se actve o desactive todo" />
+    <option name="LAST_COMMIT_MESSAGE" value="arregle lo d calcular pappi/promedio, cosas d redaccion tanto en los comentarios como en la pagina y avance el toggle, pero solo se activan y desactivan ciertas cosas, toca q se actve o desactive todo" />
   </component>
 </project>

@@ -55,8 +55,8 @@ function agregarFila(tablaId, asignatura, creditos, nota) {
     const tabla = document.getElementById(tablaId).getElementsByTagName('tbody')[0];
     let nuevaFila;
 
-    if (tablaId === 'tabla-asignaturas2') {
-        // Inserta en la penúltima posición si la tabla es "tabla-asignaturas2"
+    if (tablaId === 'tabla-secundaria' || tablaId === 'tabla-asignaturas2') {
+        // Inserta en la penúltima posición si la tabla es "tabla-secundaria" o "tabla-asignaturas2
         const filas = tabla.getElementsByTagName('tr');
         const numFilas = filas.length;
 
@@ -101,21 +101,24 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-function toggleTablaButton(tablaId) {
+function toggleTablaButton(tablaId, checkboxId, addRowId, buttonsId) {
     // Obtener el estado del checkbox
-    var checkbox = document.getElementById('calcularNotas');
+    var checkbox = document.getElementById(checkboxId);
 
-    // Obtener la tabla y el botón
+    // Obtener la tabla y los botones
     var tabla = document.getElementById(tablaId);
-    var botonAgregarFila = document.getElementById('add-row__button');
+    var addRow = document.getElementById(addRowId);
+    var buttons = document.getElementById(buttonsId);
 
-    // Deshabilitar o habilitar la tabla y el botón basado en el estado del checkbox
+    // Deshabilitar o habilitar la tabla y los botones basado en el estado del checkbox
     if (checkbox.checked) {
         tabla.classList.remove('disabled');
-        botonAgregarFila.classList.remove('disabled');
+        addRow.classList.remove('disabled');
+        buttons.classList.remove('disabled');
     } else {
         tabla.classList.add('disabled');
-        botonAgregarFila.classList.add('disabled');
+        addRow.classList.add('disabled');
+        buttons.classList.add('disabled');
     }
 }
 
@@ -257,40 +260,47 @@ function calcularPromedioPonderado(idTabla) {
     resultadoSpan.textContent = promedioPonderado.toFixed(2);
 }
 
-//Calcular la nota que necesitas para sacar cierta nota
-function calcularNotaNecesaria() {
-    const tabla = document.getElementById('tabla-asignaturas2').getElementsByTagName('tbody')[0];
+function calcularNotaNecesaria(tablaId) {
+    const tabla = document.getElementById(tablaId);
+    const tbody = tabla.getElementsByTagName('tbody')[0];
     let porcentajeActual = 0;
     let sumaPonderada = 0;
 
-    // Itera sobre las filas de la tabla para calcular la suma de porcentajes y la suma ponderada de las notas
-    for (let i = 0; i < tabla.rows.length; i++) {
-        const porcentaje = parseFloat(tabla.rows[i].cells[2].innerText.replace(',', '.'));
-        const nota = parseFloat(tabla.rows[i].cells[3].innerText.replace(',', '.'));
+    // Iteramos sobre cada fila de la tabla, excepto la última
+    for (let i = 0; i < tbody.rows.length - 1; i++) {
+        const row = tbody.rows[i];
+
+        // Obtenemos el porcentaje y la nota de cada fila, asegurando que sean números
+        const porcentaje = parseFloat(row.cells[2].innerText.replace(',', '.'));
+        const nota = parseFloat(row.cells[3].innerText.replace(',', '.'));
 
         if (!isNaN(porcentaje) && !isNaN(nota)) {
             porcentajeActual += porcentaje;
             sumaPonderada += (porcentaje * nota) / 100;
+        } else {
+            console.error('Error: Porcentaje o nota no es un número válido en la fila', i + 1);
         }
     }
 
-    // Verifica si la suma de porcentajes supera o alcanza el 100%
-    if (porcentajeActual >= 100) {
-        document.getElementById('resultado-pappi').innerText = "La suma de porcentajes ya es 100% o más, no es posible calcular.";
-        return;
-    }
+    // Obtenemos el promedio objetivo de la última fila y cuarta columna
+    const promedioObjetivo = parseFloat(tbody.rows[tbody.rows.length - 1].cells[3].innerText.replace(',', '.'));
 
-    // Calcula el porcentaje restante
-    const porcentajeRestante = 100 - porcentajeActual;
+    // Verificamos si la suma de porcentajes es menor a 100%
+    if (porcentajeActual < 100) {
+        // Calculamos el porcentaje restante
+        const porcentajeRestante = 100 - porcentajeActual;
 
-    // Calcula la nota necesaria para alcanzar un promedio de 3
-    const notaNecesaria = (3 - sumaPonderada) / (porcentajeRestante / 100);
+        // Calculamos la nota necesaria para alcanzar el promedio objetivo
+        const notaNecesaria = (promedioObjetivo - sumaPonderada) / (porcentajeRestante / 100);
 
-    // Actualiza el resultado
-    if (notaNecesaria >= 0 && notaNecesaria <= 5) {
-        document.getElementById('resultado-pappi-necesario').innerText = `Debes sacarte ${notaNecesaria.toFixed(2)} en el ${porcentajeRestante}% restante`;
+        // Validamos que la nota necesaria esté dentro del rango válido (0-5)
+        if (notaNecesaria >= 0 && notaNecesaria <= 5) {
+            document.getElementById('promedio_necesario').innerText = `Debes sacarte ${notaNecesaria.toFixed(2)} en el ${porcentajeRestante}% restante`;
+        } else {
+            document.getElementById('promedio_necesario').innerText = "No es posible alcanzar el promedio objetivo con los datos actuales.";
+        }
     } else {
-        document.getElementById('resultado-pappi-necesario').innerText = "No es posible alcanzar un promedio de 3 con los datos actuales.";
+        document.getElementById('promedio_necesario').innerText = "La suma de porcentajes ya es 100% o más, no es posible calcular.";
     }
 }
 
