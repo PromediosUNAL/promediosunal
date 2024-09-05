@@ -265,21 +265,39 @@ function calcularNotaNecesaria(tablaId) {
     const tbody = tabla.getElementsByTagName('tbody')[0];
     let porcentajeActual = 0;
     let sumaPonderada = 0;
+    let errorEnDatos = false;
+
+    // Función auxiliar para verificar si un valor es numérico
+    function esNumerico(valor) {
+        return !isNaN(valor) && /^[0-9.,]+$/.test(valor);
+    }
 
     // Iteramos sobre cada fila de la tabla, excepto la última
     for (let i = 0; i < tbody.rows.length - 1; i++) {
         const row = tbody.rows[i];
 
-        // Obtenemos el porcentaje y la nota de cada fila, asegurando que sean números
-        const porcentaje = parseFloat(row.cells[2].innerText.replace(',', '.'));
-        const nota = parseFloat(row.cells[3].innerText.replace(',', '.'));
+        // Obtenemos el porcentaje y la nota de cada fila
+        const porcentajeTexto = row.cells[2].innerText.replace(',', '.');
+        const notaTexto = row.cells[3].innerText.replace(',', '.');
 
-        if (!isNaN(porcentaje) && !isNaN(nota)) {
+        // Verificamos que el porcentaje y la nota sean números válidos
+        if (esNumerico(porcentajeTexto) && esNumerico(notaTexto)) {
+            const porcentaje = parseFloat(porcentajeTexto);
+            const nota = parseFloat(notaTexto);
+
             porcentajeActual += porcentaje;
             sumaPonderada += (porcentaje * nota) / 100;
         } else {
+            // Si hay un error en los datos (letras u otros caracteres), lo registramos
             console.error('Error: Porcentaje o nota no es un número válido en la fila', i + 1);
+            errorEnDatos = true;
+            break; // Detenemos el cálculo en caso de datos inválidos
         }
+    }
+
+    if (errorEnDatos) {
+        document.getElementById('promedio_necesario').innerText = "NaN";
+        return;
     }
 
     // Obtenemos el promedio objetivo de la última fila y cuarta columna

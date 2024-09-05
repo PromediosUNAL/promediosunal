@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc93fc84-89b4-47d1-9cc9-6ee6f94a5747" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_08_2024_8_01_p_m___Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_08_2024_8_01_p_ m__[Changes]/shelved.patch" beforeDir="false" />
+    <list default="true" id="bc93fc84-89b4-47d1-9cc9-6ee6f94a5747" name="Changes" comment="bordes curvos, calcular notas pappi, validacion de datos y buscador">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/pappi.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/pappi.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/promedios.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/promedios.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -68,6 +64,11 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;JavaScript&quot;
+    ]
   }
 }</component>
   <component name="RunManager">
@@ -112,7 +113,10 @@
       <workItem from="1724795850169" duration="7179000" />
       <workItem from="1725035851483" duration="12763000" />
       <workItem from="1725151553004" duration="4565000" />
-      <workItem from="1725384092945" duration="4487000" />
+      <workItem from="1725384092945" duration="4607000" />
+      <workItem from="1725418222255" duration="85000" />
+      <workItem from="1725418393620" duration="4411000" />
+      <workItem from="1725506660486" duration="632000" />
     </task>
     <task id="LOCAL-00001" summary="creación de un JSON para almacenar las materias">
       <option name="closed" value="true" />
@@ -322,7 +326,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725156230691</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="bordes curvos, calcular notas pappi, validacion de datos y buscador">
+      <option name="closed" value="true" />
+      <created>1725392065781</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1725392065781</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -361,6 +373,7 @@
     <MESSAGE value="UnU" />
     <MESSAGE value="U-U" />
     <MESSAGE value="arregle lo d calcular pappi/promedio, cosas d redaccion tanto en los comentarios como en la pagina y avance el toggle, pero solo se activan y desactivan ciertas cosas, toca q se actve o desactive todo" />
-    <option name="LAST_COMMIT_MESSAGE" value="arregle lo d calcular pappi/promedio, cosas d redaccion tanto en los comentarios como en la pagina y avance el toggle, pero solo se activan y desactivan ciertas cosas, toca q se actve o desactive todo" />
+    <MESSAGE value="bordes curvos, calcular notas pappi, validacion de datos y buscador" />
+    <option name="LAST_COMMIT_MESSAGE" value="bordes curvos, calcular notas pappi, validacion de datos y buscador" />
   </component>
 </project>
