@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc93fc84-89b4-47d1-9cc9-6ee6f94a5747" name="Changes" comment="bordes curvos, calcular notas pappi, validacion de datos y buscador">
+    <list default="true" id="bc93fc84-89b4-47d1-9cc9-6ee6f94a5747" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_31_08_2024_7_44_p_m___Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_31_08_2024_7_44_p_ m__[Changes]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/pappi.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/pappi.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/promedios.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/promedios.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -62,7 +66,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -116,7 +120,9 @@
       <workItem from="1725384092945" duration="4607000" />
       <workItem from="1725418222255" duration="85000" />
       <workItem from="1725418393620" duration="4411000" />
-      <workItem from="1725506660486" duration="632000" />
+      <workItem from="1725506660486" duration="725000" />
+      <workItem from="1725844994959" duration="99000" />
+      <workItem from="1725845106972" duration="2694000" />
     </task>
     <task id="LOCAL-00001" summary="creación de un JSON para almacenar las materias">
       <option name="closed" value="true" />
@@ -334,7 +340,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725392065781</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="bordes curvos, calcular notas pappi, buscadores">
+      <option name="closed" value="true" />
+      <created>1725507378744</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1725507378744</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -374,6 +388,7 @@
     <MESSAGE value="U-U" />
     <MESSAGE value="arregle lo d calcular pappi/promedio, cosas d redaccion tanto en los comentarios como en la pagina y avance el toggle, pero solo se activan y desactivan ciertas cosas, toca q se actve o desactive todo" />
     <MESSAGE value="bordes curvos, calcular notas pappi, validacion de datos y buscador" />
-    <option name="LAST_COMMIT_MESSAGE" value="bordes curvos, calcular notas pappi, validacion de datos y buscador" />
+    <MESSAGE value="bordes curvos, calcular notas pappi, buscadores" />
+    <option name="LAST_COMMIT_MESSAGE" value="bordes curvos, calcular notas pappi, buscadores" />
   </component>
 </project>

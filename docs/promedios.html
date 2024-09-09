@@ -34,8 +34,8 @@
 
             <!-- Botones de copiado -->
             <div class="copy-container">
-                <button class="copy-container__button" onclick="copiarTextoNotas()">Copiar tabla</button>
-                <button class="copy-container__button" onclick="copiarTextoNotas()">Copiar resultado</button>
+                <button class="copy-container__button" onclick="copiarTabla('tabla-asignaturas')">Copiar tabla</button>
+                <button class="copy-container__button" onclick="copiarResultado('calculo-container__resultado')">Copiar resultado</button>
             </div>
 
             <!-- Botón para agregar filas -->
@@ -93,13 +93,13 @@
 
             <!-- Botones de copiado -->
             <div class="copy-container">
-                <button class="copy-container__button" onclick="copiarTextoNotas()">Copiar tabla</button>
-                <button class="copy-container__button" onclick="copiarTextoNotas()">Copiar resultado</button>
+                <button class="copy-container__button" onclick="copiarTabla('tabla-asignaturas2')">Copiar tabla</button>
+                <button class="copy-container__button" onclick="copiarResultado('calculo-container__resultado')">Copiar resultado</button>
             </div>
 
             <!-- Botón para agregar filas -->
             <div class="calculo-container">
-                <button class="calculo-container__button" onclick="calcularNotaNecesaria('tabla-asignaturas2')">Calcular Notas</button>
+                <button class="calculo-container__button" onclick="calcularNotaNecesaria('tabla-asignaturas2')">Calcular Notas Necesarias</button>
                 <span class="calculo-container__resultado" id="promedio_necesario">Resultado</span>
             </div>
 

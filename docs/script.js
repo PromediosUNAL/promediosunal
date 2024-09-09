@@ -256,7 +256,7 @@ function calcularPromedioPonderado(idTabla) {
     const promedioPonderado = sumaProductos / sumaCreditos;
 
     // Mostrar el resultado en el span
-    const resultadoSpan = document.querySelector('.calculo-container__resultado');
+    const resultadoSpan = document.getElementById('resultado_pappi_promedio');
     resultadoSpan.textContent = promedioPonderado.toFixed(2);
 }
 
@@ -319,6 +319,43 @@ function calcularNotaNecesaria(tablaId) {
         }
     } else {
         document.getElementById('promedio_necesario').innerText = "La suma de porcentajes ya es 100% o más, no es posible calcular.";
+    }
+}
+
+function calcularNotaNecesariaParaPromedio(tablaId) {
+    const tabla = document.getElementById(tablaId);
+    const filas = tabla.querySelectorAll('tbody tr');
+    let sumaCreditos = 0;
+    let sumaPonderada = 0;
+    let creditosSinNota = 0;
+
+    // Obtener el promedio deseado de la última fila y cuarta columna
+    const promedioDeseado = parseFloat(filas[filas.length - 1].querySelectorAll('td')[3].textContent);
+
+    // Iterar sobre cada fila excepto la última
+    filas.forEach((fila, index) => {
+        if (index === filas.length - 1) return; // Omitir la última fila
+
+        const celdas = fila.querySelectorAll('td');
+        const creditos = parseFloat(celdas[2].textContent);
+        const nota = parseFloat(celdas[3].textContent);
+
+        if (!isNaN(nota)) {
+            sumaPonderada += creditos * nota;
+        } else {
+            creditosSinNota += creditos;
+        }
+        sumaCreditos += creditos;
+    });
+
+    const notaNecesaria = (promedioDeseado * sumaCreditos - sumaPonderada) / creditosSinNota;
+
+    if (notaNecesaria >= 0 && notaNecesaria <= 5) {
+        document.getElementById('resultado_pappi_necesario').textContent = `Necesitas un Pappi de ${notaNecesaria.toFixed(2)} en las materias pendientes para alcanzar un Pappi de ${promedioDeseado}`;
+    } else if (notaNecesaria < 0) {
+        document.getElementById('resultado_pappi_necesario').textContent = 'Ya has alcanzado el Pappi objetivo con tus notas actuales.';
+    } else {
+        document.getElementById('resultado_pappi_necesario').textContent = 'No es posible alcanzar el Pappi deseado con tus notas.';
     }
 }
 
