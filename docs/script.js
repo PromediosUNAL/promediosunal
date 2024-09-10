@@ -225,7 +225,11 @@ toggle.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
 });
 
-/*Buscador de Materias y/o Actividades TODO: hacerque pueda cargarlos dependiendo de la pagina*/
+/*Funes para el Buscador de Materias y/o Actividades
+TODO: hacerque pueda cargarlos dependiendo de la pagina
+TODO: buscador de mierda porque no funciona me quiero matar aaaaaaaaaaaa
+*/
+
 document.addEventListener('DOMContentLoaded', function () {
     fetch('actividades.json')
         .then(response => response.json())

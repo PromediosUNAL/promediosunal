@@ -284,6 +284,10 @@ h2 {
     margin: 0;
 }
 
+.calculo-container__resultado{
+    color: gray;
+}
+
 /* Dark Mode */
 .dark-mode-toggle {
     position: fixed;
@@ -296,6 +300,7 @@ h2 {
     padding: 10px;
     cursor: pointer;
 }
+
 
 body.dark-mode {
     background-color: #4e4e4e;
