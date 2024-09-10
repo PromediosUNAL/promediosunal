@@ -1,4 +1,7 @@
-<div id="calculadora-pappi" class="calculadora">
+<div id="calculadora-pappi" class="calculadora" >
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+
     <div class="calculadora__sub">
         <div class="calculadora__buscador-container">
             <input type="text" id="buscador" class="buscador" placeholder="Buscar por ID o nombre" oninput="buscar()">
@@ -39,12 +42,11 @@
 
             <!-- Botón para agregar filas -->
             <div class="calculo-container">
-                <button class="calculo-container__button" onclick="calcularPromedioPonderado('tabla-principal','resultado_pappi_promedio')">
+                <button class="calculo-container__button" onclick="calcularPromedioPonderado('tabla-principal','resultado-promedio')">
                     Calcular Pappi
                 </button>
-                <span class="calculo-container__resultado" id="resultado_pappi_promedio">Resultado</span>
+                <span class="calculo-container__resultado" id="resultado-promedio">Resultado</span>
             </div>
-
         </div>
     </div>
     <div class="calculadora__sub">
@@ -56,9 +58,7 @@
             </div>
             <!-- Botón para agregar filas -->
             <div class="add-row disabled" id="add_row_pappi">
-                <button class="add-row__button" onclick="agregarFila('tabla-secundaria', 'Asignatura', '3', '5.0')">
-                    Agregar fila
-                </button>
+                <button class="add-row__button" onclick="agregarFila('tabla-secundaria', 'Asignatura', '3', '5.0')">Agregar fila</button>
             </div>
         </div>
 
@@ -104,7 +104,6 @@
                 </button>
                 <span class="calculo-container__resultado" id="resultado_pappi_necesario">Resultado</span>
             </div>
-
         </div>
     </div>
 </div>

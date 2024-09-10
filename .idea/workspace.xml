@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc93fc84-89b4-47d1-9cc9-6ee6f94a5747" name="Changes" comment="">
+    <list default="true" id="bc93fc84-89b4-47d1-9cc9-6ee6f94a5747" name="Changes" comment="Sapo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/pappi.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/pappi.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/promedios.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/promedios.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/docs/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,12 +36,12 @@
     &quot;assignee&quot;: &quot;matrodriguezpa&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/PromediosUNAL/promediosunal.git&quot;,
-    &quot;accountId&quot;: &quot;3ff66790-f608-4e6b-8c1e-7dab583d003b&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/PromediosUNAL/promediosunal.git",
+    "accountId": "640af1a6-7f46-485a-b199-2c9588f21837"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -123,6 +121,7 @@
       <workItem from="1725506660486" duration="725000" />
       <workItem from="1725844994959" duration="99000" />
       <workItem from="1725845106972" duration="2694000" />
+      <workItem from="1725976218812" duration="1471000" />
     </task>
     <task id="LOCAL-00001" summary="creación de un JSON para almacenar las materias">
       <option name="closed" value="true" />
@@ -348,7 +347,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725507378744</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Sapo">
+      <option name="closed" value="true" />
+      <created>1725951345520</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1725951345520</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -389,22 +396,16 @@
     <MESSAGE value="arregle lo d calcular pappi/promedio, cosas d redaccion tanto en los comentarios como en la pagina y avance el toggle, pero solo se activan y desactivan ciertas cosas, toca q se actve o desactive todo" />
     <MESSAGE value="bordes curvos, calcular notas pappi, validacion de datos y buscador" />
     <MESSAGE value="bordes curvos, calcular notas pappi, buscadores" />
-    <option name="LAST_COMMIT_MESSAGE" value="bordes curvos, calcular notas pappi, buscadores" />
+    <MESSAGE value="Sapo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sapo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/docs/pappi.html</url>
-          <line>41</line>
-          <properties lambdaOrdinal="-1" />
+          <line>44</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/docs/pappi.html</url>
-          <line>102</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
