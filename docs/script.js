@@ -1,11 +1,4 @@
-/*Navegación y cargado de páginas*/
-// Al cargar la página, se desactiva la tabla y el botón
-document.addEventListener('DOMContentLoaded', function () {
-    var tabla = document.getElementById('tabla-secundaria');
-    tabla.classList.add('disabled');
-    botonAgregarFila.disabled = true;
-});
-// Función para cargar HTML en el contenedor principal
+// Función para cargar HTML (pappi.html) en el contenedor principal
 document.addEventListener('DOMContentLoaded', function () {
     // Función para cargar el contenido de un archivo HTML en el contenedor principal
     function loadPage(page) {
@@ -48,9 +41,14 @@ document.querySelectorAll('.nav-links a').forEach(link => {
         cargarPagina(page);
     });
 });
+// Al cargar la página, se desactiva la tabla (toggleTablaButton)
+document.addEventListener('DOMContentLoaded', function () {
+    var tabla = document.getElementById('tabla-secundaria');
+    tabla.classList.add('disabled');
+    botonAgregarFila.disabled = true;
+});
 
 /*Botones de tablas y filas*/
-//Agregar filas a una determinada tabla, con determinados datos
 function agregarFila(tablaId, asignatura, creditos, nota) {
     const tabla = document.getElementById(tablaId).getElementsByTagName('tbody')[0];
     let nuevaFila;
@@ -86,13 +84,12 @@ function agregarFila(tablaId, asignatura, creditos, nota) {
     nuevaFila.cells[3].textContent = nota;
 }
 
-//Eliminar la ultima fila de la tabla
 function eliminarFila(boton) {
     const fila = boton.parentElement.parentElement;
     fila.parentElement.removeChild(fila);
 }
 
-// Agrega el evento eliminarFila a todos los botones eliminación cuando se actualiza el documento
+/*Agrega el evento eliminarFila a todos los botones eliminación cuando se actualiza el documento*/
 document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.delete-row').forEach(boton => {
         boton.addEventListener('click', function () {
@@ -101,7 +98,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-function toggleTablaButton(tablaId, checkboxId, addRowId, buttonsId) {
+/*Habilitación y deshabilitaicón de una tabla */
+function ocultarTablaCheckBox(tablaId, checkboxId, addRowId, buttonsId) {
     // Obtener el estado del checkbox
     var checkbox = document.getElementById(checkboxId);
 
@@ -122,21 +120,19 @@ function toggleTablaButton(tablaId, checkboxId, addRowId, buttonsId) {
     }
 }
 
-/*Botones de copiado*/
-
-//Copiar el texto de la tabla al portapapeles
-function copiarTabla() {
-    // Selecciona todas las filas dentro del <tbody> de la tabla con ID 'tabla-asignaturas'
-    const filas = document.querySelectorAll('#tabla-asignaturas tbody tr');
+/*Botones de copiado al portapapeles*/
+function copiarTabla(tablaId) {
+    // Selecciona todas las filas dentro del <tbody> de la tabla con el ID pasado como parámetro
+    const filas = document.querySelectorAll(`#${tablaId} tbody tr`);
     let texto = '';
     // Itera sobre cada fila para construir el texto a copiar
     filas.forEach(fila => {
         // Obtiene el texto de cada celda en la fila
-        const asignatura = fila.cells[0].innerText;
-        const credito = fila.cells[1].innerText;
-        const nota = fila.cells[2].innerText;
+        const asignatura = fila.cells[1].innerText;
+        const credito = fila.cells[2].innerText;
+        const nota = fila.cells[3].innerText;
         // Concatena la información en el formato deseado
-        texto += `Asignatura: ${asignatura}, Crédito: ${credito}, Nota: ${nota}\n`;
+        texto += `${asignatura} ${credito} | ${nota}\n`;
     });
     // Usa la API Clipboard para copiar el texto al portapapeles
     navigator.clipboard.writeText(texto)
@@ -144,182 +140,106 @@ function copiarTabla() {
         .catch(err => alert('Error al copiar texto')); // Muestra un mensaje de error si ocurre un problema
 }
 
-//Copiar el resultado al portapapeles
-function copiarResultado() {
-    // Selecciona todas las filas dentro del <tbody> de la tabla con ID 'tabla-asignaturas'
-    const filas = document.querySelectorAll('#tabla-asignaturas tbody tr');
-    let texto = '';
-    // Itera sobre cada fila para construir el texto a copiar
-    filas.forEach(fila => {
-        // Obtiene el texto de cada celda en la fila
-        const asignatura = fila.cells[0].innerText;
-        const credito = fila.cells[1].innerText;
-        const nota = fila.cells[2].innerText;
-        // Concatena la información en el formato deseado
-        texto += `Asignatura: ${asignatura}, Crédito: ${credito}, Nota: ${nota}\n`;
-    });
-    // Usa la API Clipboard para copiar el texto al portapapeles
-    navigator.clipboard.writeText(texto)
-        .then(() => alert('Texto copiado al portapapeles')) // Muestra un mensaje de éxito si la operación se completa
-        .catch(err => alert('Error al copiar texto')); // Muestra un mensaje de error si ocurre un problema
+function copiarResultado(resultadoId) {
+    let resultado = document.getElementById(resultadoId).innerText;
+    // Verifica si el texto es "Resultado" y muestra una alerta en caso de que no haya un valor válido
+    if (resultado === "Resultado") {
+        alert('No se copió ningún resultado.');
+    } else {
+        // Usa la API Clipboard para copiar el texto al portapapeles
+        navigator.clipboard.writeText(resultado)
+            .then(() => alert('Resultado copiado al portapapeles'))
+            .catch(err => alert('Error al copiar resultado'));
+    }
 }
 
-/*Buscadores*/
-
-// Autocompletado búsqueda
-function buscarMaterias() {
-    const carrera = document.getElementById('carreraSelect').value;
-    const busqueda = document.getElementById('buscador').value.toLowerCase();
-    const metodologia = document.getElementById('metodologiaSelect').value;
-
-    fetch('materias.json')
+/*carga los datos en el buscador TODO: hacerque pueda cargarlos dependiendo de la pagina*/
+document.addEventListener('DOMContentLoaded', function () {
+    fetch('actividades.json')
         .then(response => response.json())
         .then(data => {
-            const sugerencias = data.filter(materia => {
-                return (materia.codigo.toLowerCase().includes(busqueda) || materia.nombre.toLowerCase().includes(busqueda)) &&
-                    (carrera === "" || materia.carrera === carrera) &&
-                    (metodologia === "" || materia.metodologia === metodologia);
-            });
+            const actividades = data.actividades;
+            actualizarBuscador(actividades);
+        })
+        .catch(error => console.error('Error al cargar actividades:', error));
 
-            // Mostrar las sugerencias en una lista
-            const sugerenciasDiv = document.getElementById('suggestions');
-            sugerenciasDiv.innerHTML = '';
-            const listaSugerencias = document.createElement('ul');
-            sugerencias.forEach(materia => {
-                const li = document.createElement('li');
-                li.textContent = materia.nombre;
-                // Agregar un evento para seleccionar la sugerencia
-                li.addEventListener('click', () => {
-                    agregarMateriaATabla(materia);
-                    sugerenciasDiv.innerHTML = '';
-                    document.getElementById('buscador').value = materia.nombre;
-                });
-                listaSugerencias.appendChild(li);
-            });
-            sugerenciasDiv.appendChild(listaSugerencias);
+    // Referencia a la tabla
+    const buscador = document.getElementById('buscador');
+    const suggestionsContainer = document.getElementById('suggestions');
+
+    // Mostrar las sugerencias cuando la tabla esté en foco
+    buscador.addEventListener('focus', function () {
+        suggestionsContainer.classList.add('suggestionsSetVisible');
+    });
+
+    // Ocultar las sugerencias cuando se quite el foco de la tabla
+    buscador.addEventListener('blur', function () {
+        suggestionsContainer.classList.remove('suggestionsSetVisible');
+    });
+});
+
+function actualizarBuscador(datos) {
+    const suggestionsContainer = document.getElementById('suggestions');
+
+    // Limpia las sugerencias previas
+    suggestionsContainer.innerHTML = '';
+
+    // Recorre los datos y agrega las opciones al contenedor
+    datos.forEach(item => {
+        const li = document.createElement('li');
+        li.className = 'suggestion-item';
+        li.textContent = item;
+
+        // Añade un evento de clic a cada sugerencia
+        li.addEventListener('click', function () {
+            document.getElementById('buscador').value = item;
+            suggestionsContainer.innerHTML = ''; // Limpiar las sugerencias una vez seleccionada
         });
+
+        suggestionsContainer.appendChild(li);
+    });
 }
 
-// Función para agregar la busqueda a la tabla
-function agregarBusquedaTabla() {
-    const tabla = document.getElementById('tabla-asignaturas').getElementsByTagName('tbody')[0];
-    const nuevaFila = tabla.insertRow();
+function buscar() {
 
-    // Botón para borrar la fila
-    const celdaBorrar = nuevaFila.insertCell(0);
-    const botonBorrar = document.createElement('button');
-    botonBorrar.textContent = '-';
-    botonBorrar.className = 'delete-row';
-    botonBorrar.onclick = function () {
-        eliminarFila(this);
-    };
-    celdaBorrar.appendChild(botonBorrar);
+    const input = document.getElementById('buscador').value.toLowerCase();
+    const suggestions = document.getElementById('suggestions').getElementsByClassName('suggestion-item');
 
-    // Celda para el nombre de la materia
-    const celdaMateria = nuevaFila.insertCell(1);
-    celdaMateria.textContent = materia.nombre;
-    celdaMateria.contentEditable = "true";
-
-    // Celda para los créditos de la materia
-    const celdaCreditos = nuevaFila.insertCell(2);
-    celdaCreditos.textContent = "3"; // Aquí podrías agregar un valor dinámico si tienes la información
-    celdaCreditos.contentEditable = "true";
-
-    // Celda para la nota
-    const celdaNota = nuevaFila.insertCell(3);
-    celdaNota.textContent = "5.0"; // Aquí podrías agregar un valor dinámico si tienes la información
-    celdaNota.contentEditable = "true";
+    Array.from(suggestions).forEach(item => {
+        if (item.textContent.toLowerCase().includes(input)) {
+            item.style.display = 'block';
+        } else {
+            item.style.display = 'none';
+        }
+    });
 }
 
 /*Cálculo de promedios*/
-
-function calcularPromedioPonderado(idTabla) {
+function calcularPromedioPonderado(idTabla, resultadoId) {
     const filas = document.querySelectorAll(`#${idTabla} tbody > tr`);
 
     // Inicializar variables para los cálculos
     let sumaProductos = 0;
-    let sumaCreditos = 0;
+    let sumaValores = 0;
 
     // Iterar sobre cada fila y realizar los cálculos
     filas.forEach(fila => {
         // Obtener las celdas de crédito y nota
         const celdas = fila.querySelectorAll('td');
-        const creditos = parseFloat(celdas[2].textContent);
+        const valores = parseFloat(celdas[2].textContent);
         const nota = parseFloat(celdas[3].textContent);
 
         // Sumar los productos de crédito por nota y la suma total de créditos
-        sumaProductos += creditos * nota;
-        sumaCreditos += creditos;
+        sumaProductos += valores * nota;
+        sumaValores += valores;
     });
 
     // Calcular el promedio ponderado
-    const promedioPonderado = sumaProductos / sumaCreditos;
+    const promedioPonderado = sumaProductos / sumaValores;
 
     // Mostrar el resultado en el span
-    const resultadoSpan = document.getElementById('resultado_pappi_promedio');
+    const resultadoSpan = document.getElementById(resultadoId);
     resultadoSpan.textContent = promedioPonderado.toFixed(2);
-}
-
-function calcularNotaNecesaria(tablaId) {
-    const tabla = document.getElementById(tablaId);
-    const tbody = tabla.getElementsByTagName('tbody')[0];
-    let porcentajeActual = 0;
-    let sumaPonderada = 0;
-    let errorEnDatos = false;
-
-    // Función auxiliar para verificar si un valor es numérico
-    function esNumerico(valor) {
-        return !isNaN(valor) && /^[0-9.,]+$/.test(valor);
-    }
-
-    // Iteramos sobre cada fila de la tabla, excepto la última
-    for (let i = 0; i < tbody.rows.length - 1; i++) {
-        const row = tbody.rows[i];
-
-        // Obtenemos el porcentaje y la nota de cada fila
-        const porcentajeTexto = row.cells[2].innerText.replace(',', '.');
-        const notaTexto = row.cells[3].innerText.replace(',', '.');
-
-        // Verificamos que el porcentaje y la nota sean números válidos
-        if (esNumerico(porcentajeTexto) && esNumerico(notaTexto)) {
-            const porcentaje = parseFloat(porcentajeTexto);
-            const nota = parseFloat(notaTexto);
-
-            porcentajeActual += porcentaje;
-            sumaPonderada += (porcentaje * nota) / 100;
-        } else {
-            // Si hay un error en los datos (letras u otros caracteres), lo registramos
-            console.error('Error: Porcentaje o nota no es un número válido en la fila', i + 1);
-            errorEnDatos = true;
-            break; // Detenemos el cálculo en caso de datos inválidos
-        }
-    }
-
-    if (errorEnDatos) {
-        document.getElementById('promedio_necesario').innerText = "NaN";
-        return;
-    }
-
-    // Obtenemos el promedio objetivo de la última fila y cuarta columna
-    const promedioObjetivo = parseFloat(tbody.rows[tbody.rows.length - 1].cells[3].innerText.replace(',', '.'));
-
-    // Verificamos si la suma de porcentajes es menor a 100%
-    if (porcentajeActual < 100) {
-        // Calculamos el porcentaje restante
-        const porcentajeRestante = 100 - porcentajeActual;
-
-        // Calculamos la nota necesaria para alcanzar el promedio objetivo
-        const notaNecesaria = (promedioObjetivo - sumaPonderada) / (porcentajeRestante / 100);
-
-        // Validamos que la nota necesaria esté dentro del rango válido (0-5)
-        if (notaNecesaria >= 0 && notaNecesaria <= 5) {
-            document.getElementById('promedio_necesario').innerText = `Debes sacarte ${notaNecesaria.toFixed(2)} en el ${porcentajeRestante}% restante`;
-        } else {
-            document.getElementById('promedio_necesario').innerText = "No es posible alcanzar el promedio objetivo con los datos actuales.";
-        }
-    } else {
-        document.getElementById('promedio_necesario').innerText = "La suma de porcentajes ya es 100% o más, no es posible calcular.";
-    }
 }
 
 function calcularNotaNecesariaParaPromedio(tablaId) {
@@ -340,22 +260,23 @@ function calcularNotaNecesariaParaPromedio(tablaId) {
         const creditos = parseFloat(celdas[2].textContent);
         const nota = parseFloat(celdas[3].textContent);
 
-        if (!isNaN(nota)) {
-            sumaPonderada += creditos * nota;
-        } else {
+        if (isNaN(nota)) {
             creditosSinNota += creditos;
+        } else {
+            sumaPonderada += creditos * nota;
         }
+
         sumaCreditos += creditos;
     });
 
     const notaNecesaria = (promedioDeseado * sumaCreditos - sumaPonderada) / creditosSinNota;
 
     if (notaNecesaria >= 0 && notaNecesaria <= 5) {
-        document.getElementById('resultado_pappi_necesario').textContent = `Necesitas un Pappi de ${notaNecesaria.toFixed(2)} en las materias pendientes para alcanzar un Pappi de ${promedioDeseado}`;
+        document.getElementById('resultado_pappi_necesario').textContent = `Necesitas una nota de de ${notaNecesaria.toFixed(2)} en las materias pendientes para alcanzar un promedio de ${promedioDeseado}`;
     } else if (notaNecesaria < 0) {
-        document.getElementById('resultado_pappi_necesario').textContent = 'Ya has alcanzado el Pappi objetivo con tus notas actuales.';
+        document.getElementById('resultado_pappi_necesario').textContent = 'Haz superado el promedio objetivo con tus notas actuales.';
     } else {
-        document.getElementById('resultado_pappi_necesario').textContent = 'No es posible alcanzar el Pappi deseado con tus notas.';
+        document.getElementById('resultado_pappi_necesario').textContent = 'No es posible alcanzar el promedio objetivo deseado con tus notas actuales.';
     }
 }
 

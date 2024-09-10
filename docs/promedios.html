@@ -1,7 +1,7 @@
-<div id="calculadora-pappi" class="calculadora-pappi">
+<div id="calculadora-promedios" class="calculadora">
     <div class="calculadora-pappi__sub">
         <div class="calculadora-pappi__buscador-container">
-            <input type="text" id="buscador" class="buscador" placeholder="Buscar por ID o nombre" oninput="buscarActividad()">
+            <input type="text" id="buscador" class="buscador" placeholder="Buscar por ID o nombre" oninput="buscarMaterias()">
             <div id="suggestions" class="autocomplete-suggestions"></div>
             <div class="add-row">
                 <button class="add-row__button" onclick="agregarFila('tabla-asignaturas', 'Parcial', '20', '5.0')">Agregar fila</button>
@@ -19,7 +19,7 @@
             </tr>
             </thead>
             <tbody class="tabla__body">
-            <tr class="tabla__row">
+            <tr class="tabla__row" >
                 <td>
                     <button class="delete-row" onclick="eliminarFila(this)">-</button>
                 </td>
@@ -50,7 +50,7 @@
         <div class="calculadora-pappi__buscador-container">
             <div class="buscador-checkbox-container">
                 Calcular notas que necesito para tener cierto Promedio
-                <input type="checkbox" id="checkboxPromedio" class="calcularNotas" onclick="toggleTablaButton('tabla-asignaturas2', 'checkboxPromedio', 'add_row_promedio', 'buttons_promedio')">
+                <input type="checkbox" id="checkboxPromedio" class="calcularNotas" onclick="ocultarTablaCheckBox('tabla-asignaturas2', 'checkboxPromedio', 'add_row_promedio', 'buttons_promedio')">
             </div>
             <!-- Botón para agregar filas -->
             <div class="add-row disabled" id="add_row_promedio">
