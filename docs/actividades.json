@@ -1,0 +1,9 @@
+{
+  "datos": [
+    { "nombre": "Parcial", "creditos": 3 },
+    { "nombre": "Tarea", "creditos": 2 },
+    { "nombre": "Laboratorio", "creditos": 4 },
+    { "nombre": "Proyecto", "creditos": 5 },
+    { "nombre": "Quiz", "creditos": 1 }
+  ]
+}

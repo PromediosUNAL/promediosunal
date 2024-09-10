@@ -1,12 +1,17 @@
-<div id="calculadora-promedios" class="calculadora" >
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+<div id="calculadora-promedios" class="calculadora">
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js"></script>
 
     <div class="calculadora__sub">
         <h2>Calculadora de promedios con porcentaje</h2>
         <div class="calculadora__buscador-container">
-            <input type="text" id="buscador" class="buscador" placeholder="Buscar por ID o nombre" oninput="buscar()">
-            <ul id="suggestions" class="autocomplete-suggestions"></ul>
+            <div>
+                <button class="buscador" id="buscador"
+                        onclick="mostrarBuscador('tabla-principal', 'add-list', 'actividades.json')">Buscar por ID o
+                    nombre
+                </button>
+            </div>
+            <ul id="add-list" class="autocomplete-suggestions"></ul>
             <div class="add-row">
                 <button class="add-row__button" onclick="agregarFila('tabla-principal', 'Actividad','20','5.0')">Agregar
                     fila
@@ -66,7 +71,9 @@
                 <p>*Deja en blanco las notas de las materias de las que quieras saber cuanto sacar</p></div>
             <!-- Botón para agregar filas -->
             <div class="add-row disabled" id="add_row_promedio">
-                <button class="add-row__button" onclick="agregarFila('tabla-secundaria', 'Actividad', '20', '5.0')">Agregar fila</button>
+                <button class="add-row__button" onclick="agregarFila('tabla-secundaria', 'Actividad', '20', '5.0')">
+                    Agregar fila
+                </button>
             </div>
         </div>
 
@@ -91,7 +98,7 @@
             <tr class="tabla__row">
                 <td contenteditable="false" class="tabla__cell"></td>
                 <td contenteditable="false" class="tabla__cell"></td>
-                <td contenteditable="false" class="tabla__cell">Promedio deseado: </td>
+                <td contenteditable="false" class="tabla__cell">Promedio deseado:</td>
                 <td contenteditable="true" class="tabla__cell">3.0</td>
             </tr>
             </tbody>
@@ -103,7 +110,9 @@
             <!-- Botones de copiado -->
             <div class="copy-container">
                 <button class="copy-container__button" onclick="copiarTabla('tabla-secundaria')">Copiar tabla</button>
-                <button class="copy-container__button" onclick="copiarResultado('promedio_necesario')">Copiar resultado</button>
+                <button class="copy-container__button" onclick="copiarResultado('promedio_necesario')">Copiar
+                    resultado
+                </button>
             </div>
 
             <!-- Botón para agregar filas -->

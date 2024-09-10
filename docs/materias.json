@@ -1,0 +1,9 @@
+{
+  "datos": [
+    { "nombre": "Matemáticas", "creditos": 5 },
+    { "nombre": "Física", "creditos": 4 },
+    { "nombre": "Química", "creditos": 3 },
+    { "nombre": "Programación", "creditos": 6 },
+    { "nombre": "Historia", "creditos": 2 }
+  ]
+}

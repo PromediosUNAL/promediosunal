@@ -53,8 +53,7 @@ function agregarFila(tablaId, asignatura, creditos, nota) {
     const tabla = document.getElementById(tablaId).getElementsByTagName('tbody')[0];
     let nuevaFila;
 
-    if (tablaId === 'tabla-secundaria' || tablaId === 'tabla-asignaturas2') {
-        // Inserta en la penúltima posición si la tabla es "tabla-secundaria" o "tabla-asignaturas2
+    if (tablaId === 'tabla-principal' || tablaId === 'tabla-secundaria') {
         const filas = tabla.getElementsByTagName('tr');
         const numFilas = filas.length;
 
@@ -225,67 +224,30 @@ toggle.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
 });
 
-/*Funes para el Buscador de Materias y/o Actividades
-TODO: hacerque pueda cargarlos dependiendo de la pagina
-TODO: buscador de mierda porque no funciona me quiero matar aaaaaaaaaaaa
-*/
+/*Funes para el Buscador de Materias y/o Actividades*/
+function mostrarBuscador(tablaID, addListID, nombreJson) {
+    // Obtener el elemento add-list
+    const addList = document.getElementById(addListID);
+    addList.innerHTML = '';
 
-document.addEventListener('DOMContentLoaded', function () {
-    fetch('actividades.json')
+    fetch(nombreJson)
         .then(response => response.json())
         .then(data => {
-            const actividades = data.actividades;
-            actualizarBuscador(actividades);
+            const actividades = data.datos;
+            actividades.forEach((actividad) => {
+                const listItem = document.createElement('li');
+                listItem.innerText = `${actividad.nombre} (${actividad.creditos})`;
+                listItem.onclick = () => agregarFila(tablaID, actividad.nombre, actividad.creditos, '5.0');
+                addList.appendChild(listItem);
+            });
         })
-        .catch(error => console.error('Error al cargar actividades:', error));
+        .catch(error => console.error('Error al cargar json:', error));
 
-    // Referencia a la tabla
-    const buscador = document.getElementById('buscador');
-    const suggestionsContainer = document.getElementById('suggestions');
+    addList.style.display = 'flex'; // Mostrar el contenedor de sugerencias
 
-    // Mostrar las sugerencias cuando la tabla esté en foco
-    buscador.addEventListener('focus', function () {
-        suggestionsContainer.classList.add('suggestionsSetVisible');
-    });
-
-    // Ocultar las sugerencias cuando se quite el foco de la tabla
-    buscador.addEventListener('blur', function () {
-        suggestionsContainer.classList.remove('suggestionsSetVisible');
-    });
-});
-
-function actualizarBuscador(datos) {
-    const suggestionsContainer = document.getElementById('suggestions');
-
-    // Limpia las sugerencias previas
-    suggestionsContainer.innerHTML = '';
-
-    // Recorre los datos y agrega las opciones al contenedor
-    datos.forEach(item => {
-        const li = document.createElement('li');
-        li.className = 'suggestion-item';
-        li.textContent = item;
-
-        // Añade un evento de clic a cada sugerencia
-        li.addEventListener('click', function () {
-            document.getElementById('buscador').value = item;
-            suggestionsContainer.innerHTML = ''; // Limpiar las sugerencias una vez seleccionada
-        });
-
-        suggestionsContainer.appendChild(li);
-    });
-}
-
-function buscar() {
-
-    const input = document.getElementById('buscador').value.toLowerCase();
-    const suggestions = document.getElementById('suggestions').getElementsByClassName('suggestion-item');
-
-    Array.from(suggestions).forEach(item => {
-        if (item.textContent.toLowerCase().includes(input)) {
-            item.style.display = 'block';
-        } else {
-            item.style.display = 'none';
-        }
-    });
+    // Agregar un botón para cerrar la lista
+    const closeButton = document.createElement('button');
+    closeButton.innerText = 'Cerrar';
+    closeButton.onclick = () => addList.style.display = 'none';
+    addList.appendChild(closeButton);
 }
