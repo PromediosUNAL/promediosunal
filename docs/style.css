@@ -6,6 +6,12 @@ body {
     background-color: #f4f4f4;
 }
 
+h2 {
+    font-size: large;
+    text-align: center;
+    color: #2f4ca4;
+}
+
 /* Header */
 .header {
     background-color: #2f4ca4;
@@ -125,7 +131,8 @@ body {
     background-color: white;
     margin: 60px 20px;
     border-radius: 5px;
-    max-width: 800px;
+    max-width: 460px;
+    height: fit-content;
 }
 
 .calculadora__buscador-container {
@@ -154,6 +161,7 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    width: max-content;
 }
 
 .add-row__button:hover {
@@ -267,6 +275,15 @@ body {
     margin-top: 20px;
 }
 
+#warning {
+    color: #b4c3ed;
+    max-width: 350px;
+}
+
+#warning p {
+    margin: 0;
+}
+
 /* Dark Mode */
 .dark-mode-toggle {
     position: fixed;
@@ -333,6 +350,7 @@ body.dark-mode .calculo-container {
 body.dark-mode .add-row__button {
     background-color: #44bf49;
 }
+
 body.dark-mode .delete-row {
     background-color: #aa0000;
 }
@@ -346,7 +364,7 @@ body.dark-mode .calculo-container__button {
 }
 
 
-body.dark-mode .sobre-description{
+body.dark-mode .sobre-description {
     background-color: #272727;
     color: white;
 }
@@ -355,7 +373,7 @@ body.dark-mode .footer__dark-mode-toggle {
     color: #e0e0e0;
 }
 
-body.dark-mode .header__logo{
+body.dark-mode .header__logo {
     filter: invert(.87);
 }
 
@@ -459,7 +477,7 @@ body.dark-mode .header__logo{
     display: none;
 }
 
-#suggestions li:hover{
+#suggestions li:hover {
     background: #4CAF50;
     color: white;
 }

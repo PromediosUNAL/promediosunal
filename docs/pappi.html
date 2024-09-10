@@ -1,18 +1,20 @@
-<div id="calculadora-pappi" class="calculadora" >
+<div id="calculadora-pappi" class="calculadora">
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
 
     <div class="calculadora__sub">
+        <h2>Calculadora de PAPPI</h2>
         <div class="calculadora__buscador-container">
             <input type="text" id="buscador" class="buscador" placeholder="Buscar por ID o nombre" oninput="buscar()">
             <ul id="suggestions" class="autocomplete-suggestions"></ul>
             <div class="add-row">
-                <button class="add-row__button" onclick="agregarFila('tabla-principal', 'Asignatura','3','5.0')">Agregar fila</button>
+                <button class="add-row__button" onclick="agregarFila('tabla-principal', 'Asignatura','3','5.0')">Agregar
+                    fila
+                </button>
             </div>
         </div>
 
         <table id="tabla-principal" class="tabla">
-            <caption class="tabla__caption">Calculadora de PAPPI</caption>
             <thead class="tabla__head">
             <tr class="tabla__row">
                 <th class="tabla__header">Borrar</th>
@@ -37,28 +39,36 @@
             <!-- Botones de copiado -->
             <div class="copy-container">
                 <button class="copy-container__button" onclick="copiarTabla('tabla-principal')">Copiar tabla</button>
-                <button class="copy-container__button" onclick="copiarResultado('resultado_pappi_promedio')">Copiar resultado</button>
+                <button class="copy-container__button" onclick="copiarResultado('resultado_pappi_promedio')">Copiar
+                    resultado
+                </button>
             </div>
 
             <!-- Botón para agregar filas -->
             <div class="calculo-container">
-                <button class="calculo-container__button" onclick="calcularPromedioPonderado('tabla-principal','resultado-promedio')">
-                    Calcular Pappi
+                <button class="calculo-container__button"
+                        onclick="calcularPromedioPonderado('tabla-principal','resultado-promedio')">
+                    Calcular
                 </button>
                 <span class="calculo-container__resultado" id="resultado-promedio">Resultado</span>
             </div>
         </div>
     </div>
+
     <div class="calculadora__sub">
+        <h2 class="buscador-checkbox-container">Calculadora de nota final
+            <input type="checkbox" id="checkboxPappi" class="calcularNotas"
+                   onclick="ocultarTablaCheckBox('tabla-secundaria', 'checkboxPappi', 'add_row_pappi', 'buttons_pappi')">
+        </h2>
+
         <div class="calculadora__buscador-container">
-            <div class="buscador-checkbox-container">
-                Calcular notas que necesito para tener cierto PAPPI
-                <input type="checkbox" id="checkboxPappi" class="calcularNotas"
-                       onclick="ocultarTablaCheckBox('tabla-secundaria', 'checkboxPappi', 'add_row_pappi', 'buttons_pappi')">
-            </div>
+            <div id="warning">
+                <p>*Deja en blanco las notas de las materias de las que quieras saber cuanto sacar</p></div>
             <!-- Botón para agregar filas -->
             <div class="add-row disabled" id="add_row_pappi">
-                <button class="add-row__button" onclick="agregarFila('tabla-secundaria', 'Asignatura', '3', '5.0')">Agregar fila</button>
+                <button class="add-row__button" onclick="agregarFila('tabla-secundaria', 'Asignatura', '3', '5.0')">
+                    Agregar fila
+                </button>
             </div>
         </div>
 
@@ -83,7 +93,7 @@
             <tr class="tabla__row">
                 <td contenteditable="false" class="tabla__cell"></td>
                 <td contenteditable="false" class="tabla__cell"></td>
-                <td contenteditable="false" class="tabla__cell">PAPPI deseado: </td>
+                <td contenteditable="false" class="tabla__cell">PAPPI deseado:</td>
                 <td contenteditable="true" class="tabla__cell">3.0</td>
             </tr>
             </tbody>
@@ -94,13 +104,15 @@
 
             <div class="copy-container">
                 <button class="copy-container__button" onclick="copiarTabla('tabla-secundaria')">Copiar tabla</button>
-                <button class="copy-container__button" onclick="copiarResultado('resultado_pappi_necesario')">Copiar resultado</button>
+                <button class="copy-container__button" onclick="copiarResultado('resultado_pappi_necesario')">Copiar
+                    resultado
+                </button>
             </div>
 
             <!-- Botón para agregar filas -->
             <div class="calculo-container">
                 <button class="calculo-container__button"
-                        onclick="calcularNotaNecesariaParaPromedio('tabla-secundaria')">Calcular Pappi Necesario
+                        onclick="calcularNotaNecesariaParaPromedio('tabla-secundaria')">Calcular
                 </button>
                 <span class="calculo-container__resultado" id="resultado_pappi_necesario">Resultado</span>
             </div>

@@ -153,67 +153,6 @@ function copiarResultado(resultadoId) {
     }
 }
 
-/*carga los datos en el buscador TODO: hacerque pueda cargarlos dependiendo de la pagina*/
-document.addEventListener('DOMContentLoaded', function () {
-    fetch('actividades.json')
-        .then(response => response.json())
-        .then(data => {
-            const actividades = data.actividades;
-            actualizarBuscador(actividades);
-        })
-        .catch(error => console.error('Error al cargar actividades:', error));
-
-    // Referencia a la tabla
-    const buscador = document.getElementById('buscador');
-    const suggestionsContainer = document.getElementById('suggestions');
-
-    // Mostrar las sugerencias cuando la tabla esté en foco
-    buscador.addEventListener('focus', function () {
-        suggestionsContainer.classList.add('suggestionsSetVisible');
-    });
-
-    // Ocultar las sugerencias cuando se quite el foco de la tabla
-    buscador.addEventListener('blur', function () {
-        suggestionsContainer.classList.remove('suggestionsSetVisible');
-    });
-});
-
-function actualizarBuscador(datos) {
-    const suggestionsContainer = document.getElementById('suggestions');
-
-    // Limpia las sugerencias previas
-    suggestionsContainer.innerHTML = '';
-
-    // Recorre los datos y agrega las opciones al contenedor
-    datos.forEach(item => {
-        const li = document.createElement('li');
-        li.className = 'suggestion-item';
-        li.textContent = item;
-
-        // Añade un evento de clic a cada sugerencia
-        li.addEventListener('click', function () {
-            document.getElementById('buscador').value = item;
-            suggestionsContainer.innerHTML = ''; // Limpiar las sugerencias una vez seleccionada
-        });
-
-        suggestionsContainer.appendChild(li);
-    });
-}
-
-function buscar() {
-
-    const input = document.getElementById('buscador').value.toLowerCase();
-    const suggestions = document.getElementById('suggestions').getElementsByClassName('suggestion-item');
-
-    Array.from(suggestions).forEach(item => {
-        if (item.textContent.toLowerCase().includes(input)) {
-            item.style.display = 'block';
-        } else {
-            item.style.display = 'none';
-        }
-    });
-}
-
 /*Cálculo de promedios*/
 function calcularPromedioPonderado(idTabla, resultadoId) {
     const filas = document.querySelectorAll(`#${idTabla} tbody > tr`);
@@ -285,3 +224,64 @@ const toggle = document.getElementById('dark-mode-toggle');
 toggle.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
 });
+
+/*Buscador de Materias y/o Actividades TODO: hacerque pueda cargarlos dependiendo de la pagina*/
+document.addEventListener('DOMContentLoaded', function () {
+    fetch('actividades.json')
+        .then(response => response.json())
+        .then(data => {
+            const actividades = data.actividades;
+            actualizarBuscador(actividades);
+        })
+        .catch(error => console.error('Error al cargar actividades:', error));
+
+    // Referencia a la tabla
+    const buscador = document.getElementById('buscador');
+    const suggestionsContainer = document.getElementById('suggestions');
+
+    // Mostrar las sugerencias cuando la tabla esté en foco
+    buscador.addEventListener('focus', function () {
+        suggestionsContainer.classList.add('suggestionsSetVisible');
+    });
+
+    // Ocultar las sugerencias cuando se quite el foco de la tabla
+    buscador.addEventListener('blur', function () {
+        suggestionsContainer.classList.remove('suggestionsSetVisible');
+    });
+});
+
+function actualizarBuscador(datos) {
+    const suggestionsContainer = document.getElementById('suggestions');
+
+    // Limpia las sugerencias previas
+    suggestionsContainer.innerHTML = '';
+
+    // Recorre los datos y agrega las opciones al contenedor
+    datos.forEach(item => {
+        const li = document.createElement('li');
+        li.className = 'suggestion-item';
+        li.textContent = item;
+
+        // Añade un evento de clic a cada sugerencia
+        li.addEventListener('click', function () {
+            document.getElementById('buscador').value = item;
+            suggestionsContainer.innerHTML = ''; // Limpiar las sugerencias una vez seleccionada
+        });
+
+        suggestionsContainer.appendChild(li);
+    });
+}
+
+function buscar() {
+
+    const input = document.getElementById('buscador').value.toLowerCase();
+    const suggestions = document.getElementById('suggestions').getElementsByClassName('suggestion-item');
+
+    Array.from(suggestions).forEach(item => {
+        if (item.textContent.toLowerCase().includes(input)) {
+            item.style.display = 'block';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+}
