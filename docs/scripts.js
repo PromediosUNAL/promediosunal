@@ -208,13 +208,15 @@ function calcularNotaNecesariaParaPromedio(tablaId) {
     });
 
     const notaNecesaria = (promedioDeseado * sumaCreditos - sumaPonderada) / creditosSinNota;
+    const resultado = document.getElementById('resultado_necesario');
 
+    // Verificar si notaNecesaria es un número válido
     if (notaNecesaria >= 0 && notaNecesaria <= 5) {
-        document.getElementById('resultado_pappi_necesario').textContent = `Necesitas una nota de de ${notaNecesaria.toFixed(2)} en las materias pendientes para alcanzar un promedio de ${promedioDeseado}`;
+        resultado.textContent = `Necesitas una nota de ${notaNecesaria.toFixed(2)} en las materias pendientes para alcanzar un promedio de ${promedioDeseado}.`;
     } else if (notaNecesaria < 0) {
-        document.getElementById('resultado_pappi_necesario').textContent = 'Haz superado el promedio objetivo con tus notas actuales.';
+        resultado.textContent = 'Has superado el promedio objetivo con tus notas actuales.';
     } else {
-        document.getElementById('resultado_pappi_necesario').textContent = 'No es posible alcanzar el promedio objetivo deseado con tus notas actuales.';
+        resultado.textContent = 'No es posible alcanzar el promedio objetivo deseado con tus notas actuales.';
     }
 }
 
@@ -244,10 +246,14 @@ function mostrarBuscador(tablaID, addListID, nombreJson) {
         .catch(error => console.error('Error al cargar json:', error));
 
     addList.style.display = 'flex'; // Mostrar el contenedor de sugerencias
+    const buttonContainer = document.createElement('div');
+    buttonContainer.id = 'buttonContainer';
+    addList.appendChild(buttonContainer);
 
-    // Agregar un botón para cerrar la lista
+    // Crear el botón de cierre
     const closeButton = document.createElement('button');
     closeButton.innerText = 'Cerrar';
     closeButton.onclick = () => addList.style.display = 'none';
-    addList.appendChild(closeButton);
+
+    buttonContainer.appendChild(closeButton);
 }

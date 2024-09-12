@@ -5,9 +5,8 @@
     <div class="calculadora__sub">
         <h2>Calculadora de PAPPI</h2>
         <div class="calculadora__buscador-container">
-            <div>
                 <button class="buscador" id="buscador" onclick="mostrarBuscador('tabla-principal', 'add-list', 'materias.json')">Buscar por ID o nombre</button>
-            </div>
+
             <ul id="add-list" class="autocomplete-suggestions"></ul>
             <div class="add-row">
                 <button class="add-row__button" onclick="agregarFila('tabla-principal', 'Asignatura','3','5.0')">Agregar fila
@@ -40,7 +39,7 @@
             <!-- Botones de copiado -->
             <div class="copy-container">
                 <button class="copy-container__button" onclick="copiarTabla('tabla-principal')">Copiar tabla</button>
-                <button class="copy-container__button" onclick="copiarResultado('resultado_pappi_promedio')">Copiar
+                <button class="copy-container__button" onclick="copiarResultado('resultado-promedio')">Copiar
                     resultado
                 </button>
             </div>
@@ -105,7 +104,7 @@
 
             <div class="copy-container">
                 <button class="copy-container__button" onclick="copiarTabla('tabla-secundaria')">Copiar tabla</button>
-                <button class="copy-container__button" onclick="copiarResultado('resultado_pappi_necesario')">Copiar
+                <button class="copy-container__button" onclick="copiarResultado('resultado_necesario')">Copiar
                     resultado
                 </button>
             </div>
@@ -115,7 +114,7 @@
                 <button class="calculo-container__button"
                         onclick="calcularNotaNecesariaParaPromedio('tabla-secundaria')">Calcular
                 </button>
-                <span class="calculo-container__resultado" id="resultado_pappi_necesario">Resultado</span>
+                <span class="calculo-container__resultado" id="resultado_necesario">Resultado</span>
             </div>
         </div>
     </div>

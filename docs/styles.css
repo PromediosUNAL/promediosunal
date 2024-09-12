@@ -9,7 +9,7 @@ body {
 h2 {
     font-size: large;
     text-align: center;
-    color: #2f4ca4;
+    color: #7f98e4;
 }
 
 /* Header */
@@ -148,10 +148,66 @@ h2 {
     border-radius: 5px;
     background-color: lightgray;
     color: white;
+    cursor: pointer;
 }
 
 .buscador:hover {
     background-color: gray;
+}
+
+/* Estilos para el contenedor de sugerencias */
+#add-list {
+    background-color: #0e0e0ecf;
+    overflow-y: auto;
+    position: fixed;
+    top: 5%;
+    left: 5%;
+    width: 85%;
+    height: 70%;
+    z-index: 1000;
+    padding: 60px 30px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    color: white;
+}
+
+#add-list button {
+    background: #c0392b;
+    padding: 10px 15px;
+    border-radius: 7px;
+    color: white;
+    margin: 5px 0;
+    border: none;
+    cursor: pointer;
+}
+
+#buttonContainer {
+    position: fixed;
+    top: 8%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#add-list button:hover {
+    background: #aa0000;
+}
+
+#add-list li {
+    cursor: pointer;
+    padding: 10px 15px;
+    margin-top: px;
+    border-radius: 5px;
+    min-width: 200px;
+    list-style-type: none;
+}
+
+#add-list li:hover {
+    background: #4CAF50;
+    color: white;
 }
 
 .add-row {
@@ -422,12 +478,14 @@ body.dark-mode .header__logo {
         display: flex;
         flex-direction: column;
         margin: 25px 2px;
+        align-items: center;
         justify-content: center;
     }
 
     /* Calculadora Pappi */
     .calculadora__sub {
         margin: 30px 5px;
+        width: 100%;
     }
 
     .calculadora__buttons {
@@ -454,6 +512,7 @@ body.dark-mode .header__logo {
     }
 
     .buscador {
+        width: 100%;
         margin-bottom: 10px;
     }
 
@@ -464,47 +523,18 @@ body.dark-mode .header__logo {
     .mobile-math {
         display: block;
     }
+
+    #add-list {
+        top: 0%;
+        left: 5%;
+        width: 75%;
+        height: 70%;
+    }
 }
 
 .disabled {
     pointer-events: none;
     opacity: 0.1;
-}
-
-/* Estilos para el contenedor de sugerencias */
-
-element.style {
-    display: flex;
-}
-
-#add-list {
-    background-color: #0e0e0ecf;
-    overflow-y: auto;
-    position: fixed;
-    top: 5%;
-    left: 5%;
-    width: 85%;
-    height: 70%;
-    z-index: 1000;
-    padding: 30px;
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 5px;
-    color: white;
-}
-
-#add-list button {
-    background: #c0392b;
-}
-
-#add-list button:hover {
-    background: #aa0000;
-}
-
-#add-list li:hover {
-    background: #4CAF50;
-    color: white;
 }
 
 /* Estilos para cada sugerencia individual */
