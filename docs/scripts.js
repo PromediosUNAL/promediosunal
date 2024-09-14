@@ -153,7 +153,7 @@ function copiarResultado(resultadoId) {
 }
 
 /*Cálculo de promedios*/
-function calcularPromedioPonderado(idTabla, resultadoId) {
+function calcularPromedioPonderado(idTabla, resultadoId, creditosMaximos) {
     const filas = document.querySelectorAll(`#${idTabla} tbody > tr`);
 
     // Inicializar variables para los cálculos
@@ -172,6 +172,13 @@ function calcularPromedioPonderado(idTabla, resultadoId) {
         sumaValores += valores;
     });
 
+    // Verificar si la suma de créditos excede el límite
+    if (sumaValores > creditosMaximos) {
+        const resultadoSpan = document.getElementById(resultadoId);
+        resultadoSpan.textContent = 'Has superado el límite de créditos/nota.';
+        return;
+    }
+
     // Calcular el promedio ponderado
     const promedioPonderado = sumaProductos / sumaValores;
 
@@ -180,7 +187,7 @@ function calcularPromedioPonderado(idTabla, resultadoId) {
     resultadoSpan.textContent = promedioPonderado.toFixed(2);
 }
 
-function calcularNotaNecesariaParaPromedio(tablaId) {
+function calcularNotaNecesariaParaPromedio(tablaId, creditosTotales) {
     const tabla = document.getElementById(tablaId);
     const filas = tabla.querySelectorAll('tbody tr');
     let sumaCreditos = 0;
@@ -207,12 +214,19 @@ function calcularNotaNecesariaParaPromedio(tablaId) {
         sumaCreditos += creditos;
     });
 
+    // Verificar si la suma de créditos excede el límite
+    if (sumaCreditos > creditosTotales) {
+        const resultado = document.getElementById('resultado_necesario');
+        resultado.textContent = 'Has excedido el límite de créditos/porcentaje.';
+        return;
+    }
+
     const notaNecesaria = (promedioDeseado * sumaCreditos - sumaPonderada) / creditosSinNota;
     const resultado = document.getElementById('resultado_necesario');
 
     // Verificar si notaNecesaria es un número válido
     if (notaNecesaria >= 0 && notaNecesaria <= 5) {
-        resultado.textContent = `Necesitas una nota de ${notaNecesaria.toFixed(2)} en las materias pendientes para alcanzar un promedio de ${promedioDeseado}.`;
+        resultado.textContent = `Necesitas una nota de ${notaNecesaria.toFixed(2)} en las materias/actividades pendientes para alcanzar un promedio de ${promedioDeseado}.`;
     } else if (notaNecesaria < 0) {
         resultado.textContent = 'Has superado el promedio objetivo con tus notas actuales.';
     } else {

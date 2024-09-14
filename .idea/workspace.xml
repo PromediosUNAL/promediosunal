@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc93fc84-89b4-47d1-9cc9-6ee6f94a5747" name="Changes" comment="Me da pereza poner mensaje">
+    <list default="true" id="bc93fc84-89b4-47d1-9cc9-6ee6f94a5747" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/actividades.json" beforeDir="false" afterPath="$PROJECT_DIR$/docs/actividades.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/materias.json" beforeDir="false" afterPath="$PROJECT_DIR$/docs/materias.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/pappi.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/pappi.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/promedios.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/promedios.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/scripts.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,12 +37,12 @@
     &quot;assignee&quot;: &quot;matrodriguezpa&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/PromediosUNAL/promediosunal.git&quot;,
-    &quot;accountId&quot;: &quot;640af1a6-7f46-485a-b199-2c9588f21837&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/PromediosUNAL/promediosunal.git",
+    "accountId": "3ff66790-f608-4e6b-8c1e-7dab583d003b"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -127,6 +127,7 @@
       <workItem from="1725993198665" duration="9000" />
       <workItem from="1725993232667" duration="5621000" />
       <workItem from="1726098250501" duration="9737000" />
+      <workItem from="1726345686911" duration="1763000" />
     </task>
     <task id="LOCAL-00001" summary="creación de un JSON para almacenar las materias">
       <option name="closed" value="true" />
@@ -376,7 +377,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725998888974</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Mejoras pequeñas, falta json de materias entero">
+      <option name="closed" value="true" />
+      <created>1726286640324</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1726286640324</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -394,7 +403,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="creación de un JSON para almacenar las materias" />
     <MESSAGE value="Agregado un index y header y navegación" />
     <MESSAGE value="Agregado documentos aparte para la calculadora de pappi y de proemdios" />
     <MESSAGE value=":v" />
@@ -419,6 +427,7 @@
     <MESSAGE value="bordes curvos, calcular notas pappi, buscadores" />
     <MESSAGE value="Sapo" />
     <MESSAGE value="Me da pereza poner mensaje" />
-    <option name="LAST_COMMIT_MESSAGE" value="Me da pereza poner mensaje" />
+    <MESSAGE value="Mejoras pequeñas, falta json de materias entero" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mejoras pequeñas, falta json de materias entero" />
   </component>
 </project>
