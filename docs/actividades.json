@@ -1,9 +1,10 @@
 {
   "datos": [
-    { "nombre": "Parcial", "creditos": 3 },
-    { "nombre": "Tarea", "creditos": 2 },
-    { "nombre": "Laboratorio", "creditos": 4 },
-    { "nombre": "Proyecto", "creditos": 5 },
-    { "nombre": "Quiz", "creditos": 1 }
+    { "nombre": "Parcial", "creditos": 20 },
+    { "nombre": "Tarea", "creditos": 10 },
+    { "nombre": "Laboratorio", "creditos": 40 },
+    { "nombre": "Proyecto", "creditos": 50 },
+    { "nombre": "Quiz", "creditos": 10 },
+    { "nombre": "Corte", "creditos": 33 }
   ]
 }

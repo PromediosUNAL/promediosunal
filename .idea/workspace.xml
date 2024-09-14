@@ -5,15 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bc93fc84-89b4-47d1-9cc9-6ee6f94a5747" name="Changes" comment="Me da pereza poner mensaje">
-      <change beforePath="$PROJECT_DIR$/.idea/pun.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pun.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/actividades.json" beforeDir="false" afterPath="$PROJECT_DIR$/docs/actividades.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/materias.json" beforeDir="false" afterPath="$PROJECT_DIR$/docs/materias.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/pappi.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/pappi.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/promedios.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/promedios.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/scripts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/sobre.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/sobre.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/docs/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
