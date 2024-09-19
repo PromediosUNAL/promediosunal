@@ -226,7 +226,7 @@ function calcularNotaNecesariaParaPromedio(tablaId, creditosTotales) {
 
     // Verificar si notaNecesaria es un número válido
     if (notaNecesaria >= 0 && notaNecesaria <= 5) {
-        resultado.textContent = `Necesitas una nota de ${notaNecesaria.toFixed(2)} en las materias/actividades pendientes para alcanzar un promedio de ${promedioDeseado}.`;
+        resultado.textContent = `Necesitas una nota de ${notaNecesaria.toFixed(2)} en las materias/actividades pendientes para tener un promedio de ${promedioDeseado}.`;
     } else if (notaNecesaria < 0) {
         resultado.textContent = 'Has superado el promedio objetivo con tus notas actuales.';
     } else {
