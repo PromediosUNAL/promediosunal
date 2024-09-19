@@ -1,22 +1,32 @@
 {
-  "datos": [
+  "Ingeniería Eléctrica": [
     { "nombre": "Asignatura", "creditos": 3 },
-    { "nombre": "Matemáticas", "creditos": 5 },
+    { "nombre": "Programación", "creditos": 6 },
+    { "nombre": "Circuitos Eléctricos", "creditos": 4 },
+    { "nombre": "Electromagnetismo", "creditos": 5 }
+  ],
+  "Matemáticas": [
+    { "nombre": "Matemáticas I", "creditos": 5 },
     { "nombre": "Física", "creditos": 4 },
     { "nombre": "Química", "creditos": 3 },
-    { "nombre": "Programación", "creditos": 6 },
-    { "nombre": "Matemáticas", "creditos": 5 },
-    { "nombre": "Física", "creditos": 4 },
-    { "nombre": "Química", "creditos": 3 },
-    { "nombre": "Programación", "creditos": 6 },
-    { "nombre": "Matemáticas", "creditos": 5 },
-    { "nombre": "Física", "creditos": 4 },
-    { "nombre": "Química", "creditos": 3 },
-    { "nombre": "Programación", "creditos": 6 },
-    { "nombre": "Matemáticas", "creditos": 5 },
-    { "nombre": "Física", "creditos": 4 },
-    { "nombre": "Química", "creditos": 3 },
-    { "nombre": "Programación", "creditos": 6 },
-    { "nombre": "Historia", "creditos": 2 }
+    { "nombre": "Cálculo Diferencial", "creditos": 5 }
+  ],
+  "Ciencias de la Computación": [
+    { "nombre": "Algoritmos y Estructuras de Datos", "creditos": 5 },
+    { "nombre": "Bases de Datos", "creditos": 4 },
+    { "nombre": "Redes de Computadoras", "creditos": 5 },
+    { "nombre": "Inteligencia Artificial", "creditos": 6 }
+  ],
+  "Ingeniería Mecánica": [
+    { "nombre": "Mecánica de Materiales", "creditos": 4 },
+    { "nombre": "Termodinámica", "creditos": 5 },
+    { "nombre": "Dinámica", "creditos": 4 },
+    { "nombre": "Diseño Mecánico", "creditos": 6 }
+  ],
+  "Química": [
+    { "nombre": "Química General", "creditos": 4 },
+    { "nombre": "Química Orgánica", "creditos": 5 },
+    { "nombre": "Química Inorgánica", "creditos": 4 },
+    { "nombre": "Bioquímica", "creditos": 5 }
   ]
 }
