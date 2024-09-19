@@ -1,9 +1,4 @@
 /* General Styles */
-html, body {
-    min-height: 100vh; /* Set minimum height to 100% of the viewport height */
-    margin: 0;
-}
-
 body {
     font-family: Arial, sans-serif;
     margin: 0;
