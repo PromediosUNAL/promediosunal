@@ -245,7 +245,26 @@ function mostrarBuscador(tablaID, addListID, nombreJson) {
     // Obtener el elemento add-list
     const addList = document.getElementById(addListID);
     addList.innerHTML = '';
+    addList.style.display = 'flex'; // Mostrar el contenedor de sugerencias
 
+     // Crear el contenedor del boton de cierre
+     const buttonContainer = document.createElement('div');
+     buttonContainer.id = 'buttonContainer';
+     addList.appendChild(buttonContainer);
+ 
+     // Crear el botón de cierre
+     const closeButton = document.createElement('button');
+     closeButton.innerText = 'Cerrar';
+     closeButton.onclick = () => addList.style.display = 'none';
+    buttonContainer.appendChild(closeButton);
+
+
+    //Crear el contenedor de la lista
+    const listContainer = document.createElement('div');
+    listContainer.id = 'listContainer';
+    addList.appendChild(listContainer);
+
+    //Obtener datos del JSon y ponerlos en el contenedor 
     fetch(nombreJson)
         .then(response => response.json())
         .then(data => {
@@ -254,20 +273,9 @@ function mostrarBuscador(tablaID, addListID, nombreJson) {
                 const listItem = document.createElement('li');
                 listItem.innerText = `${actividad.nombre} (${actividad.creditos})`;
                 listItem.onclick = () => agregarFila(tablaID, actividad.nombre, actividad.creditos, '5.0');
-                addList.appendChild(listItem);
+                listContainer.appendChild(listItem);
             });
         })
         .catch(error => console.error('Error al cargar json:', error));
-
-    addList.style.display = 'flex'; // Mostrar el contenedor de sugerencias
-    const buttonContainer = document.createElement('div');
-    buttonContainer.id = 'buttonContainer';
-    addList.appendChild(buttonContainer);
-
-    // Crear el botón de cierre
-    const closeButton = document.createElement('button');
-    closeButton.innerText = 'Cerrar';
-    closeButton.onclick = () => addList.style.display = 'none';
-
-    buttonContainer.appendChild(closeButton);
+   
 }

@@ -183,15 +183,6 @@ h2 {
     cursor: pointer;
 }
 
-#buttonContainer {
-    position: fixed;
-    top: 8%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 #add-list button:hover {
     background: #aa0000;
 }
